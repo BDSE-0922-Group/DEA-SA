@@ -8,13 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meals on Wheels</title>
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
         rel="stylesheet">
+
+    <script>
+        const toggleNavMenu = () => {
+            var navMenu = document.getElementById("navMenu");
+            var navMenuBtn = document.getElementById("headerMenuBtn");
+            navMenuBtn.classList.toggle("opened");
+            navMenu.classList.toggle("opened");
+        };
+    </script>
 </head>
 
 <body>
@@ -29,7 +38,7 @@
         <div id="headerR" class="align-center">
             <ul id="navLinks" class="align-center list-style-none">
                 <li>
-                    <a href="register">Sign Up</a>
+                    <a href="/register">Sign Up</a>
                 </li>
                 <li>
                     <a href="login">Log In</a>
@@ -39,10 +48,18 @@
                 </li>
             </ul>
 
-            <button id="headerMenuBtn" class="icon material-icons">
+            <button id="headerMenuBtn" class="icon material-icons" onclick="toggleNavMenu()">
                 menu
             </button>
         </div>
+
+        <aside id="navMenu" class="justify-center">
+            <ul id="navMenuLinks" class="flex-col align-center list-style-none">
+                <li><a href="home">Home</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="register">Sign Up</a></li>
+            </ul>
+        </aside>
     </header>
 
     <div class="custom-shape-divider-top-1686716923">
@@ -53,23 +70,25 @@
         </svg>
     </div>
 
-    <main class="bg1 align-center justify-center">
+    <main class="bg1 home">
+        <section id="landingSection" class="align-start justify-evenly">
 
-        <section class="align-center flex-col form-card">
-            <h3 class="form-heading">Login</h3>
-            <form class="align-center flex-col">
-                <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input">
-                    <label class="user-label">Username</label>
-                </div>
-                <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input">
-                    <label class="user-label">Password</label>
-                </div>
-                <button type="submit" class="submit-btn">Submit</button>
-            </form>
+            <div id="homeCard" class="flex-col justify-center">
+                <h2 class="hFont">Welcome to Meals on Wheels</h2>
+                <p class="pFont">Bringing food directly to your doorstep</p>
+                <button class="get-started hFont">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Get Started</span>
+                </button>
+            </div>
+
+            <div id="blobContainer">
+                <img id="blob" src="images/blob.svg" alt="Svg graphic" width="500" />
+                <img id="motorcycle" src="images/Motorcycle.svg" alt="Motorcycle graphic" width="500" />
+            </div>
         </section>
-
     </main>
 
     <div class="custom-shape-divider-bottom-1686717423">
@@ -139,7 +158,6 @@
         </div>
 
     </footer>
-
 </body>
 
 </html>

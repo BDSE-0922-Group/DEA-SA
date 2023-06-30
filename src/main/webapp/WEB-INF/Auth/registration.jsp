@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meals on Wheels</title>
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,18 +57,36 @@
     <main class="bg1 align-center justify-center">
 
         <section class="align-center flex-col form-card">
-            <h3 class="form-heading">Login</h3>
-            <form class="align-center flex-col">
+            <h3 class="form-heading">Sign up</h3>
+            <sf:form action="register_user" method="post" class="align-center flex-col" modelAttribute="user">
                 <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input">
+                    <input required="" type="text" name="name" path="name" autocomplete="off" class="input">
+                    <label class="user-label">Name</label>
+                </div>
+                <div class="input-group">
+                    <input required="" type="text" name="userName" path="userName" autocomplete="off" class="input">
                     <label class="user-label">Username</label>
                 </div>
                 <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input">
+                    <input required="" type="text" name="email" path="email" autocomplete="off" class="input">
+                    <label class="user-label">Email</label>
+                </div>
+                <div class="input-group">
+                    <input required="" type="text" name="password" path="password" autocomplete="off" class="input">
                     <label class="user-label">Password</label>
                 </div>
+                <div class="input-group">
+                    <label class="select-label">User Type</label>
+                    <select class="input-select" name="role">
+                    
+                    <c:forEach items="${role}" var="role">                  
+                        <option value="${role.name}">${role.name}</option>
+					</c:forEach>
+                    
+                    </select>
+                </div>
                 <button type="submit" class="submit-btn">Submit</button>
-            </form>
+            </sf:form>
         </section>
 
     </main>
@@ -93,10 +112,10 @@
                 <ul id="footLinks" class="align-start flex-col list-style-none">
                     <h5 class="footerSubHeader">Account</h5>
                     <li>
-                        <a href="Login.html">Log In</a>
+                        <a href="login">Log In</a>
                     </li>
                     <li>
-                        <a href="/Registration.html">Sign Up</a>
+                        <a href="register">Sign Up</a>
                     </li>
                 </ul>
 

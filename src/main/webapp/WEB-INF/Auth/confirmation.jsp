@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meals on Wheels</title>
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +27,7 @@
         <div id="headerR" class="align-center">
             <ul id="navLinks" class="align-center list-style-none">
                 <li>
-                    <a href="register">Sign Up</a>
+                    <a href="/register">Sign Up</a>
                 </li>
                 <li>
                     <a href="login">Log In</a>
@@ -51,24 +49,16 @@
                 d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
                 class="shape-fill"></path>
         </svg>
-    </div>
+    </div> 
 
     <main class="bg1 align-center justify-center">
 
-        <section class="align-center flex-col form-card">
-            <h3 class="form-heading">Login</h3>
-            <form class="align-center flex-col">
-                <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input">
-                    <label class="user-label">Username</label>
-                </div>
-                <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input">
-                    <label class="user-label">Password</label>
-                </div>
-                <button type="submit" class="submit-btn">Submit</button>
-            </form>
-        </section>
+        <div class="align-center confirmation-card flex-col">
+            <img src="images/Confirmation.svg" alt="Confirmation" width="400" height="300" />
+            <p class="hFont text-align-center">Registration Successful
+            </p>
+            <a href="login" class="pFont text-deco-none">Click here to Login</a>
+        </div>
 
     </main>
 
@@ -93,10 +83,10 @@
                 <ul id="footLinks" class="align-start flex-col list-style-none">
                     <h5 class="footerSubHeader">Account</h5>
                     <li>
-                        <a href="Login.html">Log In</a>
+                        <a href="login">Log In</a>
                     </li>
                     <li>
-                        <a href="/Registration.html">Sign Up</a>
+                        <a href="register">Sign Up</a>
                     </li>
                 </ul>
 
