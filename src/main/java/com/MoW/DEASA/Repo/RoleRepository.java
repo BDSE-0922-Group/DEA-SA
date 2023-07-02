@@ -16,6 +16,6 @@ public interface RoleRepository extends JpaRepository<Role, Long>{
 	@Query( "select r from Role r where r.name in :roles" )
 	Set<Role> findBySpecificRoles(@Param("roles") String role);
 
-	@Query( "select r from Role r where r.id > 1" )
+	@Query( value = "select r from Role r where r.id > 1" )
 	List<Role> findRoles();
 }

@@ -28,6 +28,10 @@ public class UserService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	public List<Role> getAllRoles() {
+		return roleRepository.findAll();
+	}
+	
 	public List<Role> getRoles() {
 		return roleRepository.findRoles();
 	}
@@ -42,10 +46,15 @@ public class UserService {
 		return "User saved successfully";
 	}
 	
-	public User findLoginUser(String username) {
+	public User findLoginUser(String userName) {
 	
-		return userRepository.findByUserName(username);
+		return userRepository.findByUserName(userName);
 		
+	}
+	
+	public User findUsername(String userName) {
+		
+		return userRepository.findByUserName(userName);
 	}
 	
 	public List<User> showAllUser(){

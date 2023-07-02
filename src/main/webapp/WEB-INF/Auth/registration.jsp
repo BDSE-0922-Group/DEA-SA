@@ -60,19 +60,19 @@
             <h3 class="form-heading">Sign up</h3>
             <sf:form action="register_user" method="post" class="align-center flex-col" modelAttribute="user">
                 <div class="input-group">
-                    <input required="" type="text" name="name" path="name" autocomplete="off" class="input">
+                    <sf:input required="" type="text" name="name" path="name" autocomplete="off" class="input" />
                     <label class="user-label">Name</label>
                 </div>
                 <div class="input-group">
-                    <input required="" type="text" name="userName" path="userName" autocomplete="off" class="input">
+                    <sf:input required="" type="text" name="userName" path="userName" autocomplete="off" class="input"/>
                     <label class="user-label">Username</label>
                 </div>
                 <div class="input-group">
-                    <input required="" type="text" name="email" path="email" autocomplete="off" class="input">
+                    <sf:input required="" type="text" name="email" path="email" autocomplete="off" class="input" />
                     <label class="user-label">Email</label>
                 </div>
                 <div class="input-group">
-                    <input required="" type="text" name="password" path="password" autocomplete="off" class="input">
+                    <sf:input required="" type="text" name="password" path="password" autocomplete="off" class="input" />
                     <label class="user-label">Password</label>
                 </div>
                 <div class="input-group">
