@@ -25,6 +25,10 @@
     margin: 0px;
   }
   
+  body {
+  overflow-x: hidden;
+  }
+  
   main {
     background-position: center;
     background-repeat: no-repeat;
@@ -33,6 +37,7 @@
     margin-top: 80px;
     min-height: 100vh;
     width: 100%;
+    max-width: 100%;
   }
   main.home {
     padding-top: 75px;
@@ -221,6 +226,9 @@
     padding: 0.5em;
     transform: translateY(-50%) scale(0.8);
 }
+.input .disabled {
+	
+}
 #currency {
   width: 70px;
 }
@@ -315,22 +323,23 @@ p.util-text {
 }
 
    /*----------  Dashboard Utility Classes  ----------*/
-   .dashboard-heading {
-    color: var(--darkBg);
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin: 3rem 1rem 2rem;
-   }
-   .dashboard-nav {
-    background-color: var(--darkBg);
-    border-radius: 5px;
-    gap: 1.5rem;
-    height: fit-content;
-    margin-top: 10px;
-    padding: 0.5rem 1rem;
-    width: fit-content;
-   }
+.dashboard-heading {
+ color: var(--darkBg);
+ font-size: 2rem;
+ font-weight: bold;
+ letter-spacing: 3px;
+ margin: 3rem 1rem 2rem;
+}
+.dashboard-nav {
+ background-color: var(--darkBg);
+ border-radius: 5px;
+ flex-wrap: wrap;
+ gap: 1.5rem;
+ height: fit-content;
+ margin-top: 10px;
+ padding: 0.5rem 1rem;
+ width: fit-content;
+}
 .dashboard-nav button {
     background-color: var(--tertiary);
     border-radius: 3px;
@@ -346,15 +355,16 @@ p.util-text {
 .dashboard-nav button:active {
     transform: scale(0.95);
 }
-
    .dashboard-panel {
     background-color: var(--darkBg);
-    border-radius: 5px;
-    height: fit-content;
-    margin: 2rem 0rem 10rem;
-    min-width: 600px;
-    padding: 1rem 0.5rem;
-    width: fit-content;
+	border-radius: 5px;
+	height: fit-content;
+	margin: 2rem 1rem 10rem;
+	padding: 1rem 0.5rem;
+	max-width: 100%;
+	overflow-x: scroll;
+	}
+   .panel-table {
    }
    .dashboard-panel h3 {
     color: var(--white);
@@ -867,13 +877,12 @@ text-align: center;
 }
 /* Testing */
 #chartContainer {
-  border: 2px dashed red;
   flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 0rem;
 }
 #chartContainer div {
-  background-image: url("https://i1.sndcdn.com/artworks-97vc55JPncfzyIq5-xGWZMg-t500x500.jpg");
+  background-image: url("https://placehold.co/500x500");
   background-size: cover;
   width: 500px;
   height: 500px;
@@ -990,6 +999,9 @@ text-align: center;
       flex-direction: column;
       gap: 2rem;
     }
+    .panel-table {
+    font-size: 0.75rem;
+    }
   }
   
   /*----------  600 PX  ----------*/
@@ -1004,6 +1016,17 @@ text-align: center;
       flex-direction: column-reverse;
       gap: 2rem;
       margin-top: 1rem;
+    }
+    .dashboard-panel {
+	    display: block !important;
+	    max-width: 90vw;
+    }
+    .panel-table {
+    width: 110vw;
+    }
+    #chartContainer div {
+    width: 350px;
+    height: 350px;
     }
   }
   

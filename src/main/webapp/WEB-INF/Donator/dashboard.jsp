@@ -25,12 +25,12 @@
 		<div></div>
 	</div>
 
-	<nav class="align-center justify-start dashboard-nav hFont">
+	<nav class="align-center justify-evenly dashboard-nav hFont">
 		<button>Make a Donation</button>
 	</nav>
 	<div class="align-center flex-col dashboard-panel">
 		<h3>Table of Recent Donations</h3>
-		<table id="userManagement">
+		<table id="userManagement" class="panel-table">
 			<thead class="hFont">
 				<tr>
 					<th>Donation No.</th>
