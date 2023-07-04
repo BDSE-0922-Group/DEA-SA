@@ -64,6 +64,11 @@ public class LoginController {
     	return "Auth/login";
     }
     
+    @GetMapping("logout")
+    public String redirectToHome() {
+    	return "Common/home";
+    }
+    
     @GetMapping("register")
     public String onRegister(Model model, @ModelAttribute("user") User user) {
     	List<Role> role = userService.getRoles();
