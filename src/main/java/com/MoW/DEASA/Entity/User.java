@@ -38,6 +38,8 @@ private String mobile;
 
 private String address;
 
+private String gender;
+
 public User() {
 
 }
@@ -62,7 +64,7 @@ public User(String name, String password, String userName, Set<Role> roles) {
 }
 
 public User(Long id, String name, String userName, String password, Set<Role> roles, String email, String mobile,
-		String address) {
+		String address, String gender) {
 	super();
 	this.id = id;
 	this.name = name;
@@ -72,6 +74,7 @@ public User(Long id, String name, String userName, String password, Set<Role> ro
 	this.email = email;
 	this.mobile = mobile;
 	this.address = address;
+	this.gender = gender;
 }
 
 public Long getId() {
@@ -138,6 +141,14 @@ public void setAddress(String address) {
 	this.address = address;
 }
 
+public String getGender() {
+	return gender;
+}
+
+public void setGender(String gender) {
+	this.gender = gender;
+}
+
 @Override
 public boolean equals(Object o) {
     if (this == o) return true;
@@ -155,7 +166,7 @@ public int hashCode() {
 @Override
 public String toString() {
 	return "User [id=" + id + ", name=" + name + ", userName=" + userName + ", password=" + password + ", roles="
-			+ roles + ", email=" + email + ", mobile=" + mobile + ", address=" + address + "]";
+			+ roles + ", email=" + email + ", mobile=" + mobile + ", address=" + address + ", gender=" + gender + "]";
 }
 
 }

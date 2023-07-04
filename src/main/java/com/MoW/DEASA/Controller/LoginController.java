@@ -51,7 +51,7 @@ public class LoginController {
     	for (String roleName: roleNames) {
     		if(roleName == userRole) {
     			System.out.println("Logged in successfully as " + userRole);
-    			String success_msg = "Logged in successfully";
+    			String success_msg = "Logged in successfully. Click here to go to dashboard.";
     			model.addAttribute("success_msg", success_msg);
     			return "Auth/login";
     		}
@@ -61,6 +61,15 @@ public class LoginController {
     	System.out.println("Logged in failed");
         String error_msg = "Logged in failed";
         model.addAttribute("error_msg", error_msg);
+    	return "Auth/login";
+    }
+    
+    @GetMapping("logout")
+    public String onLogoutSuccess(Model model) {
+    	
+    	String success_logout = "Successfully logged out!";
+        model.addAttribute("success_logout", success_logout);
+    	
     	return "Auth/login";
     }
     
@@ -77,7 +86,7 @@ public class LoginController {
     public String registerNewUser(@ModelAttribute("user") User user, @RequestParam String role, Model model) {
     	
     	
-    	if (userService.findUsername(user.getUserName()).getUserName() == null) {
+    	if (userService.findUsername(user.getUserName()) == null|| userService.findUsername(user.getUserName()).getUserName() == null ) {
     		userService.save(user, role);
     		return "Auth/confirmation";	
     	}
@@ -152,5 +161,21 @@ public class LoginController {
 	
 	public void donatorProfile() {	
         System.out.println("View profile as Donator");
+	}
+	
+	@PostMapping("update-profile")
+	public String  updateProfile(Principal principal, @ModelAttribute User u) {
+		String userName = principal.getName();
+		
+		User user = userService.findLoginUser(userName);
+		
+		user.setName(u.getName());
+		user.setEmail(u.getEmail());
+		user.setAddress(u.getAddress());
+		user.setMobile(u.getMobile());
+		
+		userService.update(user);
+		
+		return "redirect:profile";
 	}
 }
