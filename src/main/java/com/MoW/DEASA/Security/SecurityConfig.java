@@ -64,7 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutSuccessUrl("/logout")
                     .invalidateHttpSession(true);
         
-        http.exceptionHandling().accessDeniedPage("/accessdenied");
+        http.exceptionHandling().accessDeniedPage("/access-denied");
                   
     }
 }

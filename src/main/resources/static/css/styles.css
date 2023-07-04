@@ -605,16 +605,29 @@ header {
   transition: ease-out 0.3s;
   width: 150px;
 }
-#navMenuLinks a.alt {
-  background-color: var(--darkBg);
-  color: var(--primary);
-}
 #navMenuLinks a:hover {
   background-color: var(--darkBg);
   color: var(--primary);
   padding: 1rem 1.5rem;
 }
-#navMenuLinks a.alt:hover {
+.logoutBtn {
+  background-color: var(--lightBg);
+  border: none;
+  border-radius: 5px;
+  color: var(--primary);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  padding: 0.7rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: ease-out 0.3s;
+}
+.logoutBtn.alt {
+	background-color: var(--darkBg);
+	width: 150px
+}
+.logoutBtn:hover {
   background-color: var(--secondary);
   color: var(--white);
 }

@@ -1,5 +1,7 @@
 package com.MoW.DEASA.Controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +31,15 @@ public class DonationController {
 	}
 
 	@PostMapping("add_donation")
-	public String registerNewUser(@ModelAttribute("donation") Donation donation, Model model) {
-
+	public String registerNewUser(@ModelAttribute("donation") Donation donation, Model model, Principal principal) {
+    	String username = principal.getName();
+    	
+    	User user = userService.findLoginUser(username);
+    	
+    	donation.setDonId(user.getId());
+    
 		dService.save(donation);
-		return "Donation/confirmation";
+		return "Donator/confirmation";
 	}
 
 }

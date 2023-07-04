@@ -55,6 +55,8 @@
 				</div>
 				<button type="submit" class="submit-btn">Submit</button>
 			</sf:form>
+			<hr class="formDivider">
+            <a href="login" class="altFormLink pFont text-deco-none">Already have an account?</a>
 		</section>
 
 	</main>

@@ -37,6 +37,8 @@
 				</div>
 				<input type="submit" class="submit-btn btnAnimation" value="Submit"></input>
 			</form>
+			<hr class="formDivider">
+            <a href="register" class="altFormLink pFont text-deco-none">Don't have an account?</a>
 		</section>
 
 	</main>

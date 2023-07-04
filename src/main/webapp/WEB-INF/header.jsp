@@ -11,7 +11,6 @@
 <title>Meals on Wheels | <%=request.getParameter("HTMLtitle") != null ? request.getParameter("HTMLtitle") : "MerryMeal"%></title>
 
 <link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/admin.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +28,19 @@
 <body>
 	<header class="align-center justify-between hFont">
 		<div id="headerL" class="align-center">
-			<a href="" class="align-center text-deco-none"> <img
-				src="images/Logo.png" alt="Logo" width="75" />
-				<h1>Meals on Wheels</h1>
-			</a>
+			<sec:authorize access="!isAuthenticated()">
+				<a href="home" class="align-center text-deco-none"> <img
+					src="images/Logo.png" alt="Logo" width="75" />
+					<h1>Meals on Wheels</h1>
+				</a>
+			</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+				<a href="dashboard" class="align-center text-deco-none"> <img
+					src="images/Logo.png" alt="Logo" width="75" />
+					<h1>Meals on Wheels</h1>
+				</a>
+			</sec:authorize>
+
 		</div>
 
 		<div id="headerR" class="align-center">
@@ -70,7 +78,7 @@
 					<form action="logout" method="post">
 						<input type="hidden" name="${_csrf.parameterName}"
 							value="${_csrf.token}" /> <input type="submit" name="Logout"
-							value="Logout" class="alt"></input>
+							value="Logout" class="btnAnimation logoutBtn alt"></input>
 					</form>
 				</sec:authorize>
 			</ul>

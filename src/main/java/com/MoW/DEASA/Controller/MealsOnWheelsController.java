@@ -17,7 +17,7 @@ public class MealsOnWheelsController {
 		return "Common/home";
 	}
 	
-	@GetMapping("accessdenied")
+	@GetMapping("access-denied")
 	public String accessDeniedPage() {
 		return "Common/access-denied";
 	}
