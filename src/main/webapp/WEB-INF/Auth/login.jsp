@@ -1,12 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meals on Wheels</title>
+
+<link rel="stylesheet" href="/css/styles.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+	rel="stylesheet">
 </head>
+
 <body>
+	<jsp:include page="../header.jsp"></jsp:include>
+
+	<div class="custom-shape-divider-top-1686716923">
+		<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+				d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+				class="shape-fill"></path>
+        </svg>
+	</div>
+
+	<main class="bg1 align-center justify-center">
+
+		<div class="align-center error-popup">
+			<span class="material-icons">${error_message}</span>
+			<p class="pFont error-text"></p>
+			<button class="btnAnimation icon material-icons"
+				onclick="closeFormError()">close</button>
+		</div>
+
+		<a href=""
+			class="align-center login-popup btnAnimation text-deco-none text-align-center">
+			<span class="material-icons">login</span>
+			<p class="pFont login-text">${success_message}</p>
+		</a>
+
+		<section class="align-center flex-col form-card">
+			<h3 class="form-heading">Login</h3>
+
+			<c:url var="post_url" value="/login" />
+
+			<form class="align-center flex-col form" action="${post_url}"
+				method="post">
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
+				<div class="input-group">
+					<input required="true" type="text" name="username" id="userName"
+						autocomplete="off" class="input" /> <label class="user-label">Username</label>
+				</div>
+				<div class="input-group">
+					<input required="true" type="password" name="password"
+						id="password" autocomplete="off" class="input" /> <label
+						class="user-label">Password</label>
+				</div>
+				<input type="submit" class="submit-btn btnAnimation" value="Submit"></input>
+			</form>
+			 <hr class="formDivider">
+            <a href="register" class="altFormLink pFont text-deco-none">Don't have an account?</a>
+		</section>
+
+	</main>
+
+	<div class="custom-shape-divider-bottom-1686717423">
+		<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+				d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+				class="shape-fill"></path>
+        </svg>
+	</div>
+
+	<jsp:include page="../footer.jsp"></jsp:include>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<script src="js/form-validation.js"></script>
+<script src="js/nav-menu.js"></script>
 </html>
