@@ -22,9 +22,16 @@
 				<label class="user-label">Meal Name</label>
 			</div>
 			<div class="input-group">
-				<sf:input required="true" type="text" name="description"
-					autocomplete="off" path="description" class="input" />
+				<sf:textarea rows="5" required="true" name="description"
+					autocomplete="off" path="description" class="input input-textarea" />
 				<label class="user-label">Meal Description</label>
+			</div>
+			<div class="input-group">
+				<label class="select-label">Meal Availability</label> <select
+					class="input-select" name="role">
+					<option value="true" selected>Available</option>
+					<option value="false">Not Available</option>
+				</select>
 			</div>
 			<div class="input-group flex-col align-center">
 				<label class="file-input">Upload a Picture</label> <input

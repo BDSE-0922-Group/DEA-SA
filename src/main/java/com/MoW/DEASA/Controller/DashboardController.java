@@ -75,6 +75,7 @@ public class DashboardController {
 	}
 
 	public void memberDashboard(Model model) {
+		
 		List<Meal> meals = mealRepo.findAll();
 		model.addAttribute("meals", meals);
 	}

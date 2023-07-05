@@ -64,7 +64,6 @@ public class MealController {
 
 		ra.addFlashAttribute("success_post", "Post has been saved successfully");
 		
-		return "Member/meal";
+		return "Partner/dashboard";
 	}
-	
 }

@@ -179,18 +179,19 @@
   }
   
   /*----------  FORMS  ----------*/
-  .form-card {
-    background-color: var(--darkBg);
-    border-radius: 10px;
-    height: fit-content;
-    padding: 1rem 0.5rem;
-    width: 350px;
-  }
-  .form-heading {
-    color: var(--white);
-    font-family: var(--hFont);
-    font-size: 2.5rem;
-  }
+.form-card {
+	background-color: var(--darkBg);
+	border-radius: 10px;
+	height: fit-content;
+	margin: 3rem 0rem;
+	padding: 1rem 0.5rem;
+	width: 350px;
+}
+.form-heading {
+	color: var(--white);
+	font-family: var(--hFont);
+	font-size: 2.5rem;
+}
 .form {
     gap: 1.25rem;
     margin-top: 1.25rem;
@@ -236,6 +237,12 @@
   width: 145px;
 }
 
+/* TEXT AREA */
+.input-textarea {
+	font-family: var(--pFont);
+	resize: none;
+}
+
 /* DROPDOWN SELECTION */
 select.input-select {
     background-color: var(--lightBg);
@@ -272,9 +279,11 @@ label.file-input {
 	padding: 6px 12px;
 }
 .imagePreview {
-	border-radius: 5px;
 	height: fit-content;
 	width: 300px;
+}
+.imagePreview img {
+	border-radius: 5px;
 }
 
 /* SUBMIT BTN */
