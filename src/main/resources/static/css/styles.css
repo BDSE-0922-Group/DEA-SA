@@ -1109,8 +1109,12 @@ main{
   	content:'-';
   }
   
-  /*=============================================
-=           	   Contact Us		              =
+  .tnc-content-date{
+  	text-align: justify;
+  	font-weight: 600;
+  }
+/*=============================================
+=           	   Contact Us		          =
 =============================================*/
 
 	.contact {
@@ -1218,7 +1222,17 @@ main{
 	padding: 10px;
 	font-size: 18px;
 	}
-	
+/*=============================================
+=           	 Privacy Policy 	          =
+=============================================*/
+.pri-content{
+	text-align:justify;
+}
+
+.pri-content-date{
+	text-align: justify;
+	font-weight: 600;
+}
   /*=====  End of Specifics  ======*/
   
   

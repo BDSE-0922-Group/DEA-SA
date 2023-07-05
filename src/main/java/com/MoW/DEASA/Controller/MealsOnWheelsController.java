@@ -36,4 +36,9 @@ public class MealsOnWheelsController {
 	public String ContactUsPage() {
 		return "Common/Contact-Us";
 	}
+	
+	@GetMapping("Privacy-Policy")
+	public String PrivacyPolicyPage() {
+		return "Common/Privacy-Policy";
+	}
 }

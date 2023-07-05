@@ -11,7 +11,7 @@
 					<input type="radio" name="accordion" id="first" checked>
 					<label for="first" class="hFont">1. Membership and Account </label>
 					<div class="content">
-						<p class="pFont">- To access and use Merry Meals, you must create an account and become a member.
+						<p class="pFont tnc-content">- To access and use Merry Meals, you must create an account and become a member.
    							<br> 		- You are responsible for maintaining the confidentiality of your account credentials and ensuring the accuracy of your personal information.
 						 </p>
 					</div>
@@ -21,7 +21,7 @@
 					<input type="radio" name="accordion" id="second">
 					<label for="second" class="hFont">2. Ordering and Delivery</label>
 					<div class="content">
-						<p class="pFont">- By placing an order through Merry Meals, you agree to provide accurate and complete information.
+						<p class="pFont tnc-content">- By placing an order through Merry Meals, you agree to provide accurate and complete information.
 						 <br>  - Delivery times may vary based on the availability of our partner restaurants and your location.
 						 <br>  - Merry Meals reserves the right to cancel or refuse any order at our discretion.
 						</p>
@@ -32,7 +32,7 @@
 					<input type="radio" name="accordion" id="third">
 					<label for="third" class="hFont">3. Food Quality and Safety </label>
 					<div class="content">
-						<p class="pFont">- We strive to ensure the quality and safety of the meals offered through our platform.
+						<p class="pFont tnc-content">- We strive to ensure the quality and safety of the meals offered through our platform.
 						 <br>  - While we carefully select our partner restaurants, we cannot guarantee the quality or suitability of their food for all individuals.
 						 <br>  - If you have any allergies or dietary restrictions, it is your responsibility to inform us and the partner restaurant before placing an order.
 						</p>
@@ -43,7 +43,7 @@
 					<input type="radio" name="accordion" id="fourth">
 					<label for="fourth" class="hFont">4. Donation </label>
 					<div class="content">
-						<p class="pFont">By making a donation to our organization, you agree to the following terms and conditions:
+						<p class="pFont tnc-content">By making a donation to our organization, you agree to the following terms and conditions:
 						<br>
 						- You are at least 18 years old and have the legal capacity to enter into this agreement.<br>
 						- You authorize us to charge your credit card or other payment method for the amount and frequency you specify.<br>
@@ -56,7 +56,7 @@
 					<input type="radio" name="accordion" id="fifth">
 					<label for="fifth" class="hFont">5. Intellectual Property </label>
 					<div class="content">
-						<p class="pFont"> - The content on Merry Meals, including logos, trademarks, and images, is protected by intellectual property laws.
+						<p class="pFont tnc-content"> - The content on Merry Meals, including logos, trademarks, and images, is protected by intellectual property laws.
    						<br> - You may not use, reproduce, or distribute any of our content without our prior written consent.
 						</p>
 					</div>
@@ -66,7 +66,7 @@
 					<input type="radio" name="accordion" id="sixth">
 					<label for="sixth" class="hFont">6. Limitation of Liability </label>
 					<div class="content">
-						<p class="pFont"> - Merry Meals is not liable for any direct, indirect, incidental, or consequential damages arising from your use of our platform or the services provided by our partner restaurants.
+						<p class="pFont tnc-content"> - Merry Meals is not liable for any direct, indirect, incidental, or consequential damages arising from your use of our platform or the services provided by our partner restaurants.
    						<br>- We make no warranties or representations regarding the accuracy or reliability of the information presented on our platform.
 						</p>
 					</div>
@@ -76,7 +76,7 @@
 					<input type="radio" name="accordion" id="seventh">
 					<label for="seventh" class="hFont">7. Governing Law and Disputes </label>
 					<div class="content">
-						<p class="pFont">  - These Terms and Conditions are governed by the laws of [Jurisdiction].
+						<p class="pFont tnc-content">  - These Terms and Conditions are governed by the laws of [Jurisdiction].
    						<br> - Any disputes arising from your use of Merry Meals shall be resolved through arbitration or the appropriate courts in [Jurisdiction].
 						<br><br>
 						By using Merry Meals, you acknowledge that you have read, understood, and agree to abide by these Terms and
@@ -89,7 +89,7 @@
 						</p>
 					</div>
 				</li>
-				<p class="pFont">Last updated: [MM-DD-YYYY]</p>
+				<p class="pFont tnc-content-date">Last updated: [MM-DD-YYYY]</p>
 			</ul>
 			
 
