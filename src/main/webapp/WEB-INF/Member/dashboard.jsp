@@ -8,7 +8,7 @@
 
 	<p class="mealDisclaimer pFont text-align-center">Meals will be
 		served frozen during week-ends or if your location is 10Km+ away</p>
-	<a href="" class="btnAnimation orderLink text-deco-none pFont">Place
+	<a href="order" class="btnAnimation orderLink text-deco-none pFont">Place
 		an order</a>
 	<div class="card-container justify-evenly flex-wrap">
 		<div class="card pFont">

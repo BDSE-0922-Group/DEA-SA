@@ -1,22 +1,23 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp">
-	<jsp:param value="Donor" name="HTMLtitle" />
+	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
 
-<main class="bg2 align-center flex-col">
+<main class="bg3 align-center flex-col">
 	<h2 class="dashboard-heading hFont">Donor Dashboard</h2>
 
 	<div id="donorStats" class="justify-evenly">
 		<div class="card">
-			<h4 class="card-heading">Total of Donations Recieved</h4>
-			<p class="data">USD $8,000</p>
+			<h4 class="card-heading">Total of Donations Received</h4>
+			<p class="data">USD $${total_donation_amount}</p>
 		</div>
 		<div class="card">
 			<h4 class="card-heading">Total Donations Made</h4>
-			<p class="data">13,000 Donations</p>
+			<p class="data">${total_donation}&nbsp;Donations</p>
 		</div>
 		<div class="card">
 			<h4 class="card-heading">Average Donation Amount</h4>
-			<p class="data">USD $1.625</p>
+			<p class="data">USD $${average_donation_amount}</p>
 		</div>
 	</div>
 
@@ -25,12 +26,12 @@
 		<div></div>
 	</div>
 
-	<nav class="align-center justify-evenly dashboard-nav hFont">
-		<button>Make a Donation</button>
+	<nav class="align-center justify-start dashboard-nav hFont">
+		<a href="donation"><button>Make a Donation</button></a>
 	</nav>
 	<div class="align-center flex-col dashboard-panel">
 		<h3>Table of Recent Donations</h3>
-		<table id="userManagement" class="panel-table">
+		<table id="userManagement">
 			<thead class="hFont">
 				<tr>
 					<th>Donation No.</th>
@@ -42,32 +43,23 @@
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<tr>
-					<td>1</td>
-					<td>Sample User Full Name</td>
-					<td>Sample Phone No.</td>
-					<td>404</td>
-					<td>Sample Currency</td>
-					<td>sample@email.com</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Sample User Full Name</td>
-					<td>Sample Phone No.</td>
-					<td>404</td>
-					<td>Sample Currency</td>
-					<td>sample@email.com</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Sample User Full Name</td>
-					<td>Sample Phone No.</td>
-					<td>404</td>
-					<td>Sample Currency</td>
-					<td>sample@email.com</td>
-				</tr>
-				<tr>
-				</tr>
+				<c:if test="${not empty recent}">
+					<c:forEach items="${recent}" var="r" varStatus="status">
+						<tr>
+							<td>${status.count}</td>
+							<td>${r.getName()}</td>
+							<td>${r.getContact()}</td>
+							<td>${r.getAmount()}</td>
+							<td>${r.getCurrency()}</td>
+							<td>${r.getAccDetails()}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty recent}">
+					<tr>
+						<td colspan="6">No donation made yet</td>
+					</tr>
+				</c:if>
 			</tbody>
 		</table>
 	</div>

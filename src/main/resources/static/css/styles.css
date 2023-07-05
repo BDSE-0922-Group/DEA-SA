@@ -252,45 +252,66 @@ select.input-select:focus {
     border: 1px solid var(--tertiary)
 }
 .select-label {
-        color: var(--white);
-        margin-right: 5px;
+	color: var(--white);
+	margin-right: 5px;
+}
+
+/* FILE UPLOAD */
+label.file-input {
+	color: var(--tertiary);
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+#photo  {
+	background-color: var(--lightBg);
+	border-radius: 4px;
+	color: var(--paragraph);
+	cursor: pointer;
+	display: inline-block;
+	max-width: 300px;
+	padding: 6px 12px;
+}
+.imagePreview {
+	border-radius: 5px;
+	height: fit-content;
+	width: 300px;
 }
 
 /* SUBMIT BTN */
 .submit-btn {
-    background-color: var(--secondary);
-    border: none;
-    border-radius: 3px;
-    color: var(--darkBg);
-    cursor: pointer;
-    font-family: var(--pFont);
-    font-weight: bold;
-    padding: 0.7rem 1rem;
-    text-transform: uppercase;
-    transition: 0.2s ease-out;
+	background-color: var(--secondary);
+	border: none;
+	border-radius: 3px;
+	color: var(--darkBg);
+	cursor: pointer;
+	font-family: var(--pFont);
+	font-weight: bold;
+	padding: 0.7rem 1rem;
+	text-transform: uppercase;
+	transition: 0.2s ease-out;
 }
 
 /* FORM ALT LINK */
 .formDivider {
-  border: 1px solid var(--paragraph);
-  margin: 1rem 0rem;
-  width: 95%;
+	border: 1px solid var(--paragraph);
+	margin: 1rem 0rem;
+	width: 95%;
 }
 .altFormLink {
-  color: var(--tertiary);
+	color: var(--tertiary);
 }
 .altFormLink:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
-/* CONFIRMATION*/
+/* UTIL */
 .util-card {
-    background-color: var(--white);
-    border-radius: 5px;
-    gap: 1rem;
-    height: fit-content;
-    padding: 2rem;
-    width: 600px;
+	background-color: var(--white);
+	border-radius: 5px;
+	gap: 1rem;
+	height: fit-content;
+	padding: 2rem;
+	width: 600px;
 }
 .util-card p {
     color: var(--darkBg);
@@ -309,37 +330,37 @@ select.input-select:focus {
 
 /* ERROR PAGE */
 p.util-text {
-  color: var(--darkBg);
-  font-size: 1.1rem;
-  font-weight: normal;
+	color: var(--darkBg);
+	font-size: 1.1rem;
+	font-weight: normal;
 }
 .util-card button {
-  background-color: var(--darkBg);
-  padding: 0.7rem 1rem;
-  color: var(--white);
-  transition: 0.3s ease-out;
+	background-color: var(--darkBg);
+	padding: 0.7rem 1rem;
+	color: var(--white);
+	transition: 0.3s ease-out;
 }
 .util-card button:hover {
-  color: var(--secondary);
+	color: var(--secondary);
 }
 
    /*----------  Dashboard Utility Classes  ----------*/
 .dashboard-heading {
- color: var(--darkBg);
- font-size: 2rem;
- font-weight: bold;
- letter-spacing: 3px;
- margin: 3rem 1rem 2rem;
+	color: var(--darkBg);
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing: 3px;
+	margin: 3rem 1rem 2rem;
 }
 .dashboard-nav {
- background-color: var(--darkBg);
- border-radius: 5px;
- flex-wrap: wrap;
- gap: 1.5rem;
- height: fit-content;
- margin-top: 10px;
- padding: 0.5rem 1rem;
- width: fit-content;
+	background-color: var(--darkBg);
+	border-radius: 5px;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	height: fit-content;
+	margin-top: 10px;
+	padding: 0.5rem 1rem;
+	width: fit-content;
 }
 .dashboard-nav button {
     background-color: var(--tertiary);
@@ -356,37 +377,37 @@ p.util-text {
 .dashboard-nav button:active {
     transform: scale(0.95);
 }
-   .dashboard-panel {
-    background-color: var(--darkBg);
-	border-radius: 5px;
-	height: fit-content;
-	margin: 2rem 1rem 10rem;
-	padding: 1rem 0.5rem;
-	max-width: 100%;
-	overflow-x: scroll;
-	}
-   .panel-table {
-   }
-   .dashboard-panel h3 {
-    color: var(--white);
-    font-family: var(--hFont);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-   }
-   thead.hFont {
-        color: var(--tertiary);
-        text-transform: uppercase;
-   }
-   .dashboard-table th, td {
-    padding: 0.5rem 1rem;
-    text-align: center;
-    color: var(--paragraph);
-   }
+  .dashboard-panel {
+   background-color: var(--darkBg);
+border-radius: 5px;
+height: fit-content;
+margin: 2rem 1rem 10rem;
+padding: 1rem 0.5rem;
+max-width: 100%;
+overflow-x: scroll;
+}
+.panel-table {
+}
+.dashboard-panel h3 {
+	color: var(--white);
+	font-family: var(--hFont);
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+thead.hFont {
+    color: var(--tertiary);
+    text-transform: uppercase;
+}
+.dashboard-table th, td {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	color: var(--paragraph);
+}
 tr a, button {
-  border-radius: 5px;
-  color: var(--white);
-  padding: 3px;
-  text-decoration: none;
+	border-radius: 5px;
+	color: var(--white);
+	padding: 3px;
+	text-decoration: none;
    }
 tr a,button:hover {
     transform: scale(1.1);
