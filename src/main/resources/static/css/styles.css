@@ -308,6 +308,7 @@ label.file-input {
 }
 .altFormLink {
 	color: var(--tertiary);
+	width: fit-content
 }
 .altFormLink:hover {
 	text-decoration: underline;

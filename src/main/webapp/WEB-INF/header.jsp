@@ -10,6 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meals on Wheels | <%=request.getParameter("HTMLtitle") != null ? request.getParameter("HTMLtitle") : "MerryMeal"%></title>
 
+<link rel="icon" href="images/Logo.png" type="image/png">
+
 <link rel="stylesheet" href="css/styles.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">

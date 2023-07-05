@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.MoW.DEASA.Entity.Donation;
-import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Repo.DonationRepository;
 
 @Service

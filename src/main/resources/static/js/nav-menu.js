@@ -28,3 +28,16 @@
         $(".login-popup").css("visibility", "visible");
     	$(".error-popup").fadeIn("fast");
     }
+    
+    // LOGOUT POPUP
+    if ($('#logoutText').is(':empty')) {
+        // ERROR TEXT HIDDEN BY DEFAULT 
+        $("#logoutPopup").css("visibility", "hidden");
+    } else {
+        $("#logoutPopup").css("visibility", "visible");
+        $("#logoutPopup").fadeIn("fast");
+        setTimeout(function () {
+            $("#logoutPopup").fadeOut("fast");
+        }, 5000);
+    }
+    

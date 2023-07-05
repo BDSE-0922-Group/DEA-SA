@@ -1,7 +1,7 @@
 package com.MoW.DEASA.Controller;
 
 import java.security.Principal;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class LoginController {
     	for (String roleName: roleNames) {
     		if(roleName == userRole) {
     			System.out.println("Logged in successfully as " + userRole);
-    			String success_msg = "Logged in successfully";
+    			String success_msg = "Logged in successfully. Click here to go to dashboard.";
     			model.addAttribute("success_msg", success_msg);
     			return "Auth/login";
     		}
@@ -65,7 +65,11 @@ public class LoginController {
     }
     
     @GetMapping("logout")
-    public String redirectToHome() {
+    public String onLogoutSuccess(Model model) {
+    	
+    	String success_logout = "Successfully logged out! Click here to login.";
+        model.addAttribute("success_logout", success_logout);
+    	
     	return "Common/home";
     }
     
@@ -82,7 +86,7 @@ public class LoginController {
     public String registerNewUser(@ModelAttribute("user") User user, @RequestParam String role, Model model) {
     	
     	
-    	if (userService.findUsername(user.getUserName()) == null || userService.findUsername(user.getUserName()).getUserName() == null) {
+    	if (userService.findUsername(user.getUserName()) == null|| userService.findUsername(user.getUserName()).getUserName() == null ) {
     		userService.save(user, role);
     		return "Auth/confirmation";	
     	}
@@ -98,13 +102,18 @@ public class LoginController {
     	
     	String username = principal.getName();
     	
-    	User user = userService.findLoginUser(username);
+    	User userdata = userService.findLoginUser(username);
     	
-    	String[] role= user.getRoles().stream().map(Role::getName).toArray(String[]::new);
+    	String[] role= userdata.getRoles().stream().map(Role::getName).toArray(String[]::new);
     	
     	String userRole = role[0];
     	
     	String[] roleNames= userService.getAllRoles().stream().map(Role::getName).toArray(String[]::new);
+    	
+    	List<User> user = new ArrayList<User>();
+    	user.add(userdata);
+    	
+    	model.addAttribute("user", user);
     	
 		for (String roleName: roleNames) {
     		if(roleName == userRole && userRole.equalsIgnoreCase("Administrator")) {
@@ -157,5 +166,21 @@ public class LoginController {
 	
 	public void donatorProfile() {	
         System.out.println("View profile as Donator");
+	}
+	
+	@PostMapping("update-profile")
+	public String  updateProfile(Principal principal, @ModelAttribute User u) {
+		String userName = principal.getName();
+		
+		User user = userService.findLoginUser(userName);
+		
+		user.setName(u.getName());
+		user.setEmail(u.getEmail());
+		user.setAddress(u.getAddress());
+		user.setMobile(u.getMobile());
+		
+		userService.update(user);
+		
+		return "redirect:profile";
 	}
 }
