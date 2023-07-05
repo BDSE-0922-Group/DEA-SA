@@ -68,7 +68,7 @@ public class LoginController {
     @GetMapping("logout")
     public String onLogoutSuccess(Model model) {
     	
-    	String success_logout = "Successfully logged out!";
+    	String success_logout = "Successfully logged out! Click here to login.";
         model.addAttribute("success_logout", success_logout);
     	
     	return "Common/home";

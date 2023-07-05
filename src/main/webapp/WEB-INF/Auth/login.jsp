@@ -17,6 +17,7 @@
             <p class="pFont login-text">${success_msg}</p>
         </a>
 
+			<c:if test="${ (success_msg == null) }">
 		<section class="align-center flex-col form-card">
 			<h3 class="form-heading">Login</h3>
 
@@ -40,7 +41,10 @@
 			<hr class="formDivider">
             <a href="register" class="altFormLink pFont text-deco-none">Don't have an account?</a>
 		</section>
-
+			</c:if>
+			<c:if test="${success_msg != null}">
+					<section style="height: 38vh"></section>
+			</c:if>
 	</main>
 
 <jsp:include page="../footer.jsp"></jsp:include>

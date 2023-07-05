@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp">
 	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
@@ -12,7 +13,7 @@
 		</div>
 		<div class="card">
 			<h4 class="card-heading">Total Donations Made</h4>
-			<p class="data">${total_donation} Donations</p>
+			<p class="data">${total_donation}Donations</p>
 		</div>
 		<div class="card">
 			<h4 class="card-heading">Average Donation Amount</h4>
@@ -20,7 +21,7 @@
 		</div>
 	</div>
 
-	<div id="" class="justify-evenly">
+	<div id="chartContainer" class="justify-evenly">
 		<div></div>
 		<div></div>
 	</div>
@@ -42,35 +43,26 @@
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<tr>
-					<td>1</td>
-					<td>Sample User Full Name</td>
-					<td>Sample Phone No.</td>
-					<td>404</td>
-					<td>Sample Currency</td>
-					<td>sample@email.com</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Sample User Full Name</td>
-					<td>Sample Phone No.</td>
-					<td>404</td>
-					<td>Sample Currency</td>
-					<td>sample@email.com</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Sample User Full Name</td>
-					<td>Sample Phone No.</td>
-					<td>404</td>
-					<td>Sample Currency</td>
-					<td>sample@email.com</td>
-				</tr>
-				<tr>
-				</tr>
+				<c:if test="${not empty recent}">
+					<c:forEach items="${recent}" var="r" varStatus="status">
+						<tr>
+							<td>${status.count}</td>
+							<td>${r.getName()}</td>
+							<td>${r.getContact()}</td>
+							<td>${r.getAmount()}</td>
+							<td>${r.getCurrency()}</td>
+							<td>${r.getAccDetails()}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty recent}">
+						<tr>
+							<td colspan="6">No donation made yet</td>
+						</tr>
+				</c:if>
 			</tbody>
 		</table>
 	</div>
 </main>
-	
+
 <jsp:include page="../footer.jsp"></jsp:include>
