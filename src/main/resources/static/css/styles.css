@@ -262,6 +262,7 @@ select.input-select:focus {
     border: none;
     border-radius: 3px;
     color: var(--darkBg);
+    cursor: pointer;
     font-family: var(--pFont);
     font-weight: bold;
     padding: 0.7rem 1rem;
