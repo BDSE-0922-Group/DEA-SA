@@ -1,36 +1,66 @@
 <jsp:include page="../header.jsp">
 	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
-<link rel="stylesheet" href="css/style.css">
-<main class="bg1 flex-col">
+
+<main class="bg2 align-center flex-col">
 	<h1 class="dashboard-heading hFont text-align-center">Volunteer Dashboard</h1>
-	<a href="#add-volunteer" class="add-volunteer">Add Volunteer</a>
-	<div class="volunteer-dashboard">
-		<div class="volunteer-box">
-			<div class="profile-card pFont">
-				<img src="images/ph.png" alt="Profile Picture">
-				<h2>Volunteer 1</h2>
-				<p>Information about Volunteer 1</p>
-				<a class="card-link" href="#">View Details</a>
+	
+		<nav class="align-center justify-start dashboard-nav hFont">
+				<button>Add an Event</button>
+			</nav>
+			<div class="align-center flex-col dashboard-panel">
+				<h3>Events Available to Volunteers</h3>
+				<table class="dashboard-table">
+					<thead class="hFont">
+						<tr>
+							<th>No.</th>
+							<th>Event Name</th>
+							<th>Event Description</th>
+							<th>Event Location</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="pFont">
+						<tr>
+							<td>1</td>
+							<td>Sample Event</td>
+							<td>Sample Event Description</td>
+							<td>Sample Event Location</td>
+							<td>
+								<button class="material-icons view">visibility</button>
+								<button class="material-icons edit">edit</button>
+								<button class="material-icons delete">delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Sample Event</td>
+							<td>Sample Event Description</td>
+							<td>Sample Event Location</td>
+							<td>
+								<button class="material-icons view">visibility</button>
+								<button class="material-icons edit">edit</button>
+								<button class="material-icons delete">delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Sample Event</td>
+							<td>Sample Event Description</td>
+							<td>Sample Event Location</td>
+							<td>
+								<button class="material-icons view">visibility</button>
+								<button class="material-icons edit">edit</button>
+								<button class="material-icons delete">delete</button>
+							</td>
+						</tr>
+						
+						<tr>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-		</div>
-		<div class="volunteer-box">
-			<div class="profile-card pFont">
-				<img src="images/ph.png" alt="Profile Picture">
-				<h2>Volunteer 2</h2>
-				<p>Information about Volunteer 2</p>
-				<a class="card-link" href="#">View Details</a>
 			</div>
-		</div>
-		<div class="volunteer-box">
-			<div class="profile-card pFont">
-				<img src="images/ph.png" alt="Profile Picture">
-				<h2>Volunteer 3</h2>
-				<p>Information about Volunteer 3</p>
-				<a class="card-link" href="#">View Details</a>
-			</div>
-		</div>
-	</div>
 	
 </main>
 <jsp:include page="../footer.jsp"></jsp:include>

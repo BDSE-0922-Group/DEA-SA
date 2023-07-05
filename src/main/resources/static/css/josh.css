@@ -1,0 +1,221 @@
+/*=============================================
+=            Terms and Conditions             =
+=============================================*/
+.accordion {
+ 	margin: 60px auto;
+ 	width: 600px;
+ }
+ 
+ 
+ .accordion li {
+ 	list-style:none;
+ 	wdith: 100%;
+ 	margin: 20px;
+ 	padding: 10px;
+ 	border-radius: 8px;
+ 	background: #e3edf7;
+ 	box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+ 				-6px -6px 10px -1px rgba(255,255,255,0.7)
+ }
+        
+  .accordion li label{
+  	display:flex;
+  	align-items: center;
+  	padding: 10px;
+  	cursor: pointer
+  }
+  
+  label::before{
+  	content: '+';
+  	margin-right: 10px;
+  	font-size: 24px;
+  	font-weight: 600;
+  }
+  
+  input[type="radio"]{
+  	display:none
+  }
+  
+  .accordion .content {
+  	padding: 0 10px;
+  	line-height: 26px;
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.5s, padding 0.5s;
+  	text-align: justify;
+  }
+  
+  input[type="radio"]:checked + label + .content{
+  	max-height: 400px; 
+  	padding: 10px 10px 20px;
+  }
+  input[type="radio"]:checked + label::before{
+  	content:'-';
+  }
+  
+  .tnc-content-date{
+  	text-align: justify;
+  	font-weight: 600;
+  }
+  
+  /*=============================================
+=            About Us			              =
+=============================================*/
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.about-p {
+	text-align:justify;
+}
+
+
+/*=============================================
+=           	   Contact Us		          =
+=============================================*/
+
+	.contact {
+	position:relative;
+	min-height: 100vh;
+	padding: 50px 100px;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	flex-direction: column;
+	}
+	
+	.contact .cont-content{
+	max-width: 800px;
+	text-align: center;
+	}
+	
+	.contactContainer{
+	width: 100%;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	margin-top: 50px;
+	}
+	
+	.contactContainer .contactInfo{
+	width: 50%;
+	display:flex;
+	flex-direction: column;
+	}
+	
+	.contactContainer .contactInfo .box{
+	position: relative;
+	padding: 20px 0;
+	display: flex;
+	}
+	
+	.contactContainer .contactInfo .box .icon{
+	min-width:60px;
+	height: 60px;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-size: 22px;
+	}
+	
+	.contactContainer .contactInfo .box .text{
+	display: flex;
+	margin-left: 20px;
+	flex-direction: column;
+	}
+	
+	.contactContainer .contactInfo .box .text h3{
+	text-align: left;
+	}
+	
+	.contactForm{
+		width: 40%;
+		padding: 40px; 
+		background: #fff;
+		border-radius: 10%
+	}
+	
+	.contactForm .cont-inputBox{
+	position:relative;
+	width: 100%;
+	margin-top: 10px;
+	}
+	
+	.contactForm .cont-inputBox input,
+	.contactForm .cont-inputBox textarea{
+	width: 100%;
+	padding: 5px 0; 
+	margin: 10px 0;
+	border: none;
+	border-bottom: 2px solid #333;
+	outline: none;
+	resize: none;
+	}
+	
+	.contactForm .cont-inputBox span {
+	position: absolute;
+	left:0;
+	padding: 5px 0; 
+	margin: 10px 0;
+	pointer-events: none;
+	transition: 0.5s;
+	}
+	
+	.contactForm .cont-inputBox input:focus ~ span,
+	.contactForm .cont-inputBox input:valid ~ span,
+	.contactForm .cont-inputBox textarea:focus ~ span,
+	.contactForm .cont-inputBox textarea:valid ~ span{
+		color: #e91e63;
+		font-size: 12px;
+		transform: translateY(-20px);
+	}
+	.contactForm .cont-inputBox input[type="submit"]{
+	width: 150px;
+	color: #fff;
+	border:none;
+	cursor: pointer;
+	padding: 10px;
+	font-size: 18px;
+	}
+/*=============================================
+=           	 Privacy Policy 	          =
+=============================================*/
+.pri-content{
+	text-align:justify;
+}
+
+.pri-content-date{
+	text-align: justify;
+	font-weight: 600;
+}
+
+  /*=====  End of Specifics  ======*/
+  
+  /*=============================================
+  =            Break Points            =
+  =============================================*/
+  
+   /*----------  991 PX  ----------*/
+  @media (max-width: 991px){
+  	.contact{
+  		padding: 50px;
+  	}
+  	
+  	.contactContainer{
+  		flex-direction: column;
+  	}
+  	
+  	.contactContainer .contactInfo{
+  		margin-bottom: 40px;
+  	}
+  	
+  	.contactContainer .contactInfo, 
+  	.contactForm{
+  		width: 100%;
+  	}
+  }
+  
+    /*=====  End of Break Points  ======*/

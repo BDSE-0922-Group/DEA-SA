@@ -1,6 +1,7 @@
 package com.MoW.DEASA.Controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -65,12 +66,12 @@ public class LoginController {
     }
     
     @GetMapping("logout")
-    public String onLogoutSuccess(Model model) {
+    public String redirectToHome(Model model) {
     	
-    	String success_logout = "Successfully logged out!";
+    	String success_logout = "Successfully logged out! Click here to login.";
         model.addAttribute("success_logout", success_logout);
     	
-    	return "Auth/login";
+    	return "redirect:home";
     }
     
     @GetMapping("register")
@@ -102,13 +103,18 @@ public class LoginController {
     	
     	String username = principal.getName();
     	
-    	User user = userService.findLoginUser(username);
+    	User userdata = userService.findLoginUser(username);
     	
-    	String[] role= user.getRoles().stream().map(Role::getName).toArray(String[]::new);
+    	String[] role= userdata.getRoles().stream().map(Role::getName).toArray(String[]::new);
     	
     	String userRole = role[0];
     	
     	String[] roleNames= userService.getAllRoles().stream().map(Role::getName).toArray(String[]::new);
+    	
+    	List<User> user = new ArrayList<User>();
+    	user.add(userdata);
+    	
+    	model.addAttribute("user", user);
     	
 		for (String roleName: roleNames) {
     		if(roleName == userRole && userRole.equalsIgnoreCase("Administrator")) {

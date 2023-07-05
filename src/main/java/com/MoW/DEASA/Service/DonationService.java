@@ -28,5 +28,7 @@ public class DonationService {
 		return dRepo.findAll();
 	}
 	
-	
+	public List<Donation> getSpecificDonation(long id) {
+		return dRepo.findBydonId(id);
+	}
 }

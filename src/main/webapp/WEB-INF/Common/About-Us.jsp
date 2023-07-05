@@ -1,7 +1,7 @@
 <jsp:include page="../header.jsp">
 	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/josh.css">
 <main class="bg1 flex-col">
 	<div class="container">
 		<h1 class="text-align-center hFont dashboard-heading">ABOUT US</h1>

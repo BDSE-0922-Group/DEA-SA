@@ -1,36 +1,59 @@
 <jsp:include page="../header.jsp">
-	<jsp:param value="Dashboard" name="HTMLtitle" />
+	<jsp:param value="Member" name="HTMLtitle" />
 </jsp:include>
-<link rel="stylesheet" href="css/style.css">
-<main class="bg1 flex-col">
-	<h1 class="dashboard-heading hFont text-align-center">Partners Dashboard</h1>
-	<a href="#add-partner" class="add-partner">Add Partner</a>
-	<div class="partner-dashboard">
-		<div class="partner-box">
-			<div class="profile-card pFont">
-				<img src="images/ph.png" alt="Profile Picture">
-				<h2>Partner 1</h2>
-				<p>Information about Partner 1</p>
-				<a class="card-link" href="#">View Details</a>
-			</div>
-		</div>
-		<div class="partner-box">
-			<div class="profile-card pFont">
-				<img src="images/ph.png" alt="Profile Picture">
-				<h2>Partner 2</h2>
-				<p>Information about Partner 2</p>
-				<a class="card-link" href="#">View Details</a>
-			</div>
-		</div>
-		<div class="partner-box">
-			<div class="profile-card pFont">
-				<img src="images/ph.png" alt="Profile Picture">
-				<h2>Partner 3</h2>
-				<p>Information about Partner 3</p>
-				<a class="card-link" href="#">View Details</a>
-			</div>
-		</div>
+
+<main class="bg2 align-center flex-col">
+	<h2 class="dashboard-heading hFont">Partner Dashboard</h2>
+	<nav class="align-center justify-start dashboard-nav hFont">
+		<button>Add a Meal</button>
+	</nav>
+	<div class="align-center flex-col dashboard-panel">
+		<h3>Meals Available to Members</h3>
+		<table class="dashboard-table">
+			<thead class="hFont">
+				<tr>
+					<th>No.</th>
+					<th>Meal</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody class="pFont">
+				<tr>
+					<td>1</td>
+					<td>Sample Meal</td>
+					<td>Sample Description</td>
+					<td>
+						<button class="material-icons view">visibility</button>
+						<button class="material-icons edit">edit</button>
+						<button class="material-icons delete">delete</button>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Sample Meal</td>
+					<td>Sample Description</td>
+					<td>
+						<button class="material-icons view">visibility</button>
+						<button class="material-icons edit">edit</button>
+						<button class="material-icons delete">delete</button>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Sample Meal</td>
+					<td>Sample Description</td>
+					<td>
+						<button class="material-icons view">visibility</button>
+						<button class="material-icons edit">edit</button>
+						<button class="material-icons delete">delete</button>
+					</td>
+				</tr>
+				<tr>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	
 </main>
+
 <jsp:include page="../footer.jsp"></jsp:include>

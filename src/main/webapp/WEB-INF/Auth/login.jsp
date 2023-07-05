@@ -20,7 +20,7 @@
 		<section class="align-center flex-col form-card">
 			<h3 class="form-heading">Login</h3>
 
-			<c:url var="post_url" value="/login" />
+			<c:url var="post_url" value="/login"></c:url>
 
 			<form class="align-center flex-col form" action="${post_url}"
 				method="post">
