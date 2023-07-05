@@ -31,8 +31,8 @@
 
 			<ul id="footLinks" class="align-start flex-col list-style-none">
 				<h5 class="footerSubHeader">Company</h5>
-				<li><a href="/About-Us">About Us</a></li>
-				<li><a href="/Contact-Us">Contact Us</a></li>
+				<li><a href="/about-us">About Us</a></li>
+				<li><a href="/contact-us">Contact Us</a></li>
 			</ul>
 
 			<ul id="footLinks" class="align-start flex-col list-style-none">
@@ -65,8 +65,8 @@
 
 		<div id="footerBotR" class="align-center">
 			<ul id="botLinks" class="align-center list-style-none">
-				<li><a href="/Privacy-Policy">Privacy Policy</a></li>
-				<li><a href="/Terms-and-Conditions">Terms & Conditions</a></li>
+				<li><a href="/privacy-policy">Privacy Policy</a></li>
+				<li><a href="/terms-and-conditions">Terms & Conditions</a></li>
 			</ul>
 		</div>
 	</div>

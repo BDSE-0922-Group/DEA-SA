@@ -2,6 +2,8 @@
 	<jsp:param value="Member" name="HTMLtitle" />
 </jsp:include>
 
+<jsp:include page="../headerDivider.jsp"></jsp:include>
+
  <main class="bg1 align-center justify-center">
 
         <div class="align-center util-card flex-col">
