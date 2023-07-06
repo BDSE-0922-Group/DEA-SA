@@ -9,11 +9,13 @@ const success = "#5cb85c";
 
 // FIELD TAGS
 const regForm = document.getElementById("registration");
+const editProfile = document.getElementById("editProfleForm");
 const fullname = document.getElementById("fullname");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const role = document.getElementById("role");
+const gender = document.getElementById("gender");
 
 // REGEX
 var numberRegex = /\d/;
@@ -93,6 +95,35 @@ function validateRegistration(event) {
         regForm.submit();
     }
 }
+
+//EDIT PROFILE VALIDATION
+function validateEditProfile(event) {
+    // STOP FORM FROM BEING SUBMITTED
+    event.preventDefault();
+
+    // FULLNAME
+    if (fullname.value.length < 3) {
+        fullname.style.borderColor = error;
+        errorMessage = "You name cannot be shorter than 3 characters";
+        showErrorPopup();
+        fullname.focus();
+        return false;
+    } else if (numberRegex.test(fullname.value)) {
+        fullname.style.borderColor = error;
+        errorMessage = "Your name cannot contain a number";
+        showErrorPopup();
+        fullname.focus();
+        return false;
+    } // ROLE SELECTION
+    else if (gender.value === "") {
+        gender.style.borderColor = error;
+        errorMessage = "Please select a gender";
+        showErrorPopup();
+        gender.focus();
+    }else {
+    	editProfile.submit();
+    	}
+    }
 
 
 /*----------  ON CHANGE VALIDATION  ----------*/

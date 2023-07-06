@@ -317,6 +317,34 @@ label.file-input {
 	text-decoration: underline;
 }
 
+/* MODAL UTIL */
+.modal {
+	background-color: var(--darkBg);
+	border: 5px solid var(--secondary);
+	border-radius: 10px;
+	height: 500px;
+	margin: 7rem auto;
+	width: 325px;
+}
+.modal::backdrop {
+	background-color: #2e2828;
+	opacity: .5;
+}
+.modal-heading {
+	color: var(--white);
+	font-family: var(--hFont);
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+}
+.modal-close {
+	background-color: var(--primary);
+	font-size: 3rem;
+	padding: 5px;
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+}
 /* UTIL */
 .util-card {
 	background-color: var(--white);
@@ -1043,7 +1071,7 @@ text-align: center;
   display: flex;
   flex-direction: column;
 }
-#edit-profile {
+#editProfile {
   background-color: var(--secondary);
   color: var(--darkBg);
   font-size: 2rem;
