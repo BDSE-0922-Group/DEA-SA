@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.MoW.DEASA.Entity.Donation;
 import com.MoW.DEASA.Entity.User;
 import com.MoW.DEASA.Service.DonationService;
@@ -41,21 +39,27 @@ public class DonationController {
     	User user = userService.findLoginUser(username);
     	
     	donation.setDonId(user.getId());
-    	
+  
+		dService.save(donation);
+		
     	String toEmail = user.getEmail();
-    	String subject = "Donation has been received";
-    	String body = "Dear " + user.getName() + ",\r\n" + 
+    	String subject = "Thank you for your donation to Meals on Wheels";
+    	String body = "Dear "+ user.getName() +",\r\n" + 
     			"\r\n" + 
-    			"We are writing to express our sincere gratitude for your generous donation to our organization. Your contribution will help us continue our mission of providing quality education and health care to underprivileged children in our community. We are truly grateful for your support and trust in our work.\r\n" + 
+    			"We are writing to express our sincere gratitude for your generous contribution to Meals on Wheels. Your donation will help us provide nutritious meals and friendly visits to seniors and people with disabilities in our community.\r\n" + 
     			"\r\n" + 
-    			"Thank you for being a part of our team and making a difference in the lives of many.\r\n" + 
+    			"Your support means a lot to us and to the people we serve. Thanks to you, we can continue our mission of reducing hunger and isolation among our most vulnerable neighbors.\r\n" + 
+    			"\r\n" + 
+    			"We hope you will stay connected with us through our website, newsletter, and social media channels. You can also volunteer with us or join our events to see the impact of your donation firsthand.\r\n" + 
+    			"\r\n" + 
+    			"Thank you again for your kindness and generosity. You are making a difference in the lives of many.\r\n" + 
     			"\r\n" + 
     			"Sincerely,\r\n" + 
-    			"MerryMeal";
+    			"\r\n" + 
+    			"Meals on Wheels Team";
     	
     	emailSender.sendEmail(toEmail, subject, body);
-    
-		dService.save(donation);
+    	
 		return "Donator/confirmation";
 	}
 

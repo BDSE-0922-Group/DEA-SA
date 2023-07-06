@@ -105,7 +105,7 @@ public class DashboardController {
     	long uId = user.getId();
     	
     	List<Donation> donation = dService.getSpecificDonation(uId);
-    	List<Donation> recent = donation.subList(Math.max(donation.size() - 3, 0), donation.size());
+    	List<Donation> recent = donation.subList(Math.max(donation.size() - 5, 0), donation.size());
 		
 		model.addAttribute("total_donation_amount", total_donation_amount);
 		model.addAttribute("average_donation_amount", average_donation_amount);

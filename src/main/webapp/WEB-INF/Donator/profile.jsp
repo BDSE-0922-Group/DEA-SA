@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="../header.jsp">
 	<jsp:param value="Profile" name="HTMLtitle" />
 </jsp:include>
@@ -14,9 +15,30 @@
 		<c:set var="gender" value="${u.gender}"></c:set>
 	</c:forEach>
 
+	<div class="align-center success-popup">
+		<span class="material-icons">done</span>
+		<p id="error-text" class="pFont success-text">${success_msg}</p>
+		<button class="btnAnimation icon material-icons"
+			onclick="closeSuccess()">close</button>
+	</div>
+
 	<div id="profile-card" class="align-center flex-col pFont">
-		<img src="https://placehold.co/300x300" alt="profile picture"
-			width="300" height="300" />
+		<c:if test="${gender == 'Male'}">
+			<img src="images/Profile-male.svg" alt="profile picture" width="300"
+				height="300" />
+		</c:if>
+		<c:if test="${gender == 'Female'}">
+			<img src="images/Profile-female.svg" alt="profile picture"
+				width="300" height="300" />
+		</c:if>
+		<c:if test="${gender == 'Prefer not to say'}">
+			<img src="images/Profile-wildcard.png" alt="profile picture"
+				width="300" height="300" />
+		</c:if>
+		<c:if test="${gender == null}">
+			<img src="images/Profile-wildcard.png" alt="profile picture"
+				width="300" height="300" />
+		</c:if>
 		<h4>${name}</h4>
 		<ul id="user-details" class="flex-col list-style-none">
 			<c:if test="${ (gender == null) }">
@@ -51,37 +73,41 @@
 		<button class="btnAnimation icon material-icons"
 			onclick="closeFormError()">close</button>
 	</div>
+	
 	<h3 class="modal-heading">Edit Profile</h3>
-	<form id="editProfileForm" class="align-center flex-col form"
-		onsubmit="validateEditProfile(event)">
+	<sf:form id="editProfileForm" class="align-center flex-col form"
+		onsubmit="validateEditProfile(event)" action="update-profile"
+		method="post" modelAttribute="user">
 		<div class="input-group">
-			<input required="true" type="text" name="gender" autocomplete="off"
-				id="fullname" class="input" onkeyup="validateFullname()"> <label
+			<input required="true" type="text" name="name" path="name"
+				autocomplete="off" id="fullname" class="input"
+				onkeyup="validateFullname()" value="${name}" /> <label
 				class="user-label">Name</label>
 		</div>
 		<div class="input-group">
 			<label class="select-label">Gender</label> <select id="gender"
-				class="input-select" name="gender">
-				<option value="" selected disabled hidden>Choose here</option>
-				<option value="male">Male</option>
-				<option value="female">Female</option>
-				<option value="prefers not to say">Prefers not to say</option>
+				class="input-select" name="gender" path="gender">
+				<option selected disabled hidden>Select gender</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Prefer not to say">Prefer not to say</option>
 			</select>
 		</div>
 		<div class="input-group">
-			<input required="true" type="text" name="gender" autocomplete="off"
-				class="input" /> <label class="user-label">Address</label>
+			<input required="true" type="text" name="address" path="address"
+				autocomplete="off" class="input" value="${address}" /> <label
+				class="user-label">Address</label>
 		</div>
 		<div class="input-group">
-			<input required="true" type="text" name="mobile" autocomplete="off"
-				id="mobile" class="input" /> <label class="user-label">Mobile
-				No.</label>
+			<input required="true" type="text" name="mobile" path="mobile"
+				autocomplete="off" id="mobile" class="input" value="${mobile}" /> <label
+				class="user-label">Mobile No.</label>
 
 		</div>
 
 		<button class="submit-btn btnAnimation"
-			style="background-color: var(- -success);">Save</button>
-	</form>
+			style="background-color: var(- -success);" type="submit">Save</button>
+	</sf:form>
 	<button id="closeEditProfile" class="material-icons modal-close">close</button>
 	</dialog>
 
@@ -95,6 +121,7 @@
 					<th>Contact No.</th>
 					<th>Currency</th>
 					<th>Amount</th>
+					<th>Date</th>
 				</tr>
 			</thead>
 			<tbody class="pFont">
@@ -106,6 +133,7 @@
 							<td>${d.getContact()}</td>
 							<td>${d.getCurrency()}</td>
 							<td>${d.getAmount()}</td>
+							<td>${d.getDate()}</td>
 						</tr>
 					</c:forEach>
 				</c:if>

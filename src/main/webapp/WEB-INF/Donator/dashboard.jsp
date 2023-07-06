@@ -13,7 +13,7 @@
 		</div>
 		<div class="card">
 			<h4 class="card-heading">Total Donations Made</h4>
-			<p class="data">${total_donation}Donations</p>
+			<p class="data">${total_donation}&nbspDonations</p>
 		</div>
 		<div class="card">
 			<h4 class="card-heading">Average Donation Amount</h4>
@@ -39,6 +39,7 @@
 					<th>Contact No.</th>
 					<th>Currency</th>
 					<th>Amount</th>
+					<th>Date</th>
 				</tr>
 			</thead>
 			<tbody class="pFont">
@@ -50,6 +51,7 @@
 							<td>${r.getContact()}</td>
 							<td>${r.getCurrency()}</td>
 							<td>${r.getAmount()}</td>
+							<td>${r.getDate()}</td>
 						</tr>
 					</c:forEach>
 				</c:if>

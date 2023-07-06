@@ -568,6 +568,29 @@ tr .delete {
   margin-left: auto;
 }
 
+/*----------  Success message  ----------*/
+.success-popup {
+  background-color: var(--lightBg);
+  border-radius: 10px;
+  gap: 1rem;
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top:  200px;
+  visibility: hidden;
+  z-index: 15;
+}
+.success-popup .material-icons {
+  color: var(--success);
+  font-size: 2rem;
+}
+.success-text{
+  color: var(--success);
+  font-weight: bold;
+}
+.success-popup button {
+  margin-left: auto;
+}
 
 /* INFO PAGES */
 .info-heading {
