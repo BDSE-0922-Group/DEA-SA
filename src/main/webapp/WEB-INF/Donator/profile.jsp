@@ -71,8 +71,9 @@
 				class="input" /> <label class="user-label">Address</label>
 		</div>
 		<div class="input-group">
-			<input required="true" type="text" name="gender" autocomplete="off"
-				class="input" /> <label class="user-label">Mobile No.</label>
+			<input required="true" type="text" name="mobile" autocomplete="off"
+				id="mobile" class="input" /> <label class="user-label">Mobile No.</label>
+				
 		</div>
 		
 		<button class="submit-btn btnAnimation" style="background-color: var(--success);">Save</button>

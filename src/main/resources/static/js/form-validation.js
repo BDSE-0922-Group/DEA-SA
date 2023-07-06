@@ -9,13 +9,14 @@ const success = "#5cb85c";
 
 // FIELD TAGS
 const regForm = document.getElementById("registration");
-const editProfile = document.getElementById("editProfleForm");
+const editProfile = document.getElementById("editProfileForm");
 const fullname = document.getElementById("fullname");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const role = document.getElementById("role");
 const gender = document.getElementById("gender");
+const mobile = document.getElementById("mobile");
 
 // REGEX
 var numberRegex = /\d/;
@@ -114,13 +115,14 @@ function validateEditProfile(event) {
         showErrorPopup();
         fullname.focus();
         return false;
-    } // ROLE SELECTION
+    } // GENDER SELECTION
     else if (gender.value === "") {
         gender.style.borderColor = error;
         errorMessage = "Please select a gender";
         showErrorPopup();
         gender.focus();
-    }else {
+    }
+    else {
     	editProfile.submit();
     	}
     }
