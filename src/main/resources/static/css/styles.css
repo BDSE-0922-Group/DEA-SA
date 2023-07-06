@@ -497,6 +497,8 @@ tr .delete {
 }
 .card-image {
   border-radius: 10px;
+  height: 250px;
+  objet-fit: cover;
 }
 .card-heading {
   color: var(--white);
@@ -509,14 +511,13 @@ tr .delete {
 }
 .card-link {
   background-color: var(--secondary);
-  color: var(--lightBg);
+  color: var(--darkBg);
   display: block;
   margin-top: auto;
   padding: 0.3rem 0.5rem;
   text-decoration: none;
   width: fit-content;
 }
-
 
 /*----------  Login Success  ----------*/
 .login-popup {
@@ -563,7 +564,31 @@ tr .delete {
   margin-left: auto;
 }
 
-/* INFO PAGES */
+/*----------  Success message  ----------*/
+.success-popup {
+  background-color: var(--lightBg);
+  border-radius: 10px;
+  gap: 1rem;
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top:  200px;
+  visibility: hidden;
+  z-index: 15;
+}
+.success-popup .material-icons {
+  color: var(--success);
+  font-size: 2rem;
+}
+.success-text{
+  color: var(--success);
+  font-weight: bold;
+}
+.success-popup button {
+  margin-left: auto;
+}
+
+/*----------  Info Pages  ----------*/
 .info-heading {
 	color: var(--darkBg);
 	font-family: var(--hFont);

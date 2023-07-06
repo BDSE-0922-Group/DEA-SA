@@ -26,7 +26,7 @@ public class Meal {
 	private String availability;
 
 //	CONSTRUCTORS
-	public Meal () {
+	public Meal() {
 		
 	}
 	public Meal(Long id, String name, String description, String photos, String photoImagePath, String availability) {

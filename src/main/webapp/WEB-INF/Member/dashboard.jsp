@@ -21,10 +21,10 @@
 
 				<c:if test="${m.availability == 'true'}">
 					<div class="card pFont">
-						<img src="${m.photoImagePath}" alt="${m.photos}" />
+						<img class="card-image" src="${m.photoImagePath}" alt="${m.photos}" />
 						<h4 class="card-heading">${m.name}</h4>
 						<p class="card-desc">${m.description}</p>
-						<a href="" class="card-link">View Details</a>
+						<a href="order" class="card-link">Order</a>
 					</div>
 				</c:if>
 			</c:forEach>

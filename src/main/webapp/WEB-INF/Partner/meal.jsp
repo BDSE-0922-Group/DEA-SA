@@ -28,7 +28,7 @@
 			</div>
 			<div class="input-group">
 				<label class="select-label">Meal Availability</label> <select
-					class="input-select" name="role">
+					class="input-select" name="availability">
 					<option value="true" selected>Available</option>
 					<option value="false">Not Available</option>
 				</select>

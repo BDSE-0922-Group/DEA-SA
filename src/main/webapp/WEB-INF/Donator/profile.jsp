@@ -13,7 +13,14 @@
 		<c:set var="address" value="${u.address}"></c:set>
 		<c:set var="gender" value="${u.gender}"></c:set>
 	</c:forEach>
-
+	
+	<div class="align-center success-popup">
+		<span class="material-icons">done</span>
+		<p id="error-text" class="pFont success-text">Success here</p>
+		<button class="btnAnimation icon material-icons"
+			onclick="closeSuccess()">close</button>
+	</div>
+	
 	<div id="profile-card" class="align-center flex-col pFont">
 		<img src="https://placehold.co/300x300" alt="profile picture"
 			width="300" height="300" />

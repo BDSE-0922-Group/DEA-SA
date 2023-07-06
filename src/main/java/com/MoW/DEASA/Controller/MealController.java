@@ -61,8 +61,6 @@ public class MealController {
 		meal.setPhotoImagePath("/images/meal-photo/" + savedMeal.getId() + "/" + savedMeal.getPhotos());
 
 		mealService.save(meal);
-
-		ra.addFlashAttribute("success_post", "Post has been saved successfully");
 		
 		return "Partner/dashboard";
 	}

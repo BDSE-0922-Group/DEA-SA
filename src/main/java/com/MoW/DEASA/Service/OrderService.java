@@ -27,4 +27,8 @@ public class OrderService {
 		return orderRepo.findAll();
 	}
 	
+	public List<Orders> getSPecificOrders(Long id) {
+		return orderRepo.findByRecipientId(id);
+	}
+	
 }
