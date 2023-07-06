@@ -91,33 +91,33 @@ public class DashboardController {
 		System.out.println("Logged in as Volunteer");
 	}
 
-	public void donatorDashboard(Model model, Principal principal) {
-
-		Double[] total_donations = (dService.getAllDonations().stream().map(Donation::getAmount)
-				.toArray(Double[]::new));
-
+	public void donatorDashboard(Model model, Principal principal) {	
+		
+		Double[] total_donations = (dService.getAllDonations().stream().map(Donation::getAmount).toArray(Double[]::new));
+		
 		double total_donation_amount = sum(total_donations);
-
-		double ave_not_rounded = total_donation_amount / total_donations.length;
-
+		
+		double ave_not_rounded = total_donation_amount/total_donations.length;
+		
 		double average_donation_amount = Math.round(ave_not_rounded * 100.0) / 100.0;
-
+		
 		int total_donation = total_donations.length;
-
-		String username = principal.getName();
-
-		User user = userService.findLoginUser(username);
-
-		long uId = user.getId();
-
-		List<Donation> recent = dService.getSpecificDonation(uId);
-
+				
+    	String username = principal.getName();
+    	
+    	User user = userService.findLoginUser(username);
+    	
+    	long uId = user.getId();
+    	
+    	List<Donation> donation = dService.getSpecificDonation(uId);
+    	List<Donation> recent = donation.subList(Math.max(donation.size() - 5, 0), donation.size());
+		
 		model.addAttribute("total_donation_amount", total_donation_amount);
 		model.addAttribute("average_donation_amount", average_donation_amount);
 		model.addAttribute("total_donation", total_donation);
 		model.addAttribute("recent", recent);
 
-		System.out.println("Logged in as Donator");
+        System.out.println("Logged in as Donator");
 	}
 
 	public static Double sum(final Double[] doubles) {

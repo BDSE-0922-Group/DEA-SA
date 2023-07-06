@@ -11,4 +11,5 @@ import com.MoW.DEASA.Entity.Orders;
 public interface OrderRepository extends JpaRepository<Orders, Long> {
 
 	List<Orders> findByRecipientId(Long id);
+	
 }
