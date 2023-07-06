@@ -37,6 +37,7 @@
 			other. Indulge in extraordinary flavors, discover new tastes, and
 			savor memorable moments with every bite. We are here to make your
 			dining experience a merry one!
+			</p>
 	</div>
 </main>
 
