@@ -5,9 +5,9 @@
         navMenu.classList.toggle("opened");
     };
 
-    //  FORM ERROR 
+    // FORM ERROR
     if ($('.error-text').is(':empty')) {
-        // ERROR TEXT HIDDEN BY DEFAULT 
+        // ERROR TEXT HIDDEN BY DEFAULT
         $(".error-popup").css("visibility", "hidden");
     } else {
         $(".error-popup").css("visibility", "visible");
@@ -20,11 +20,38 @@
         $(".error-popup").fadeOut("fast");
     }
     
-//  LOGIN POPUP
+    // LOGIN POPUP
     if ($('.login-text').is(':empty')) {
-        // LOGIN TEXT HIDDEN BY DEFAULT 
+        // LOGIN TEXT HIDDEN BY DEFAULT
     	$('.login-text').css("visibility", "hidden");
     } else {
         $(".login-popup").css("visibility", "visible");
     	$(".error-popup").fadeIn("fast");
     }
+    
+    // LOGOUT POPUP
+    if ($('#logoutText').is(':empty')) {
+        // ERROR TEXT HIDDEN BY DEFAULT
+        $("#logoutPopup").css("visibility", "hidden");
+    } else {
+        $("#logoutPopup").css("visibility", "visible");
+        $("#logoutPopup").fadeIn("fast");
+        setTimeout(function () {
+            $("#logoutPopup").fadeOut("fast");
+        }, 5000);
+    }
+    
+
+    // MODAL
+    const modal = document.querySelector("#editProfileModal");
+    const openModal = document.querySelector("#editProfile");
+    const closeModal = document.querySelector("#closeEditProfile");
+    
+    openModal.addEventListener("click", () => {
+    	  modal.showModal();
+    	});
+
+    	closeModal.addEventListener("click", () => {
+    	  modal.close();
+    	});
+    

@@ -4,11 +4,11 @@
 
     <main class="bg1 align-center justify-center">
 
-        <div class="align-center confirmation-card flex-col">
+        <div class="align-center util-card flex-col">
             <img src="images/Confirmation.svg" alt="Confirmation" width="400" height="300" />
             <p class="hFont text-align-center">Registration Successful
             </p>
-            <a href="login" class="pFont text-deco-none">Click here to Login</a>
+            <a href="login" class="btnAnimation pFont text-deco-none">Click here to Login</a>
         </div>
 
     </main>

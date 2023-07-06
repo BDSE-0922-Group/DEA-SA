@@ -21,4 +21,24 @@ public class MealsOnWheelsController {
 	public String accessDeniedPage() {
 		return "Common/access-denied";
 	}
+	
+	@GetMapping("about-us")
+	public String AboutUsPage() {
+		return "Common/About-Us";
+	}
+
+	@GetMapping("terms-and-conditions")
+	public String TermsAndConditionsPage() {
+		return "Common/Terms-and-Conditions";
+	}
+
+	@GetMapping("contact-us")
+	public String ContactUsPage() {
+		return "Common/Contact-Us";
+	}
+
+	@GetMapping("privacy-policy")
+	public String PrivacyPolicyPage() {
+		return "Common/Privacy-Policy";
+	}
 }

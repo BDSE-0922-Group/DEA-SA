@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.MoW.DEASA.Entity.Donation;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
+import com.MoW.DEASA.Service.DonationService;
+import com.MoW.DEASA.Service.EmailSenderService;
 import com.MoW.DEASA.Service.UserService;
 
 @Controller
@@ -22,6 +25,12 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	DonationService dService;
+	
+	@Autowired
+	EmailSenderService emailSender;
 	
     @GetMapping("login")
     public String onLogin() {
@@ -71,7 +80,7 @@ public class LoginController {
     	String success_logout = "Successfully logged out! Click here to login.";
         model.addAttribute("success_logout", success_logout);
     	
-    	return "Common/home";
+    	return "redirect:home";
     }
     
     @GetMapping("register")
@@ -89,6 +98,13 @@ public class LoginController {
     	
     	if (userService.findUsername(user.getUserName()) == null|| userService.findUsername(user.getUserName()).getUserName() == null ) {
     		userService.save(user, role);
+
+        	String toEmail = user.getEmail();
+        	String subject = "Confirmation email for account registration in Meals on Wheels";
+        	String body = "Thank you for registering with our website. Your account has been successfully created and you can now access our online services. We hope you enjoy your experience with us.";
+        	
+        	emailSender.sendEmail(toEmail, subject, body);
+        	
     		return "Auth/confirmation";	
     	}
     	
@@ -138,7 +154,7 @@ public class LoginController {
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Donator")) {
-    			donatorProfile();
+    			donatorProfile(model, principal);
     			return userRole + "/profile";
     		}
 		}
@@ -165,8 +181,16 @@ public class LoginController {
         System.out.println("View profile as Volunteer");
 	}
 	
-	public void donatorProfile() {	
-        System.out.println("View profile as Donator");
+	public void donatorProfile(Model model, Principal principal) {
+    	String username = principal.getName();
+    	
+    	User user = userService.findLoginUser(username);
+    	
+    	long uId = user.getId();
+    	
+    	List<Donation> donation = dService.getSpecificDonation(uId);
+    	
+		model.addAttribute("donation", donation);
 	}
 	
 	@PostMapping("update-profile")

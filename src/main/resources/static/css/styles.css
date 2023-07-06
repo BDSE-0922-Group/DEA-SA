@@ -25,6 +25,10 @@
     margin: 0px;
   }
   
+  body {
+  overflow-x: hidden;
+  }
+  
   main {
     background-position: center;
     background-repeat: no-repeat;
@@ -33,6 +37,7 @@
     margin-top: 80px;
     min-height: 100vh;
     width: 100%;
+    max-width: 100%;
   }
   main.home {
     padding-top: 75px;
@@ -174,18 +179,19 @@
   }
   
   /*----------  FORMS  ----------*/
-  .form-card {
-    background-color: var(--darkBg);
-    border-radius: 10px;
-    height: fit-content;
-    padding: 1rem 0.5rem;
-    width: 350px;
-  }
-  .form-heading {
-    color: var(--white);
-    font-family: var(--hFont);
-    font-size: 2.5rem;
-  }
+.form-card {
+	background-color: var(--darkBg);
+	border-radius: 10px;
+	height: fit-content;
+	margin: 3rem 0rem;
+	padding: 1rem 0.5rem;
+	width: 350px;
+}
+.form-heading {
+	color: var(--white);
+	font-family: var(--hFont);
+	font-size: 2.5rem;
+}
 .form {
     gap: 1.25rem;
     margin-top: 1.25rem;
@@ -193,6 +199,9 @@
 .input-group {
     font-family: var(--pFont);
     position: relative;
+}
+input {
+	caret-color: var(--paragraph);
 }
 .input {
     background: none;
@@ -221,11 +230,20 @@
     padding: 0.5em;
     transform: translateY(-50%) scale(0.8);
 }
+.input .disabled {
+	
+}
 #currency {
   width: 70px;
 }
 #donation-amount {
   width: 145px;
+}
+
+/* TEXT AREA */
+.input-textarea {
+	font-family: var(--pFont);
+	resize: none;
 }
 
 /* DROPDOWN SELECTION */
@@ -244,44 +262,98 @@ select.input-select:focus {
     border: 1px solid var(--tertiary)
 }
 .select-label {
-        color: var(--white);
-        margin-right: 5px;
+	color: var(--white);
+	margin-right: 5px;
+}
+
+/* FILE UPLOAD */
+label.file-input {
+	color: var(--tertiary);
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+#photo  {
+	background-color: var(--lightBg);
+	border-radius: 4px;
+	color: var(--paragraph);
+	cursor: pointer;
+	display: inline-block;
+	max-width: 300px;
+	padding: 6px 12px;
+}
+.imagePreview {
+	height: fit-content;
+	width: 300px;
+}
+.imagePreview img {
+	border-radius: 5px;
 }
 
 /* SUBMIT BTN */
 .submit-btn {
-    background-color: var(--secondary);
-    border: none;
-    border-radius: 3px;
-    color: var(--darkBg);
-    font-family: var(--pFont);
-    font-weight: bold;
-    padding: 0.7rem 1rem;
-    text-transform: uppercase;
-    transition: 0.2s ease-out;
+	background-color: var(--secondary);
+	border: none;
+	border-radius: 3px;
+	color: var(--darkBg);
+	cursor: pointer;
+	font-family: var(--pFont);
+	font-weight: bold;
+	padding: 0.7rem 1rem;
+	text-transform: uppercase;
+	transition: 0.2s ease-out;
 }
 
 /* FORM ALT LINK */
 .formDivider {
-  border: 1px solid var(--paragraph);
-  margin: 1rem 0rem;
-  width: 95%;
+	border: 1px solid var(--paragraph);
+	margin: 1rem 0rem;
+	width: 95%;
 }
 .altFormLink {
-  color: var(--tertiary);
+	color: var(--tertiary);
+	width: fit-content
 }
 .altFormLink:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
-/* CONFIRMATION*/
+/* MODAL UTIL */
+.modal {
+	background-color: var(--darkBg);
+	border: 5px solid var(--secondary);
+	border-radius: 10px;
+	height: 500px;
+	margin: 7rem auto;
+	width: 325px;
+}
+.modal::backdrop {
+	background-color: #2e2828;
+	opacity: .5;
+}
+.modal-heading {
+	color: var(--white);
+	font-family: var(--hFont);
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+}
+.modal-close {
+	background-color: var(--primary);
+	font-size: 3rem;
+	padding: 5px;
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+}
+
+/* UTIL */
 .util-card {
-    background-color: var(--white);
-    border-radius: 5px;
-    gap: 1rem;
-    height: fit-content;
-    padding: 2rem;
-    width: 600px;
+	background-color: var(--white);
+	border-radius: 5px;
+	gap: 1rem;
+	height: fit-content;
+	padding: 2rem;
+	width: 600px;
 }
 .util-card p {
     color: var(--darkBg);
@@ -300,37 +372,38 @@ select.input-select:focus {
 
 /* ERROR PAGE */
 p.util-text {
-  color: var(--darkBg);
-  font-size: 1.1rem;
-  font-weight: normal;
+	color: var(--darkBg);
+	font-size: 1.1rem;
+	font-weight: normal;
 }
 .util-card button {
-  background-color: var(--darkBg);
-  padding: 0.7rem 1rem;
-  color: var(--white);
-  transition: 0.3s ease-out;
+	background-color: var(--darkBg);
+	padding: 0.7rem 1rem;
+	color: var(--white);
+	transition: 0.3s ease-out;
 }
 .util-card button:hover {
-  color: var(--secondary);
+	color: var(--secondary);
 }
 
    /*----------  Dashboard Utility Classes  ----------*/
-   .dashboard-heading {
-    color: var(--darkBg);
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin: 3rem 1rem 2rem;
-   }
-   .dashboard-nav {
-    background-color: var(--darkBg);
-    border-radius: 5px;
-    gap: 1.5rem;
-    height: fit-content;
-    margin-top: 10px;
-    padding: 0.5rem 1rem;
-    width: fit-content;
-   }
+.dashboard-heading {
+	color: var(--darkBg);
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing: 3px;
+	margin: 3rem 1rem 2rem;
+}
+.dashboard-nav {
+	background-color: var(--darkBg);
+	border-radius: 5px;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	height: fit-content;
+	margin-top: 10px;
+	padding: 0.5rem 1rem;
+	width: fit-content;
+}
 .dashboard-nav button {
     background-color: var(--tertiary);
     border-radius: 3px;
@@ -346,36 +419,41 @@ p.util-text {
 .dashboard-nav button:active {
     transform: scale(0.95);
 }
-
-   .dashboard-panel {
-    background-color: var(--darkBg);
-    border-radius: 5px;
-    height: fit-content;
-    margin: 2rem 0rem 10rem;
-    min-width: 600px;
-    padding: 1rem 0.5rem;
-    width: fit-content;
-   }
-   .dashboard-panel h3 {
-    color: var(--white);
-    font-family: var(--hFont);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-   }
-   thead.hFont {
-        color: var(--tertiary);
-        text-transform: uppercase;
-   }
-   .dashboard-table th, td {
-    padding: 0.5rem 1rem;
-    text-align: center;
-    color: var(--paragraph);
-   }
+.dashboard-panel {
+background-color: var(--darkBg);
+border-radius: 5px;
+height: fit-content;
+margin: 2rem 1rem 10rem;
+padding: 1rem 0.5rem;
+max-width: 100%;
+overflow-x: scroll;
+}
+.panel-table {
+	width: 80rem;
+}
+.dashboard-panel h3 {
+	color: var(--white);
+	font-family: var(--hFont);
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+thead.hFont {
+    color: var(--tertiary);
+    text-transform: uppercase;
+}
+.dashboard-table th, td {
+	padding: 0.5rem 1rem;
+	text-align: center;
+	color: var(--paragraph);
+}
+#donationTable {
+	width: 100%;
+}
 tr a, button {
-  border-radius: 5px;
-  color: var(--white);
-  padding: 3px;
-  text-decoration: none;
+	border-radius: 5px;
+	color: var(--white);
+	padding: 3px;
+	text-decoration: none;
    }
 tr a,button:hover {
     transform: scale(1.1);
@@ -489,6 +567,96 @@ tr .delete {
 .error-popup button {
   margin-left: auto;
 }
+
+
+/* INFO PAGES */
+.info-heading {
+	color: var(--darkBg);
+	font-family: var(--hFont);
+	font-size: 2.25rem;
+	font-weight: bold;
+	letter-spacing: 3px;
+	margin: 1rem auto;
+	text-align: center;
+}
+.info-container {
+	background-color: var(--white);
+	border-radius: 5px;
+	padding: 2rem 2rem 3rem;
+	margin: 5rem 2rem 1rem;
+	width: 600px;
+}
+.no-m-bot {
+	margin-bottom: 0rem;
+}
+.info-card-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-evenly;
+	margin: 1rem 2rem 1rem;
+	width: fit-content;
+}
+.info-card {
+	align-items: center;
+	background-color: var(--white);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 1rem;
+	width: 250px;
+}
+.accordion {
+	cursor: pointer;
+	margin-bottom: 1.5rem;
+}
+.accordion summary {
+	background-color: var(--darkBg);
+	border-radius: 5px;
+	color: var(--white);
+	font-family: var(--hFont);
+	font-weight: bold;
+	letter-spacing: 3px;
+	padding: 0.5rem 1rem;
+	transition: 0.1s ease-out;
+}
+.accordion summary:hover {
+	color: var(--tertiary);
+}
+.accordion summary:active {
+	transform: scale(0.98);
+}
+.accordion ul {
+	padding: 1rem 1rem 1rem 2.5rem;
+}
+.accordion li {
+	color: var(--darkBg);
+	font-family: var(--pFont);
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+.info-subHeading {
+	color: var(--darkBg);
+	font-family: var(--hFont);
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 1.5rem auto 1rem;
+	text-align: center;
+}
+.info-paragraph {
+	text-align: justify;
+}
+.info-paragraph br {
+	display: block;
+	margin-bottom: 1rem;
+}
+span.info-date {
+	color: var(--lightBg);
+	display: block;
+	font-family: var(--pFont);
+	margin: 1rem 0rem 0rem;
+}
+
   /*=====  End of Utility Classes  ======*/
   
   
@@ -866,18 +1034,27 @@ text-align: center;
   margin: auto;
 }
 /* Testing */
-#chartContainer {
-  border: 2px dashed red;
+#chart {
   flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 0rem;
 }
-#chartContainer div {
+#chart div{
   background-size: cover;
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
 }  
 
+#chartContainer {
+  width: 100%;
+  height: 100%;
+}
+
+#pieChart {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 900px !important;
+  height: 450px !important;
+}
 /*  Profile page */
 #profile-card {
   background-color: var(--darkBg);
@@ -924,6 +1101,17 @@ text-align: center;
   =            Break Points            =
   =============================================*/
   
+    /*----------  1400 PX  ----------*/
+  @media only screen and (max-width: 1400px) {
+    #chart div {
+    	width: 380px;
+    	height: 380px;
+    }
+    #pieChart {
+      width: 760px !important;
+      height: 380px !important;
+    }
+  }
   /*----------  1200 PX  ----------*/
   @media only screen and (max-width: 1200px) {
     #homeCard {
@@ -941,6 +1129,14 @@ text-align: center;
     #motorcycle {
       width: 275px
     }
+    #chart div {
+    	width: 350px;
+    	height: 350px;
+    }
+    #pieChart {
+      width: 700px !important;
+      height: 350px !important;
+    }
   }
   
   /*----------  1080 PX  ----------*/
@@ -950,6 +1146,14 @@ text-align: center;
     }
     #homeCard h2 {
       font-size: 2rem;
+    }
+    #chart div {
+    width: 740px;
+    height: 400px;
+    }
+    #pieChart {
+      width: 740px !important;
+      height: 370px !important;
     }
   }
   
@@ -975,6 +1179,17 @@ text-align: center;
     .util-card img {
       width: 250px;
     }
+    .info-container {
+    	width: fit-content;
+    }
+    #chart div {
+      width: 700px;
+      height: 400px;
+    }
+    #pieChart {
+      width: 700px !important;
+      height: 350px !important;
+    }
   }
   @media only screen and (min-width: 768px) {
     #headerMenuBtn {
@@ -988,6 +1203,17 @@ text-align: center;
       align-items: center;
       flex-direction: column;
       gap: 2rem;
+    }
+    .panel-table {
+    font-size: 0.75rem;
+    }
+    #chart div {
+    width: 600px;
+    height: 400px;
+    }
+    #pieChart {
+      width: 600px !important;
+      height: 300px !important;
     }
   }
   
@@ -1003,6 +1229,21 @@ text-align: center;
       flex-direction: column-reverse;
       gap: 2rem;
       margin-top: 1rem;
+    }
+    .dashboard-panel {
+	    display: block !important;
+	    max-width: 90vw;
+    }
+    .panel-table {
+    width: 110vw;
+    }
+    #chart div {
+    width: 500px;
+    height: 400px;
+    }
+    #pieChart {
+      width: 500px !important;
+      height: 250px !important;
     }
   }
   
@@ -1020,6 +1261,14 @@ text-align: center;
     .util-card {
       width: 300px;
     }
+    #chart div {
+    width: 400px;
+    height: 400px;
+    }
+    #pieChart {
+      width: 400px !important;
+      height: 200px !important;
+    }
   }
   
   /*----------  400 PX ----------*/
@@ -1030,6 +1279,14 @@ text-align: center;
     #botLinks {
       flex-direction: column;
       gap: 2.5rem;
+    }
+    #chart div {
+      width: 360px;
+      height: 300px;
+    }    
+    #pieChart {
+      width: 360px !important;
+      height: 180px !important;
     }
   }
   /*=====  End of Break Points  ======*/

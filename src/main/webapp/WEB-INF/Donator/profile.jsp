@@ -33,14 +33,89 @@
 				<li><label>Address:</label>${address}</li>
 			</c:if>
 			<c:if test="${ (mobile == null) }">
-			<li><label>Mobile No.:</label>Not specified</li>
+				<li><label>Mobile No.:</label>Not specified</li>
 			</c:if>
 			<c:if test="${ (mobile != null) }">
-			<li><label>Mobile No.:</label>${mobile}</li>
+				<li><label>Mobile No.:</label>${mobile}</li>
 			</c:if>
 		</ul>
 
-		<button id="edit-profile" class="btnAnimation material-icons">edit</button>
+		<button id="editProfile" class="btnAnimation material-icons">edit</button>
+	</div>
+
+	<dialog id="editProfileModal" class="modal">
+
+	<div class="align-center error-popup">
+		<span class="material-icons">error</span>
+		<p id="error-text" class="pFont error-text"></p>
+		<button class="btnAnimation icon material-icons"
+			onclick="closeFormError()">close</button>
+	</div>
+	<h3 class="modal-heading">Edit Profile</h3>
+	<form id="editProfileForm" class="align-center flex-col form"
+		onsubmit="validateEditProfile(event)">
+		<div class="input-group">
+			<input required="true" type="text" name="gender" autocomplete="off"
+				id="fullname" class="input" onkeyup="validateFullname()"> <label
+				class="user-label">Name</label>
+		</div>
+		<div class="input-group">
+			<label class="select-label">Gender</label> <select id="gender"
+				class="input-select" name="gender">
+				<option value="" selected disabled hidden>Choose here</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="prefers not to say">Prefers not to say</option>
+			</select>
+		</div>
+		<div class="input-group">
+			<input required="true" type="text" name="gender" autocomplete="off"
+				class="input" /> <label class="user-label">Address</label>
+		</div>
+		<div class="input-group">
+			<input required="true" type="text" name="mobile" autocomplete="off"
+				id="mobile" class="input" /> <label class="user-label">Mobile
+				No.</label>
+
+		</div>
+
+		<button class="submit-btn btnAnimation"
+			style="background-color: var(- -success);">Save</button>
+	</form>
+	<button id="closeEditProfile" class="material-icons modal-close">close</button>
+	</dialog>
+
+	<div class="align-center flex-col dashboard-panel panel-table">
+		<h3>Table of Recent Donations</h3>
+		<table id="donationTable">
+			<thead class="hFont">
+				<tr>
+					<th>Donation No.</th>
+					<th>Name</th>
+					<th>Contact No.</th>
+					<th>Currency</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tbody class="pFont">
+				<c:if test="${not empty donation}">
+					<c:forEach items="${donation}" var="d" varStatus="status">
+						<tr>
+							<td>${status.count}</td>
+							<td>${d.getName()}</td>
+							<td>${d.getContact()}</td>
+							<td>${d.getCurrency()}</td>
+							<td>${d.getAmount()}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty donation}">
+					<tr>
+						<td colspan="6">No donation made yet</td>
+					</tr>
+				</c:if>
+			</tbody>
+		</table>
 	</div>
 </main>
 
