@@ -1,7 +1,6 @@
 package com.MoW.DEASA.Controller;
 
 import java.security.Principal;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import com.MoW.DEASA.Service.DonationService;
 import com.MoW.DEASA.Service.UserService;
 import com.MoW.DEASA.Repo.EventsRepository;
 import com.MoW.DEASA.Repo.MealRepository;
-import com.MoW.DEASA.Repo.UserRepository;
 
 
 @Controller
@@ -66,7 +64,7 @@ public class DashboardController {
     			return userRole + "/dashboard";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Volunteer")) {
-    			volunteerDashboard();
+    			volunteerDashboard(model);
     			return userRole + "/dashboard";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Donator")) {
@@ -97,10 +95,6 @@ public class DashboardController {
 	
 	public void partnerDashboard() {	
         System.out.println("Logged in as Partner");
-	}
-	
-	public void volunteerDashboard() {	
-        System.out.println("Logged in as Volunteer");
 	}
 	
 	public void volunteerDashboard(Model model) {

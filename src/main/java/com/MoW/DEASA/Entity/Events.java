@@ -14,7 +14,7 @@ public class Events {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	private String name; 
 
 	private String description;
 	
@@ -79,7 +79,10 @@ public class Events {
 				+ ", getVenue()=" + getVenue() + ", getDate()=" + getDate() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
-	
+
+	public Events() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }

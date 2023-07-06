@@ -22,8 +22,8 @@
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<c:if test="${not empty Events}">
-					<c:forEach items="${Events}" var="e" varStatus="status">
+				<c:if test="${not empty events}">
+					<c:forEach items="${events}" var="e" varStatus="status">
 						<tr>
 							<td>${status.count}</td>
 							<td>${e.name}</td>
@@ -33,7 +33,7 @@
 						</tr>
 					</c:forEach>
 				</c:if>
-				<c:if test="${empty Events}">
+				<c:if test="${empty events}">
 						<tr>
 							<td colspan="6">No donation made yet</td>
 						</tr>
