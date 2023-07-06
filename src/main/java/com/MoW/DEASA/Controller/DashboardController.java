@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.MoW.DEASA.Entity.Donation;
+import com.MoW.DEASA.Entity.Events;
 import com.MoW.DEASA.Entity.Meal;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
 import com.MoW.DEASA.Service.DonationService;
 import com.MoW.DEASA.Service.UserService;
+import com.MoW.DEASA.Repo.EventsRepository;
 import com.MoW.DEASA.Repo.MealRepository;
 import com.MoW.DEASA.Repo.UserRepository;
 
@@ -30,6 +32,9 @@ public class DashboardController {
 	
 	@Autowired
 	MealRepository mealRepo;
+	
+	@Autowired 
+	EventsRepository eventRepo;
 	
 	@GetMapping("dashboard") 
 	public String dashboard(Principal principal, Model model) {
@@ -97,6 +102,12 @@ public class DashboardController {
 	public void volunteerDashboard() {	
         System.out.println("Logged in as Volunteer");
 	}
+	
+	public void volunteerDashboard(Model model) {
+			
+			List<Events> events = eventRepo.findAll();
+			model.addAttribute("events", events);
+		}
 	
 	public void donatorDashboard(Model model, Principal principal) {	
 		

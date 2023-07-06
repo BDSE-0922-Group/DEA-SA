@@ -14,5 +14,12 @@ public class MvcConfig implements WebMvcConfigurer{
 	        String mealUploadPath = mealUploadDir.toFile().getAbsolutePath();
 	        
 	        registry.addResourceHandler("/meal-photo/**").addResourceLocations("file:/"+ mealUploadPath + "/");
+	        
+	        Path eventsUploadDir = Paths.get("./events-photo");
+	        String eventsUploadPath = eventsUploadDir.toFile().getAbsolutePath();
+	        
+	        registry.addResourceHandler("/events-photo").addResourceLocations("file:/"+ eventsUploadPath + "/");
 	    }
+	 
+
 }

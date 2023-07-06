@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp">
 	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
@@ -6,61 +7,39 @@
 	<h1 class="dashboard-heading hFont text-align-center">Volunteer Dashboard</h1>
 	
 		<nav class="align-center justify-start dashboard-nav hFont">
-				<button>Add an Event</button>
-			</nav>
-			<div class="align-center flex-col dashboard-panel">
-				<h3>Events Available to Volunteers</h3>
-				<table class="dashboard-table">
-					<thead class="hFont">
+				<a href="post-events"><button>Add an Event</button></a>
+			</nav>	
+	<div class="align-center flex-col dashboard-panel">
+		<h3>Table of Events</h3>
+		<table id="userManagement">
+			<thead class="hFont">
+				<tr>
+					<th>Event No.</th>
+					<th>Event Name</th>
+					<th>Event Description</th>
+					<th>Event Venue</th>
+					<th>Event Date</th>
+				</tr>
+			</thead>
+			<tbody class="pFont">
+				<c:if test="${not empty Events}">
+					<c:forEach items="${Events}" var="e" varStatus="status">
 						<tr>
-							<th>No.</th>
-							<th>Event Name</th>
-							<th>Event Description</th>
-							<th>Event Location</th>
-							<th>Actions</th>
+							<td>${status.count}</td>
+							<td>${e.name}</td>
+							<td>${e.description}</td>
+							<td>${e.venue}</td>
+							<td>${e.date}</td>
 						</tr>
-					</thead>
-					<tbody class="pFont">
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty Events}">
 						<tr>
-							<td>1</td>
-							<td>Sample Event</td>
-							<td>Sample Event Description</td>
-							<td>Sample Event Location</td>
-							<td>
-								<button class="material-icons view">visibility</button>
-								<button class="material-icons edit">edit</button>
-								<button class="material-icons delete">delete</button>
-							</td>
+							<td colspan="6">No donation made yet</td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Sample Event</td>
-							<td>Sample Event Description</td>
-							<td>Sample Event Location</td>
-							<td>
-								<button class="material-icons view">visibility</button>
-								<button class="material-icons edit">edit</button>
-								<button class="material-icons delete">delete</button>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Sample Event</td>
-							<td>Sample Event Description</td>
-							<td>Sample Event Location</td>
-							<td>
-								<button class="material-icons view">visibility</button>
-								<button class="material-icons edit">edit</button>
-								<button class="material-icons delete">delete</button>
-							</td>
-						</tr>
-						
-						<tr>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			</div>
-	
+				</c:if>
+			</tbody>
+		</table>
+	</div>
 </main>
 <jsp:include page="../footer.jsp"></jsp:include>

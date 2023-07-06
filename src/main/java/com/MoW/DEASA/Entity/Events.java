@@ -1,15 +1,10 @@
 package com.MoW.DEASA.Entity;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
-
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
@@ -17,69 +12,74 @@ public class Events {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ev_id;
+	private Long id;
 
-	private String ev_name;
+	private String name;
 
-	private String ev_desc;
+	private String description;
 	
-	private String ev_venue;
+	private String venue;
 	
 	@CreatedDate
-	private String ev_date;
-	
-	@PrePersist
-	private void onCreate() {
-		DateFormat dateOnly = new SimpleDateFormat("EEEEE dd MMMMM yyyy");
+	private String date;
 
-		ev_date = dateOnly.format(new Date());
+	public Events(Long id, String name, String description, String venue, String date) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.venue = venue;
+		this.date = date;
 	}
 
-	public Long getEv_id() {
-		return ev_id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setEv_id(Long ev_id) {
-		this.ev_id = ev_id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getEv_name() {
-		return ev_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setEv_name(String ev_name) {
-		this.ev_name = ev_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getEv_desc() {
-		return ev_desc;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setEv_desc(String ev_desc) {
-		this.ev_desc = ev_desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getEv_venue() {
-		return ev_venue;
+	public String getVenue() {
+		return venue;
 	}
 
-	public void setEv_venue(String ev_venue) {
-		this.ev_venue = ev_venue;
+	public void setVenue(String venue) {
+		this.venue = venue;
 	}
 
-	public String getEv_date() {
-		return ev_date;
+	public String getDate() {
+		return date;
 	}
 
-	public void setEv_date(String ev_date) {
-		this.ev_date = ev_date;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	@Override
 	public String toString() {
-		return "Events [ev_id=" + ev_id + ", ev_name=" + ev_name + ", ev_desc=" + ev_desc + ", ev_venue=" + ev_venue
-				+ ", ev_date=" + ev_date + "]";
+		return "Events [id=" + id + ", name=" + name + ", description=" + description + ", venue=" + venue + ", date="
+				+ date + ", getId()=" + getId() + ", getName()=" + getName() + ", getDescription()=" + getDescription()
+				+ ", getVenue()=" + getVenue() + ", getDate()=" + getDate() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 	
 }

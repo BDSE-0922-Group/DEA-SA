@@ -5,7 +5,7 @@
 <main class="bg2 align-center flex-col">
 	<h2 class="dashboard-heading hFont">Partner Dashboard</h2>
 	<nav class="align-center justify-start dashboard-nav hFont">
-		<button>Add a Meal</button>
+		<a href="post-meal"><button>Add a Meal</button></a>
 	</nav>
 	<div class="align-center flex-col dashboard-panel">
 		<h3>Meals Available to Members</h3>
