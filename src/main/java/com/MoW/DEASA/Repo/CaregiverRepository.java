@@ -23,11 +23,6 @@ public interface CaregiverRepository extends JpaRepository<Caregiver, Long>{
 	
 	List<Caregiver> findByUserId(Long userId);
 	
-	
-	@Query( value = "select r from Caregiver r where r.id = :userId" )
-	List<Caregiver> findAllActiveOrders(@Param("userId") Long userId);
-
-	
 	// Refactor: Break up into smaller get functions.
 	//				- Orders
 	//				- Meal

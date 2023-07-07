@@ -86,9 +86,9 @@ public class DashboardController {
 	}
 
 	public void caregiverDashboard(Model model) {
-
 		// TODO: findDetails(userId) should accept userId from
 		//			the current session.
+		
 		List<Object[]> ordersIndexes = caregiverRepo.findDetails(Long.valueOf(1));
 		model.addAttribute("orderDetails", ordersIndexes);
 		System.out.println("Logged in as Caregiver");
