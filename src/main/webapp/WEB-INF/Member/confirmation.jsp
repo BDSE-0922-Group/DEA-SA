@@ -1,5 +1,5 @@
 <jsp:include page="../header.jsp">
-	<jsp:param value="Confirmation" name="HTMLtitle" />
+	<jsp:param value="Order Confirmed" name="HTMLtitle" />
 </jsp:include>
 
 <jsp:include page="../headerDivider.jsp"></jsp:include>

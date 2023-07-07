@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="../header.jsp">
-	<jsp:param value="Member" name="HTMLtitle" />
+	<jsp:param value="Ongoing Orders" name="HTMLtitle" />
 </jsp:include>
 
 <main class="bg2 align-center flex-col">

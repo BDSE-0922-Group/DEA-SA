@@ -128,6 +128,25 @@ function validateEditProfile(event) {
     }
 
 
+const selectMeal = document.getElementById("meal");
+const ordForm = document.getElementById("orderForm");
+
+//ORDER VALIDATION
+function validateOrder(event) {
+  // STOP FORM FROM BEING SUBMITTED
+  event.preventDefault();
+
+  // DEFAULT
+  if (selectMeal.value === "") {
+      selectMeal.style.borderColor = error;
+      errorMessage = "Please select a meal to order";
+      showErrorPopup();
+  }
+  else {
+  	ordForm.submit();
+  	}
+  }
+
 /*----------  ON CHANGE VALIDATION  ----------*/
 
 // FULLNAME
@@ -168,3 +187,6 @@ function validatePassword() {
         password.style.borderColor = success
     }
 }
+
+
+

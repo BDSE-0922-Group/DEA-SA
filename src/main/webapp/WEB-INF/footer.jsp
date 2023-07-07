@@ -36,15 +36,24 @@
 			</ul>
 
 			<ul id="footLinks" class="align-start flex-col list-style-none">
-				<h5 class="footerSubHeader">Meals</h5>
+				
 				<sec:authorize access="!isAuthenticated()">
+				<h5 class="footerSubHeader">Account</h5>
 					<li><a href="login">Login</a></li>
 					<li><a href="register">Sign Up</a></li>
 				</sec:authorize>
-				<sec:authorize access="isAuthenticated()">
-					<li><a href="Login.html">Order a Meal</a></li>
-					<li><a href="/Registration.html">Order History</a></li>
+				<sec:authorize access="hasRole('Member')">
+				<h5 class="footerSubHeader">Meals</h5>
+					<li><a href="order">Order a Meal</a></li>
+					<li><a href="ongoing-orders">View Pending Orders</a></li>
+					<li><a href="profile">View Order History</a></li>
 				</sec:authorize>
+				<sec:authorize access="hasRole('Donator')">
+				<h5 class="footerSubHeader">Donation</h5>
+					<li><a href="donation">Donate</a></li>
+					<li><a href="profile">View Donation History</a></li>
+				</sec:authorize>
+				
 			</ul>
 		</div>
 

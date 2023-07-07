@@ -15,7 +15,8 @@
 
 	<section class="align-center flex-col form-card">
 		<h3 class="form-heading">Order Meal</h3>
-		<sf:form class="align-center flex-col form" action="place_order"
+		<sf:form id="orderForm" class="align-center flex-col form" action="place_order" 
+		onsubmit="validateOrder(event)"
 			method="post" modelAttribute="order" enctype="multipart/form-data">
 			
 			<sf:input required="true" type="hidden" name="status" autocomplete="off"

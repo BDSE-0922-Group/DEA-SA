@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp">
-	<jsp:param value="Member" name="HTMLtitle" />
+	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
 
 <main class="bg3 align-center flex-col">
