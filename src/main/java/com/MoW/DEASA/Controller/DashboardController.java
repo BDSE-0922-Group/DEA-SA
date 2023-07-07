@@ -56,7 +56,7 @@ public class DashboardController {
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
-				caregiverDashboard(model);
+				caregiverDashboard(model, principal);
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
@@ -85,11 +85,12 @@ public class DashboardController {
 		model.addAttribute("meals", meals);
 	}
 
-	public void caregiverDashboard(Model model) {
-		// TODO: findDetails(userId) should accept userId from
-		//			the current session.
+	public void caregiverDashboard(Model model, Principal principal) {
+		String username = principal.getName();
+		User user = userService.findLoginUser(username);
+		long uId = user.getId();
 		
-		List<Object[]> ordersIndexes = caregiverRepo.findDetails(Long.valueOf(1));
+		List<Object[]> ordersIndexes = caregiverRepo.findDetails(uId);
 		model.addAttribute("orderDetails", ordersIndexes);
 		System.out.println("Logged in as Caregiver");
 	}

@@ -33,21 +33,6 @@
 				</c:forEach>
 				
 			</tbody>
-				<tbody class="pFont">	
-				<c:if test="${not empty order}">
-					<c:forEach items="${order}" var="o">
-						<tr>
-							<td>${o.getName()}</td>
-							<td>${o.getAccDetails()}</td>
-						</tr>
-					</c:forEach>
-				</c:if>
-				<c:if test="${empty order}">
-					<tr>
-						<td colspan="6">No orders yet</td>
-					</tr>
-				</c:if>
-			</tbody>
 		</table>
 	</div>
 </main>
