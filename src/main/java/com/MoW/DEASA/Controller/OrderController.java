@@ -72,15 +72,15 @@ public class OrderController {
 		List<Orders> order = orderRepo.findByRecipientId(id);
 		model.addAttribute("orders", order);
 		
-		Long testId = null;
-		
-		for (Orders ord : order) {
-			testId = ord.getMealId();
-			System.out.println(testId);
-		}
-		
-		List<Meal> orderedMeals = mealRepo.findByid(testId);
-		model.addAttribute("ordMeals", orderedMeals);
+		/*
+		 * Long testId = null;
+		 * 
+		 * for (Orders ord : order) { testId = ord.getMealId();
+		 * System.out.println(testId); }
+		 * 
+		 * List<Meal> orderedMeals = mealRepo.findByid(testId);
+		 * model.addAttribute("ordMeals", orderedMeals);
+		 */
 	
 		return "Member/ongoing-orders";
 	}

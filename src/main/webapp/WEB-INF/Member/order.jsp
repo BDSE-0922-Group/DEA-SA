@@ -21,15 +21,19 @@
 			<sf:input required="true" type="hidden" name="status" autocomplete="off"
 					path="status" class="input" value="ongoing"/>
 			
-			<div class="input-group">
-				<label class="select-label">Meal to Order</label> <select id="meal"
+			<div class="input-group flex-col align-center">
+				<label class="select-label">Choose your meal</label> <select id="meal"
 					class="input-select" name="mealId">
 					
 					<option value="" selected disabled hidden>Choose here</option>
 					
+					
 					<c:forEach items="${meals}" var="meals">
-						<option value="${meals.id}">${meals.name}</option>
+						<c:if test="${meals.availability == 'true'}">
+						<option value="${meals.id}">M-${meals.id}|&nbsp;${meals.name}</option>
+						</c:if>
 					</c:forEach>
+					
 					
 				</select>
 			</div>
