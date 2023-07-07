@@ -50,7 +50,7 @@ public class DashboardController {
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
-				caregiverDashboard();
+				caregiverDashboard(model);
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
@@ -79,7 +79,13 @@ public class DashboardController {
 		model.addAttribute("meals", meals);
 	}
 
-	public void caregiverDashboard() {
+	public void caregiverDashboard(Model model) {
+		
+		// TODO: Return volunteer repo of current user
+		
+		
+		//	List<Meal> volunteer = mealRepo.findAll();
+		//	model.addAttribute("volunteer", volunteer);
 		System.out.println("Logged in as Caregiver");
 	}
 
