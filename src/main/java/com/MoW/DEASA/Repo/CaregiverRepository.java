@@ -12,20 +12,20 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.MoW.DEASA.Entity.Driver;
+import com.MoW.DEASA.Entity.Caregiver;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
 
 @Repository
-public interface DriverRepository extends JpaRepository<Driver, Long>{
+public interface CaregiverRepository extends JpaRepository<Caregiver, Long>{
 	
-	Driver findById(String name);
+	Caregiver findById(String name);
 	
 	// TODO: Get all orders assigned to driver.
 	
 	
-	@Query( value = "SELECT id FROM Driver" )
-	List<Driver> getAllIds();
+	@Query( value = "SELECT id FROM Caregiver" )
+	List<Caregiver> getAllIds();
 }
 
 

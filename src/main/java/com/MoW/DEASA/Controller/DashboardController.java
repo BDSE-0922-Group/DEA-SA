@@ -65,10 +65,6 @@ public class DashboardController {
 				donatorDashboard(model, principal);
 				return userRole + "/dashboard";
 			}
-			if (roleName == userRole && userRole.equalsIgnoreCase("Driver")) {
-				driverDashboard();
-				return userRole + "/dashboard";
-			}
 		}
 		return "redirect:accessdenied";
 	}
@@ -94,11 +90,7 @@ public class DashboardController {
 	public void volunteerDashboard() {
 		System.out.println("Logged in as Volunteer");
 	}
-	
-	public void driverDashboard() {
-		// TODO: Return Driver repo of current user
-		System.out.println("Logged in as Driver");
-	}
+
 
 	public void donatorDashboard(Model model, Principal principal) {	
 		

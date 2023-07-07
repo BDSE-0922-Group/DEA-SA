@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
-public class Driver {
+public class Caregiver {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,11 @@ public class Driver {
 	
 	
 	//	CONSTRUCTORS
-	public Driver() {
+	public Caregiver() {
 		
 	}
 	
-	public Driver(Long id, Long userId, Long orderId) {
+	public Caregiver(Long id, Long userId, Long orderId) {
 		super();
 		this.id = id;
 		this.userId = userId;
