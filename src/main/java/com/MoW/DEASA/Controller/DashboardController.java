@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.MoW.DEASA.Entity.Caregiver;
 import com.MoW.DEASA.Entity.Donation;
 import com.MoW.DEASA.Entity.Meal;
+import com.MoW.DEASA.Entity.Orders;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
 import com.MoW.DEASA.Repo.CaregiverRepository;
@@ -86,15 +87,31 @@ public class DashboardController {
 
 	public void caregiverDashboard(Model model) {
 
+	
+		List<Object[]> ordersIndexes = caregiverRepo.findDetails(Long.valueOf(1));
+		System.out.println(ordersIndexes);
 		
-		List<Caregiver> orders = caregiverRepo.findByUserId(Long.valueOf(1));
-		List<Caregiver> orders2 = caregiverRepo.moveCourseConfirm(Long.valueOf(1));
+		for (Object[] ordersIndex : ordersIndexes) {
+		    Caregiver channel = (Caregiver) ordersIndex[0];
+		    Orders subscription = (Orders) ordersIndex[1];
+		    Meal p = (Meal) ordersIndex[2];
+		    User u = (User) ordersIndex[3];
+		    
+		    System.out.println(channel);
+		    System.out.println(subscription);
+		    System.out.println(p);
+		    System.out.println(u);
+		    
+		    // do something with entities
+		}
 		
-		System.out.println(orders2);
+		// get all order by id
 		
-		model.addAttribute("meals", orders2);
 		
 //		List<Meal> meals = mealRepo.findAll();
+				
+		
+//		model.addAttribute("orders", ordersIndex);
 //		model.addAttribute("meals", meals);
 		System.out.println("Logged in as Caregiver");
 	}

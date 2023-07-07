@@ -1,6 +1,7 @@
 package com.MoW.DEASA.Entity;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -23,7 +25,7 @@ public class Caregiver {
 	private Long userId;
 	
 	private Long orderId;
-	
+
 	
 	//	CONSTRUCTORS
 	public Caregiver() {
@@ -39,7 +41,6 @@ public class Caregiver {
 	
 	
 	//	SET-GET
-
 	public Long getId() {
 		return id;
 	}

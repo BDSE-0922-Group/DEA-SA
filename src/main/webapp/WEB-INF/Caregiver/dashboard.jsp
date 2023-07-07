@@ -14,6 +14,7 @@
 					<th>Order ID</th>
 					<th>Meal Name</th>
 					<th>Ordered By</th>
+					<th>Status</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
