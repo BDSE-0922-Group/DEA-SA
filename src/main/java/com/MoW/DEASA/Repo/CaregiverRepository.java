@@ -29,8 +29,11 @@ public interface CaregiverRepository extends JpaRepository<Caregiver, Long>{
 
 	
 	//HQL query
-	 @Query("SELECT c,o,m,u FROM Caregiver c, Meal m, Orders o, User u " 
-			 + "WHERE c.userId=:userId AND c.orderId=o.id AND o.mealId=m.id AND o.recipientId=u.id")
+	 @Query("SELECT c,o,m,u FROM Caregiver c " 
+			 + "INNER JOIN Orders o ON c.orderId=o.id "
+			 + "LEFT JOIN Meal m ON o.mealId=m.id "
+			 + "LEFT JOIN User u ON o.recipientId=u.id "
+			 + "WHERE c.userId=:userId")
 	 public List<Object[]> findDetails(@Param("userId") Long userId);
 	
 		
