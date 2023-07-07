@@ -2,7 +2,6 @@ package com.MoW.DEASA.Controller;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.MoW.DEASA.Entity.Meal;
 import com.MoW.DEASA.Entity.Orders;
@@ -53,6 +53,22 @@ public class OrderController {
 		
 		orderService.save(orders);
 		return "redirect:order-confirmation";
+	}
+	
+	@PostMapping("order_status")
+	public String updateOrder(@RequestParam Long oid, @ModelAttribute("orders") Orders orders) {
+		
+		List<Orders> orderInfo = orderService.getSPecificOrders(oid);
+		Orders orderRecieved = orderInfo.get(0);
+		
+		System.out.println(orderRecieved);
+		
+		orderRecieved.setStatus("received");
+		
+		orderService.save(orderRecieved);
+		
+		return "redirect:ongoing-orders";
+		
 	}
 	
 	@GetMapping("order-confirmation")

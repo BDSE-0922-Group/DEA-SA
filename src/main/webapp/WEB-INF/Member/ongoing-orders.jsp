@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="../header.jsp">
 	<jsp:param value="Member" name="HTMLtitle" />
 </jsp:include>
@@ -13,15 +14,21 @@
 				<c:set var="id" value="${o.id}"></c:set>
 
 				<c:if test="${o.status == 'ongoing'}">
+
 					<div class="card pFont">
 						<h4 class="card-heading">Meal
 							Ordered&colon;&nbsp;M-${o.mealId}</h4>
 						<p class="card-desc">
 							Request to the kitchen&colon;<br>${o.description}</p>
-						<span style="color: var(- -secondary);">Date
+						<span style="color: var(--secondary);">Date
 							ordered&colon;&nbsp;${o.date }</span>
 
+						<sf:form class="justify-center" modelAttribute="orders"
+						method="post" action="order_status?oid=${o.id}">
+							<button type="submit" class="submit-btn btnAnimation">Order Recieved</button>
+						</sf:form>
 					</div>
+
 				</c:if>
 			</c:forEach>
 		</c:if>

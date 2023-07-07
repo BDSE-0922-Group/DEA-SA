@@ -73,7 +73,7 @@
 		<button class="btnAnimation icon material-icons"
 			onclick="closeFormError()">close</button>
 	</div>
-	
+
 	<h3 class="modal-heading">Edit Profile</h3>
 	<sf:form id="editProfileForm" class="align-center flex-col form"
 		onsubmit="validateEditProfile(event)" action="update-profile"
@@ -125,12 +125,13 @@
 			<tbody class="pFont">
 				<c:if test="${not empty orders}">
 					<c:forEach items="${orders}" var="o" varStatus="status">
-						<tr>
-							<td>${status.count}</td>
-							<td>${o.date}</td>
-							<td>M-${o.mealId}</td>
-							<td>${o.status}</td>
-						</tr>
+
+							<tr>
+								<td>${status.count}</td>
+								<td>${o.date}</td>
+								<td>M-${o.mealId}</td>
+								<td>${o.status}</td>
+							</tr>
 					</c:forEach>
 				</c:if>
 				<c:if test="${empty orders}">

@@ -1,6 +1,7 @@
 package com.MoW.DEASA.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -21,6 +22,10 @@ public class OrderService {
 		orderRepo.save(orders);
 		
 		return "Order has been placed";
+	}
+	
+	public Optional<Orders> getOrderById(Long id) {
+		return orderRepo.findById(id);
 	}
 	
 	public List<Orders> getAllOrders() {
