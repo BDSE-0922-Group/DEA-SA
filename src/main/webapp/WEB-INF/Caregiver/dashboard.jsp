@@ -21,13 +21,14 @@
 			<tbody class="pFont">
 				<c:forEach items="${orderDetails}" var="orderDetails">
 					<tr>
-						<td><option value="${orderDetails[0]}" name="orderId">${orderDetails[0]}</option></td>
-						<td><option value="${orderDetails[1]}" name="mealName">${orderDetails[1]}</option></td>
-						<td><option value="${orderDetails[2]}" name="recipientName">${orderDetails[2]}</option></td>
-						<td><option value="${orderDetails[3]}" name="orderStatus">${orderDetails[3]}</option></td>
+						<td><p value="${orderDetails[0]}" name="orderId">${orderDetails[0]}</p></td>
+						<td><p value="${orderDetails[1]}" name="mealName">${orderDetails[1]}</p></td>
+						<td><p value="${orderDetails[2]}" name="recipientName">${orderDetails[2]}</p></td>
+						<td><p value="${orderDetails[3]}" name="orderStatus">${orderDetails[3]}</p></td>
 						<td>
-							<button class="material-icons view" style="width:50px;">visibility</button>
-							<button class="material-icons delete">delete</button>
+							<form id="orderReceivedForm" class="align-center flex-col form">
+								<button class="material-icons view btnAnimation" name="orderReceived" style="width:80px;">visibility</button>
+							</form>
 						</td>
 					</tr>
 				</c:forEach>
