@@ -28,25 +28,18 @@ public interface CaregiverRepository extends JpaRepository<Caregiver, Long>{
 	List<Caregiver> findAllActiveOrders(@Param("userId") Long userId);
 
 	
+	// Refactor: Break up into smaller get functions.
+	//				- Orders
+	//				- Meal
+	//				- Users
+	
 	//HQL query
-	 @Query("SELECT c,o,m,u FROM Caregiver c " 
+	 @Query("SELECT o.id,m.name,u.name,o.status FROM Caregiver c " 
 			 + "INNER JOIN Orders o ON c.orderId=o.id "
 			 + "LEFT JOIN Meal m ON o.mealId=m.id "
 			 + "LEFT JOIN User u ON o.recipientId=u.id "
 			 + "WHERE c.userId=:userId")
 	 public List<Object[]> findDetails(@Param("userId") Long userId);
-	
-		
-		
-
-//		@Query( value = "SELECT id FROM Caregiver" )
-//		List<Caregiver> getAllOrders();
-
-	 
-//		@Query(nativeQuery = true, value = "SELECT * FROM Caregiver WHERE user_id = :id")
-//		List<Caregiver> moveCourseConfirm(long id);
-		
-	    
 }
 
 

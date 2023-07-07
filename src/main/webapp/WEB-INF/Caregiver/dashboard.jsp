@@ -19,11 +19,14 @@
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<c:forEach items="${meals}" var="meals">
+				<c:forEach items="${orderDetails}" var="orderDetails">
 					<tr>
-						<td><option value="${meals.id}">${meals.id}</option></td>
+						<td><option value="${orderDetails[0]}" name="orderId">${orderDetails[0]}</option></td>
+						<td><option value="${orderDetails[1]}" name="mealName">${orderDetails[1]}</option></td>
+						<td><option value="${orderDetails[2]}" name="recipientName">${orderDetails[2]}</option></td>
+						<td><option value="${orderDetails[3]}" name="orderStatus">${orderDetails[3]}</option></td>
 						<%-- <td><option value="${meals.user_id}">${meals.user_id}</option></td> --%>
-						<td>John Doe</td>
+						<!-- <td>John Doe</td> -->
 						<td>
 							<button class="material-icons view" style="width:50px;">visibility</button>
 							<button class="material-icons delete">delete</button>

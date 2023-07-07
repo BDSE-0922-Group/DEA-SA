@@ -87,32 +87,10 @@ public class DashboardController {
 
 	public void caregiverDashboard(Model model) {
 
-	
+		// TODO: findDetails(userId) should accept userId from
+		//			the current session.
 		List<Object[]> ordersIndexes = caregiverRepo.findDetails(Long.valueOf(1));
-		System.out.println(ordersIndexes);
-		
-		for (Object[] ordersIndex : ordersIndexes) {
-		    Caregiver channel = (Caregiver) ordersIndex[0];
-		    Orders subscription = (Orders) ordersIndex[1];
-		    Meal p = (Meal) ordersIndex[2];
-		    User u = (User) ordersIndex[3];
-		    
-		    System.out.println(channel);
-		    System.out.println(subscription);
-		    System.out.println(p);
-		    System.out.println(u);
-		    
-		    // do something with entities
-		}
-		
-		// get all order by id
-		
-		
-//		List<Meal> meals = mealRepo.findAll();
-				
-		
-//		model.addAttribute("orders", ordersIndex);
-//		model.addAttribute("meals", meals);
+		model.addAttribute("orderDetails", ordersIndexes);
 		System.out.println("Logged in as Caregiver");
 	}
 
