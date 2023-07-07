@@ -25,7 +25,7 @@
 
 						<sf:form class="justify-center" modelAttribute="orders"
 						method="post" action="order_status?oid=${o.id}">
-							<button type="submit" class="submit-btn btnAnimation">Order Recieved</button>
+							<button type="submit" class="submit-btn btnAnimation">Order Received</button>
 						</sf:form>
 					</div>
 

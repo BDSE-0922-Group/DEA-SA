@@ -37,7 +37,11 @@
 					
 				</select>
 			</div>
-			
+			<div class="input-group">
+				<sf:input required="true" name="address"
+					autocomplete="off" path="address" class="input" value="${userAddress}"/>
+				<label class="user-label">Delivery Address</label>
+			</div>
 			<div class="input-group">
 				<sf:textarea rows="5" required="true" name="description"
 					autocomplete="off" path="description" class="input input-textarea" />
