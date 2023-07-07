@@ -15,50 +15,62 @@ public class Driver {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
+	private Long userId;
+	
+	private Long orderId;
+	
 	// Might be redundant when 'order' table exists.
 	private Long recipientId;
 	
-	@Column(name = "ord_id")
-	private Long orderId;
-
-
-//	@CreatedDate
-//	private LocalDate orderDate;
-//	
-//	private LocalDate deliveryDate;
+	
+	//	CONSTRUCTORS
+	public Driver() {
+		
+	}
+	
+	public Driver(Long id, Long userId, Long orderId, Long recipientId) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.orderId = orderId;
+		this.recipientId = recipientId;
+	}
 	
 	
-	private Long getDriverId() {
+	//	SET-GET
+	
+
+	public Long getId() {
 		return id;
 	}
 	
-	
-	public Long getUserId() {
-	    return recipientId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
-	
-	public void setRecipientId(Long recipientId) {
-	    this.recipientId = recipientId;
+	private Long getUserId() {
+		return userId;
 	}
-	  
+	
+	private void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	
+	private Long getOrderId() {
+		return orderId;
+	}
+	
+	private void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+	
 
-//	  public void setOrderDate() {
-//	      this.orderDate = LocalDate.now();
-//	  }
-//	  
-//	  public LocalDate getOrderDate() {
-//	      return orderDate;
-//	  }
-//
-//
-//	  public LocalDate getDeliveryDate() {
-//	      return getDeliveryDate;
-//	  }
-//
-//	  public void setEmailVerifiedDate() {
-//	      this.getDeliveryDate = LocalDate.now();
-//	  }
+	private Long getRecipientId() {
+		return recipientId;
+	}
+
+	private void setRecipientId(Long recipientId) {
+		this.recipientId = recipientId;
+	}
 	
 }
