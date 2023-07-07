@@ -73,7 +73,7 @@
 		<button class="btnAnimation icon material-icons"
 			onclick="closeFormError()">close</button>
 	</div>
-
+	
 	<h3 class="modal-heading">Edit Profile</h3>
 	<sf:form id="editProfileForm" class="align-center flex-col form"
 		onsubmit="validateEditProfile(event)" action="update-profile"
@@ -106,38 +106,38 @@
 		</div>
 
 		<button class="submit-btn btnAnimation"
-			style="background-color: var(--success);" type="submit">Save</button>
+			style="background-color: var(- -success);" type="submit">Save</button>
 	</sf:form>
 	<button id="closeEditProfile" class="material-icons modal-close">close</button>
 	</dialog>
 
-	<div class="align-center flex-col dashboard-panel">
+	<div class="align-center flex-col dashboard-panel panel-table">
 		<h3>Table of Recent Donations</h3>
-		<table id="userManagement">
+		<table id="donationTable">
 			<thead class="hFont">
 				<tr>
 					<th>Donation No.</th>
 					<th>Name</th>
 					<th>Contact No.</th>
-					<th>Amount</th>
 					<th>Currency</th>
-					<th>Email</th>
+					<th>Amount</th>
+					<th>Date</th>
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<c:if test="${not empty recent}">
-					<c:forEach items="${recent}" var="r" varStatus="status">
+				<c:if test="${not empty donation}">
+					<c:forEach items="${donation}" var="d" varStatus="status">
 						<tr>
 							<td>${status.count}</td>
-							<td>${r.getName()}</td>
-							<td>${r.getContact()}</td>
-							<td>${r.getAmount()}</td>
-							<td>${r.getCurrency()}</td>
-							<td>${r.getAccDetails()}</td>
+							<td>${d.getName()}</td>
+							<td>${d.getContact()}</td>
+							<td>${d.getCurrency()}</td>
+							<td>${d.getAmount()}</td>
+							<td>${d.getDate()}</td>
 						</tr>
 					</c:forEach>
 				</c:if>
-				<c:if test="${empty recent}">
+				<c:if test="${empty donation}">
 					<tr>
 						<td colspan="6">No donation made yet</td>
 					</tr>

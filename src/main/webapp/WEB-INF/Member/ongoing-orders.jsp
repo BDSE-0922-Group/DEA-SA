@@ -4,7 +4,7 @@
 </jsp:include>
 
 <main class="bg2 align-center flex-col">
-	<h2 class="dashboard-heading hFont">Ongoing Orders</h2>
+	<h2 class="dashboard-heading hFont">Pending Orders</h2>
 
 	<div class="card-container justify-evenly flex-wrap">
 
@@ -16,7 +16,7 @@
 					<div class="card pFont">
 						<h4 class="card-heading">Meal Ordered&colon;&nbsp;M-${o.mealId}</h4>
 						<p class="card-desc">Request to the kitchen&colon;<br>${o.description}</p>
-						<span>Date ordered&colon;&nbsp;${o.date }</span>
+						<span style="color: var(--secondary);">Date ordered&colon;&nbsp;${o.date }</span>
 
 					</div>
 				</c:if>

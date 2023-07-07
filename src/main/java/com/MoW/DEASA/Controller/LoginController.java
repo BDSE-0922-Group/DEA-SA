@@ -11,9 +11,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.MoW.DEASA.Entity.Donation;
+import com.MoW.DEASA.Entity.Orders;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
+import com.MoW.DEASA.Service.DonationService;
+import com.MoW.DEASA.Service.EmailSenderService;
+import com.MoW.DEASA.Service.OrderService;
 import com.MoW.DEASA.Service.UserService;
 
 @Controller
@@ -21,6 +27,15 @@ public class LoginController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	DonationService dService;
+	
+	@Autowired
+	EmailSenderService emailSender;
 	
     @GetMapping("login")
     public String onLogin() {
@@ -65,12 +80,12 @@ public class LoginController {
     }
     
     @GetMapping("logout")
-    public String onLogoutSuccess(Model model) {
+    public String onLogoutSuccess(Model model, RedirectAttributes redir) {
     	
     	String success_logout = "Successfully logged out! Click here to login.";
-        model.addAttribute("success_logout", success_logout);
+        redir.addFlashAttribute("success_logout", success_logout);
     	
-    	return "Common/home";
+    	return "redirect:home";
     }
     
     @GetMapping("register")
@@ -88,6 +103,32 @@ public class LoginController {
     	
     	if (userService.findUsername(user.getUserName()) == null|| userService.findUsername(user.getUserName()).getUserName() == null ) {
     		userService.save(user, role);
+
+        	String toEmail = user.getEmail();
+        	String subject = "Thank you for registering with Meals on Wheels";
+        	String body = "Dear " + user.getName() + ",\r\n" + 
+        			"\r\n" + 
+        			"We are delighted to welcome you to Meals on Wheels, the online platform that connects you with nutritious and affordable meals delivered to your doorstep. By registering with us, you are joining a community of people who care about healthy eating and social impact.\r\n" + 
+        			"\r\n" + 
+        			"As a new member, you can enjoy some exclusive benefits, such as:\r\n" + 
+        			"\r\n" + 
+        			"- Access to a variety of menus and cuisines from local chefs and restaurants\r\n" + 
+        			"- Flexible delivery options and payment methods\r\n" + 
+        			"- Discounts and rewards for referrals and feedback\r\n" + 
+        			"- Support for seniors and low-income households in need of food assistance\r\n" + 
+        			"\r\n" + 
+        			"To start ordering your meals, simply log in to your account and browse our selection of delicious dishes. You can also customize your preferences and dietary requirements in your profile.\r\n" + 
+        			"\r\n" + 
+        			"If you have any questions or concerns, please feel free to contact us at support@mealsonwheels.com or call us at 1-800-555-1234. We are always happy to hear from you and help you with your needs.\r\n" + 
+        			"\r\n" + 
+        			"Thank you for choosing Meals on Wheels. We hope you enjoy your meals and our service.\r\n" + 
+        			"\r\n" + 
+        			"Sincerely,\r\n" + 
+        			"The Meals on Wheels Team\r\n" + 
+        			"";
+        	
+        	emailSender.sendEmail(toEmail, subject, body);
+        	
     		return "Auth/confirmation";	
     	}
     	
@@ -121,7 +162,7 @@ public class LoginController {
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Member")) {
-    			memberProfile();
+    			memberProfile(model, principal);
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
@@ -137,7 +178,7 @@ public class LoginController {
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Donator")) {
-    			donatorProfile();
+    			donatorProfile(model, principal);
     			return userRole + "/profile";
     		}
 		}
@@ -148,8 +189,17 @@ public class LoginController {
         System.out.println("View profile as Administrator");
 	}
 	
-	public void memberProfile() {	
-        System.out.println("View profile as Member");
+	public void memberProfile(Model model, Principal principal) {	
+		
+		String username = principal.getName();
+		
+		User user = userService.findLoginUser(username);
+		
+		long uId = user.getId();
+		
+		List<Orders> orders = orderService.getSPecificOrders(uId);
+		
+		model.addAttribute("orders", orders);
 	}
 	
 	public void caregiverProfile() {	
@@ -164,22 +214,34 @@ public class LoginController {
         System.out.println("View profile as Volunteer");
 	}
 	
-	public void donatorProfile() {	
-        System.out.println("View profile as Donator");
+	public void donatorProfile(Model model, Principal principal) {
+    	String username = principal.getName();
+    	
+    	User user = userService.findLoginUser(username);
+    	
+    	long uId = user.getId();
+    	
+    	List<Donation> donation = dService.getSpecificDonation(uId);
+    	
+		model.addAttribute("donation", donation);
 	}
 	
 	@PostMapping("update-profile")
-	public String  updateProfile(Principal principal, @ModelAttribute User u) {
+	public String  updateProfile(Principal principal, @ModelAttribute("user") User u, RedirectAttributes redir) {
 		String userName = principal.getName();
 		
 		User user = userService.findLoginUser(userName);
 		
 		user.setName(u.getName());
-		user.setEmail(u.getEmail());
+		user.setGender(u.getGender());
 		user.setAddress(u.getAddress());
 		user.setMobile(u.getMobile());
 		
 		userService.update(user);
+		
+		String success_msg = "Profile has been updated";
+		
+		redir.addFlashAttribute("success_msg", success_msg);
 		
 		return "redirect:profile";
 	}
