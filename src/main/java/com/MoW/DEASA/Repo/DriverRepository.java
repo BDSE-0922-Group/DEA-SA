@@ -11,9 +11,9 @@ import com.MoW.DEASA.Entity.Driver;
 import com.MoW.DEASA.Entity.User;
 
 @Repository
-public interface DriverRepository extends JpaRepository<User, Long>{
+public interface DriverRepository extends JpaRepository<Driver, Long>{
 	
-	Driver findByUserName(String name);
+	Driver findById(String name);
 
 }
 

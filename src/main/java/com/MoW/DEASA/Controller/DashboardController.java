@@ -37,7 +37,7 @@ public class DashboardController {
 		String[] role = user.getRoles().stream().map(Role::getName).toArray(String[]::new);
 
 		String userRole = role[0];
-
+		
 		String[] roleNames = userService.getAllRoles().stream().map(Role::getName).toArray(String[]::new);
 
 		for (String roleName : roleNames) {
@@ -50,7 +50,7 @@ public class DashboardController {
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
-				caregiverDashboard(model);
+				caregiverDashboard();
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
@@ -63,6 +63,10 @@ public class DashboardController {
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Donator")) {
 				donatorDashboard(model, principal);
+				return userRole + "/dashboard";
+			}
+			if (roleName == userRole && userRole.equalsIgnoreCase("Driver")) {
+				driverDashboard();
 				return userRole + "/dashboard";
 			}
 		}
@@ -79,13 +83,7 @@ public class DashboardController {
 		model.addAttribute("meals", meals);
 	}
 
-	public void caregiverDashboard(Model model) {
-		
-		// TODO: Return volunteer repo of current user
-		
-		
-		//	List<Meal> volunteer = mealRepo.findAll();
-		//	model.addAttribute("volunteer", volunteer);
+	public void caregiverDashboard() {
 		System.out.println("Logged in as Caregiver");
 	}
 
@@ -95,6 +93,11 @@ public class DashboardController {
 
 	public void volunteerDashboard() {
 		System.out.println("Logged in as Volunteer");
+	}
+	
+	public void driverDashboard() {
+		// TODO: Return Driver repo of current user
+		System.out.println("Logged in as Driver");
 	}
 
 	public void donatorDashboard(Model model, Principal principal) {	

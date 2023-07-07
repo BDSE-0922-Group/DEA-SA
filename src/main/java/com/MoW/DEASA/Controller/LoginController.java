@@ -140,6 +140,10 @@ public class LoginController {
     			donatorProfile();
     			return userRole + "/profile";
     		}
+    		if(roleName == userRole && userRole.equalsIgnoreCase("Drivers")) {
+    			driverProfile();
+    			return userRole + "/profile";
+    		}
 		}
     	return "redirect:accessdenied";
 	}
@@ -166,6 +170,10 @@ public class LoginController {
 	
 	public void donatorProfile() {	
         System.out.println("View profile as Donator");
+	}
+	
+	public void driverProfile() {	
+        System.out.println("View profile as Driver");
 	}
 	
 	@PostMapping("update-profile")

@@ -15,12 +15,14 @@ public class Driver {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long userId;
+
+	// Might be redundant when 'order' table exists.
+	private Long recipientId;
 	
 	@Column(name = "ord_id")
 	private Long orderId;
 
-//	
+
 //	@CreatedDate
 //	private LocalDate orderDate;
 //	
@@ -33,15 +35,15 @@ public class Driver {
 	
 	
 	public Long getUserId() {
-	    return userId;
+	    return recipientId;
 	}
 	
 	
-	public void setUserId(Long userId) {
-	    this.userId = userId;
+	public void setRecipientId(Long recipientId) {
+	    this.recipientId = recipientId;
 	}
 	  
-//
+
 //	  public void setOrderDate() {
 //	      this.orderDate = LocalDate.now();
 //	  }
