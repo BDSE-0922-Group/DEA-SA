@@ -21,12 +21,16 @@ public class CaregiverService {
 		return CaregiverRepo.save(caregiver);
 	}
 	
-	public List<Caregiver> getAllCaregivers() {
+	public List<Caregiver> getAllOrders() {
 		return CaregiverRepo.findAll();
 	}
 	
 	public void deleteUser(long uid) {
 		CaregiverRepo.deleteById(uid);
+	}
+	
+	public Caregiver getDetailsById(Long id) {
+		return CaregiverRepo.findById(id).get();
 	}
 
 }

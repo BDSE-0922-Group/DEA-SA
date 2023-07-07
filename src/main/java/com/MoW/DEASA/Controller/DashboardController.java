@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.MoW.DEASA.Entity.Caregiver;
 import com.MoW.DEASA.Entity.Donation;
 import com.MoW.DEASA.Entity.Meal;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
+import com.MoW.DEASA.Repo.CaregiverRepository;
 import com.MoW.DEASA.Repo.MealRepository;
 import com.MoW.DEASA.Service.DonationService;
 import com.MoW.DEASA.Service.UserService;
@@ -27,6 +29,9 @@ public class DashboardController {
 
 	@Autowired
 	MealRepository mealRepo;
+	
+	@Autowired
+	CaregiverRepository caregiverRepo;
 
 	@GetMapping("dashboard")
 	public String dashboard(Principal principal, Model model) {
@@ -50,7 +55,7 @@ public class DashboardController {
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
-				caregiverDashboard();
+				caregiverDashboard(model);
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
@@ -79,7 +84,18 @@ public class DashboardController {
 		model.addAttribute("meals", meals);
 	}
 
-	public void caregiverDashboard() {
+	public void caregiverDashboard(Model model) {
+
+		
+		List<Caregiver> orders = caregiverRepo.findByUserId(Long.valueOf(1));
+		List<Caregiver> orders2 = caregiverRepo.moveCourseConfirm(Long.valueOf(1));
+		
+		System.out.println(orders2);
+		
+		model.addAttribute("meals", orders2);
+		
+//		List<Meal> meals = mealRepo.findAll();
+//		model.addAttribute("meals", meals);
 		System.out.println("Logged in as Caregiver");
 	}
 

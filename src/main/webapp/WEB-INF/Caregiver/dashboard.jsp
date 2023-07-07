@@ -11,43 +11,25 @@
 		<table class="dashboard-table">
 			<thead class="hFont">
 				<tr>
-					<th>Order No.</th>
+					<th>Order ID</th>
 					<th>Meal Name</th>
 					<th>Ordered By</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<tr>
-					<td>1</td>
-					<td>Spaghetti</td>
-					<td>John Doe</td>
-					<td>
-						<!-- TODO: place in-line styles into css. -->
-						<button class="material-icons view" style="width:50px;">visibility</button>
-						<button class="material-icons delete">delete</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Chicken</td>
-					<td>John Doe</td>
-					<td>
-						<button class="material-icons view" style="width:50px;">visibility</button>
-						<button class="material-icons delete"">delete</button>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Soup</td>
-					<td>John Doe</td>
-					<td>
-						<button class="material-icons view" style="width:50px;">visibility</button>
-						<button class="material-icons delete">delete</button>
-					</td>
-				</tr>
-				<tr>
-				</tr>
+				<c:forEach items="${meals}" var="meals">
+					<tr>
+						<td><option value="${meals.id}">${meals.id}</option></td>
+						<%-- <td><option value="${meals.user_id}">${meals.user_id}</option></td> --%>
+						<td>John Doe</td>
+						<td>
+							<button class="material-icons view" style="width:50px;">visibility</button>
+							<button class="material-icons delete">delete</button>
+						</td>
+					</tr>
+				</c:forEach>
+				
 			</tbody>
 				<tbody class="pFont">	
 				<c:if test="${not empty order}">

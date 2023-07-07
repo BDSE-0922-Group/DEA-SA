@@ -1,10 +1,14 @@
 package com.MoW.DEASA.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -15,6 +19,7 @@ public class Caregiver {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name="user_id")
 	private Long userId;
 	
 	private Long orderId;
@@ -59,13 +64,10 @@ public class Caregiver {
 		this.orderId = orderId;
 	}
 	
-
-//	private Long getRecipientId() {
-//		return recipientId;
-//	}
-//
-//	private void setRecipientId(Long recipientId) {
-//		this.recipientId = recipientId;
-//	}
-//	
+	@Override
+	public String toString() {
+		return "Caregiver [id=" + id + ", userid=" + userId + ", orderid=" + orderId
+				+ " , getUserId=" + getUserId() + ", getOrderId" + getOrderId() + "]";
+	}
+	
 }

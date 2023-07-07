@@ -23,9 +23,19 @@ public interface CaregiverRepository extends JpaRepository<Caregiver, Long>{
 	
 	// TODO: Get all orders assigned to driver.
 	
+//	
+//	@Query( value = "SELECT id FROM Caregiver" )
+//	List<Caregiver> getAllOrders();
+//	
 	
-	@Query( value = "SELECT id FROM Caregiver" )
-	List<Caregiver> getAllIds();
+	@Query( value = "select r from Caregiver r where r.id = :userId" )
+	List<Caregiver> findAllActiveOrders(@Param("userId") Long userId);
+	
+	List<Caregiver> findByUserId(Long userId);
+	
+	 @Query(nativeQuery = true, value = "SELECT * FROM Caregiver WHERE user_id = :id")
+	 List<Caregiver> moveCourseConfirm(long id);
+	
 }
 
 
