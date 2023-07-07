@@ -160,8 +160,8 @@ public class LoginController {
     			memberProfile();
     			return userRole + "/profile";
     		}
-    		if(roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
-    			caregiverProfile();
+    		if(roleName == userRole && userRole.equalsIgnoreCase("Rider")) {
+    			riderProfile();
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
@@ -188,8 +188,8 @@ public class LoginController {
         System.out.println("View profile as Member");
 	}
 	
-	public void caregiverProfile() {	
-        System.out.println("View profile as Caregiver");
+	public void riderProfile() {	
+        System.out.println("View profile as rider");
 	}
 	
 	public void partnerProfile() {	

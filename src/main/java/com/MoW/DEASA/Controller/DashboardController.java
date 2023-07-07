@@ -46,8 +46,8 @@ public class DashboardController {
     			memberDashboard();
     			return userRole + "/dashboard";
     		}
-    		if(roleName == userRole && userRole.equalsIgnoreCase("Caregiver")) {
-    			caregiverDashboard();
+    		if(roleName == userRole && userRole.equalsIgnoreCase("Rider")) {
+    			riderDashboard();
     			return userRole + "/dashboard";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
@@ -74,8 +74,8 @@ public class DashboardController {
         System.out.println("Logged in as Member");
 	}
 	
-	public void caregiverDashboard() {	
-        System.out.println("Logged in as Caregiver");
+	public void riderDashboard() {	
+        System.out.println("Logged in as Rider");
 	}
 	
 	public void partnerDashboard() {	

@@ -33,7 +33,7 @@ public class DonationController {
 	}
 
 	@PostMapping("add_donation")
-	public String registerNewUser(@ModelAttribute("donation") Donation donation, Model model, Principal principal) {
+	public String addNewDonation(@ModelAttribute("donation") Donation donation, Model model, Principal principal) {
     	String username = principal.getName();
     	
     	User user = userService.findLoginUser(username);
