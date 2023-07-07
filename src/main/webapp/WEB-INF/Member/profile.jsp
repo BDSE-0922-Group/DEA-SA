@@ -116,30 +116,26 @@
 		<table id="donationTable">
 			<thead class="hFont">
 				<tr>
-					<th>Donation No.</th>
-					<th>Name</th>
-					<th>Contact No.</th>
-					<th>Currency</th>
-					<th>Amount</th>
+					<th>Order No.</th>
 					<th>Date</th>
+					<th>Ordered Meal</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<c:if test="${not empty donation}">
-					<c:forEach items="${donation}" var="d" varStatus="status">
+				<c:if test="${not empty orders}">
+					<c:forEach items="${orders}" var="o" varStatus="status">
 						<tr>
 							<td>${status.count}</td>
-							<td>${d.getName()}</td>
-							<td>${d.getContact()}</td>
-							<td>${d.getCurrency()}</td>
-							<td>${d.getAmount()}</td>
-							<td>${d.getDate()}</td>
+							<td>${o.date}</td>
+							<td>M-${o.mealId}</td>
+							<td>${o.status}</td>
 						</tr>
 					</c:forEach>
 				</c:if>
-				<c:if test="${empty donation}">
+				<c:if test="${empty orders}">
 					<tr>
-						<td colspan="6">No donation made yet</td>
+						<td colspan="6">No orders have been made yet</td>
 					</tr>
 				</c:if>
 			</tbody>

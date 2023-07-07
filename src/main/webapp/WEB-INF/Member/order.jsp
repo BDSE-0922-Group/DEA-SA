@@ -44,7 +44,7 @@
 				<label class="user-label">Requests (optional)</label>
 			</div>
 			
-			<button type="submit" class="submit-btn">Add Meal</button>
+			<button type="submit" class="submit-btn">Order</button>
 		</sf:form>
 	
 	</section>
