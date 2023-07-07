@@ -14,9 +14,12 @@
 
 				<c:if test="${o.status == 'ongoing'}">
 					<div class="card pFont">
-						<h4 class="card-heading">Meal Ordered&colon;&nbsp;M-${o.mealId}</h4>
-						<p class="card-desc">Request to the kitchen&colon;<br>${o.description}</p>
-						<span style="color: var(--secondary);">Date ordered&colon;&nbsp;${o.date }</span>
+						<h4 class="card-heading">Meal
+							Ordered&colon;&nbsp;M-${o.mealId}</h4>
+						<p class="card-desc">
+							Request to the kitchen&colon;<br>${o.description}</p>
+						<span style="color: var(- -secondary);">Date
+							ordered&colon;&nbsp;${o.date }</span>
 
 					</div>
 				</c:if>
