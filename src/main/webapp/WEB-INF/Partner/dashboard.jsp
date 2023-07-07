@@ -1,5 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../header.jsp">
-	<jsp:param value="Member" name="HTMLtitle" />
+	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
 
 <main class="bg2 align-center flex-col">
@@ -7,53 +8,40 @@
 	<nav class="align-center justify-start dashboard-nav hFont">
 		<a href="post-meal"><button>Add a Meal</button></a>
 	</nav>
+
 	<div class="align-center flex-col dashboard-panel">
-		<h3>Meals Available to Members</h3>
-		<table class="dashboard-table">
+		<h3>Table of Events</h3>
+		<table id="userManagement">
 			<thead class="hFont">
 				<tr>
-					<th>No.</th>
-					<th>Meal</th>
-					<th>Description</th>
-					<th>Actions</th>
+					<th>Meal ID</th>
+					<th>Meal Name</th>
+					<th>Meal Photo</th>
+					<th>Meal Description</th>
+					<th>Availability</th>
 				</tr>
 			</thead>
 			<tbody class="pFont">
-				<tr>
-					<td>1</td>
-					<td>Sample Meal</td>
-					<td>Sample Description</td>
-					<td>
-						<button class="material-icons view">visibility</button>
-						<button class="material-icons edit">edit</button>
-						<button class="material-icons delete">delete</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Sample Meal</td>
-					<td>Sample Description</td>
-					<td>
-						<button class="material-icons view">visibility</button>
-						<button class="material-icons edit">edit</button>
-						<button class="material-icons delete">delete</button>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Sample Meal</td>
-					<td>Sample Description</td>
-					<td>
-						<button class="material-icons view">visibility</button>
-						<button class="material-icons edit">edit</button>
-						<button class="material-icons delete">delete</button>
-					</td>
-				</tr>
-				<tr>
-				</tr>
+				<c:if test="${not empty meals}">
+					<c:forEach items="${meals}" var="m" varStatus="status">
+						<tr>
+							<td>M-${m.id}</td>
+							<td>${m.name}</td>
+							<td><img src="${m.photos}"/></td>
+							<td>${m.description}</td>
+							<td>${m.availability}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty meals}">
+						<tr>
+							<td colspan="6">No donation made yet</td>
+						</tr>
+				</c:if>
 			</tbody>
 		</table>
 	</div>
+	
 </main>
 
 <jsp:include page="../footer.jsp"></jsp:include>

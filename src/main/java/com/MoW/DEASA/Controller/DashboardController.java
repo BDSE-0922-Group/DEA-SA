@@ -60,7 +60,7 @@ public class DashboardController {
     			return userRole + "/dashboard";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
-    			partnerDashboard();
+    			partnerDashboard(model);
     			return userRole + "/dashboard";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Volunteer")) {
@@ -93,8 +93,9 @@ public class DashboardController {
         System.out.println("Logged in as Caregiver");
 	}
 	
-	public void partnerDashboard() {	
-        System.out.println("Logged in as Partner");
+	public void partnerDashboard(Model model) {	
+		List<Meal> meals = mealRepo.findAll();
+		model.addAttribute("meals", meals);
 	}
 	
 	public void volunteerDashboard(Model model) {

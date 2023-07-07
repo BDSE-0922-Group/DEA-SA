@@ -26,22 +26,26 @@ public class Meal {
 	private String availability;
 
 //	CONSTRUCTORS
-	public Meal () {
-		
-	}
-	public Meal(Long id, String name, String description, String photos, String photoImagePath, String availability) {
-	super();
-	this.id = id;
-	this.name = name;
-	this.description = description;
-	this.photos = photos;
-	this.photoImagePath = photoImagePath;
-	this.availability = availability;
-}
 
+	
 //	GETTER SETTERS
 	public Long getId() {
 		return id;
+	}
+
+	public Meal(Long id, String name, String description, String photos, String photoImagePath, String availability) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.photos = photos;
+		this.photoImagePath = photoImagePath;
+		this.availability = availability;
+	}
+
+	public Meal() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setId(Long id) {
@@ -97,4 +101,6 @@ public class Meal {
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}
+	
+	
 }

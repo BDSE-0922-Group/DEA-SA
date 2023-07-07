@@ -14,97 +14,114 @@ import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 public class Orders {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ord_id;
+	private Long id;
 
-	private String ord_name;
+	private Long mealId;
 
-	private String ord_desc;
-	
-	private String ord_status;
-	
-	private String ord_by;
-	
+	private String description;
+
+	private String status;
+
+	private Long recipientId;
+
+	private String address;
+
 	@CreatedDate
-	private String ord_date;
-	
+	private String date;
+
 	@PrePersist
 	private void onCreate() {
 		DateFormat dateOnly = new SimpleDateFormat("EEEEE dd MMMMM yyyy");
 
-		ord_date = dateOnly.format(new Date());
+		date = dateOnly.format(new Date());
 	}
 
-	public Long getOrd_id() {
-		return ord_id;
-	}
-
-	public void setOrd_id(Long ord_id) {
-		this.ord_id = ord_id;
-	}
-
-	public String getOrd_name() {
-		return ord_name;
-	}
-
-	public void setOrd_name(String ord_name) {
-		this.ord_name = ord_name;
-	}
-
-	public String getOrd_desc() {
-		return ord_desc;
-	}
-
-	public void setOrd_desc(String ord_desc) {
-		this.ord_desc = ord_desc;
-	}
-
-	public String getOrd_status() {
-		return ord_status;
-	}
-
-	public void setOrd_status(String ord_status) {
-		this.ord_status = ord_status;
-	}
-
-	public String getOrd_by() {
-		return ord_by;
-	}
-
-	public void setOrd_by(String ord_by) {
-		this.ord_by = ord_by;
-	}
-
-	public String getOrd_date() {
-		return ord_date;
-	}
-
-	public void setOrd_date(String ord_date) {
-		this.ord_date = ord_date;
-	}
-
-	@Override
-	public String toString() {
-		return "Order [ord_id=" + ord_id + ", ord_name=" + ord_name + ", ord_desc=" + ord_desc + ", ord_status="
-				+ ord_status + ", ord_by=" + ord_by + ", ord_date=" + ord_date + "]";
-	}
-
-	public Orders(Long ord_id, String ord_name, String ord_desc, String ord_status, String ord_by, String ord_date) {
-		super();
-		this.ord_id = ord_id;
-		this.ord_name = ord_name;
-		this.ord_desc = ord_desc;
-		this.ord_status = ord_status;
-		this.ord_by = ord_by;
-		this.ord_date = ord_date;
-	}
-
+//	CONSTRUCTORS
 	public Orders() {
+		
+	}
+	public Orders(Long id, Long mealId, String description, String status, Long recipientId, String address,
+			String date) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.mealId = mealId;
+		this.description = description;
+		this.status = status;
+		this.recipientId = recipientId;
+		this.address = address;
+		this.date = date;
+	}
+	
+	
+//	GETTER SETTERS
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getMealId() {
+		return mealId;
+	}
+
+	public void setMealId(Long mealId) {
+		this.mealId = mealId;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Long getRecipientId() {
+		return recipientId;
+	}
+
+	public void setRecipientId(Long recipientId) {
+		this.recipientId = recipientId;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	
+//	TO STRING
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", mealId=" + mealId + ", description=" + description + ", status=" + status
+				+ ", recipientId=" + recipientId + ", address=" + address + ", date=" + date + ", getId()=" + getId()
+				+ ", getMealId()=" + getMealId() + ", getDescription()=" + getDescription() + ", getStatus()="
+				+ getStatus() + ", getRecipientId()=" + getRecipientId() + ", getAddress()=" + getAddress()
+				+ ", getDate()=" + getDate() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 }

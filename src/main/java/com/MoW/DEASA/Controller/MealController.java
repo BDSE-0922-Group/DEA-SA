@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.MoW.DEASA.Entity.Events;
 import com.MoW.DEASA.Entity.Meal;
 import com.MoW.DEASA.Service.MealService;
 
@@ -34,7 +37,7 @@ public class MealController {
 		return "Partner/meal";
 	}
 	
-	@PostMapping("post_meal")
+	@PostMapping("post-meal")
 	public String postMeal(Model model, @ModelAttribute("meal") Meal meal, RedirectAttributes ra,
 			@RequestParam("fileImage") MultipartFile multipartFile, Principal principal) throws IOException {
 		
@@ -66,4 +69,15 @@ public class MealController {
 		
 		return "Partner/dashboard";
 	}
+		
+//	@GetMapping("all_meal")
+//	public ModelAndView allMeals( @ModelAttribute("meal") Meal meal) throws IOException {
+//		
+//		List<Meal> meals = mealService.getAllMeals();
+//		System.out.println(meals);
+//		
+//		return new ModelAndView ("dashboard", "meal", meals);
+//		
+//
+//	}
 }

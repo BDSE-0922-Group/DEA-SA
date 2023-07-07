@@ -14,7 +14,7 @@
 
 	<section class="align-center flex-col form-card">
 		<h3 class="form-heading">Post Meal</h3>
-		<sf:form class="align-center flex-col form" action="post_meal"
+		<sf:form class="align-center flex-col form" action="post-meal"
 			method="post" modelAttribute="meal" enctype="multipart/form-data">
 			<div class="input-group">
 				<sf:input required="true" type="text" name="name" autocomplete="off"
@@ -28,9 +28,10 @@
 			</div>
 			<div class="input-group">
 				<label class="select-label">Meal Availability</label> <select
-					class="input-select" name="role">
-					<option value="true" selected>Available</option>
-					<option value="false">Not Available</option>
+					class="input-select" name="availability" path="availability"> 
+					<option value="" selected disabled hidden>Choose here</option>
+					<option value="Available"  >Available</option>
+					<option value="Not Available" >Not Available</option>
 				</select>
 			</div>
 			<div class="input-group flex-col align-center">

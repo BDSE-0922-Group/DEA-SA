@@ -25,7 +25,7 @@
 				<c:if test="${not empty events}">
 					<c:forEach items="${events}" var="e" varStatus="status">
 						<tr>
-							<td>${status.count}</td>
+							<td>E-${e.id}</td>
 							<td>${e.name}</td>
 							<td>${e.description}</td>
 							<td>${e.venue}</td>
@@ -35,7 +35,7 @@
 				</c:if>
 				<c:if test="${empty events}">
 						<tr>
-							<td colspan="6">No donation made yet</td>
+							<td colspan="6">No Events Yet</td>
 						</tr>
 				</c:if>
 			</tbody>
