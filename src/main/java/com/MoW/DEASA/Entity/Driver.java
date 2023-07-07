@@ -19,26 +19,21 @@ public class Driver {
 	
 	private Long orderId;
 	
-	// Might be redundant when 'order' table exists.
-	private Long recipientId;
-	
 	
 	//	CONSTRUCTORS
 	public Driver() {
 		
 	}
 	
-	public Driver(Long id, Long userId, Long orderId, Long recipientId) {
+	public Driver(Long id, Long userId, Long orderId) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.orderId = orderId;
-		this.recipientId = recipientId;
 	}
 	
 	
 	//	SET-GET
-	
 
 	public Long getId() {
 		return id;
@@ -65,12 +60,12 @@ public class Driver {
 	}
 	
 
-	private Long getRecipientId() {
-		return recipientId;
-	}
-
-	private void setRecipientId(Long recipientId) {
-		this.recipientId = recipientId;
-	}
-	
+//	private Long getRecipientId() {
+//		return recipientId;
+//	}
+//
+//	private void setRecipientId(Long recipientId) {
+//		this.recipientId = recipientId;
+//	}
+//	
 }
