@@ -1,6 +1,7 @@
 package com.MoW.DEASA.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -23,5 +24,20 @@ public class EventsService {
 	
 	public List<Events> getAllEvents(){
 		return eventRepo.findAll();
+	}
+
+	public void deleteEvent(long eid) {
+		
+		eventRepo.deleteById(eid);
+	}
+
+	public Optional<Events> getEventsInfo(long eid) {
+		
+		return eventRepo.findById(eid);
+	}
+
+	public void update(Events event) {
+		
+		eventRepo.save(event);
 	}
 }
