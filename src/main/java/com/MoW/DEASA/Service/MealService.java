@@ -1,6 +1,7 @@
 package com.MoW.DEASA.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -23,5 +24,20 @@ public class MealService {
 	
 	public List<Meal> getAllMeals() {
 		return mealRepo.findAll();
+	}
+	
+public void removeMeal(long mid) {
+		
+		mealRepo.deleteById(mid);
+	}
+
+	public Optional<Meal> getMealInfo(long mid) {
+		
+		return mealRepo.findById(mid);
+	}
+
+	public void update(Meal meal) {
+		
+		mealRepo.save(meal);
 	}
 }

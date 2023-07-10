@@ -58,6 +58,29 @@
   	font-weight: 600;
   }
   
+  @media screen and (max-width: 768px) {
+  .accordion {
+    width: 75%;
+  }
+  
+  .accordion li {
+    margin: 10px;
+  }
+  
+  label::before {
+    font-size: 18px;
+  }
+  
+  .accordion .content {
+    padding: 0 5px;
+  }
+  
+  input[type="radio"]:checked + label + .content {
+    padding: 5px;
+  }
+}
+  
+  
   /*=============================================
 =            About Us			              =
 =============================================*/

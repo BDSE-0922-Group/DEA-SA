@@ -36,7 +36,7 @@ public class EventsController {
 		eventService.save(events);
 
 		
-		return "Volunteer/dashboard";
+		return "redirect:dashboard";
 	}
 	
 	@GetMapping("all_event")
@@ -76,7 +76,7 @@ public class EventsController {
 
     	
     	eventService.update(event);
-    	System.out.println("Edit event Successful");
+    	System.out.println("Edit Event Successful");
     	System.out.println(event);
     	
     	return "redirect:dashboard";

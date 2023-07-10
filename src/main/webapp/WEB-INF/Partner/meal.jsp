@@ -27,7 +27,8 @@
 				<label class="user-label">Meal Description</label>
 			</div>
 			<div class="input-group">
-				<label class="select-label">Meal Availability</label> <select
+				<label class="select-label">Meal Availability</label> 
+				<select
 					class="input-select" name="availability" path="availability"> 
 					<option value="" selected disabled hidden>Choose here</option>
 					<option value="Available"  >Available</option>
@@ -35,7 +36,8 @@
 				</select>
 			</div>
 			<div class="input-group flex-col align-center">
-				<label class="file-input">Upload a Picture</label> <input
+				<label class="file-input">Upload a Picture</label> 
+				<input
 					required="true" type="file" name="fileImage" id="photo"
 					accept="image/png, image/jpeg" />
 			</div>

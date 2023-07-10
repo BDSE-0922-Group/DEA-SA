@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.MoW.DEASA.Entity.Events;
+
 import com.MoW.DEASA.Entity.Meal;
 import com.MoW.DEASA.Service.MealService;
 
@@ -67,17 +68,48 @@ public class MealController {
 
 		ra.addFlashAttribute("success_post", "Post has been saved successfully");
 		
-		return "Partner/dashboard";
+		return "redirect:dashboard";
 	}
+	
 		
-//	@GetMapping("all_meal")
-//	public ModelAndView allMeals( @ModelAttribute("meal") Meal meal) throws IOException {
-//		
-//		List<Meal> meals = mealService.getAllMeals();
-//		System.out.println(meals);
-//		
-//		return new ModelAndView ("dashboard", "meal", meals);
-//		
-//
-//	}
+	@GetMapping("all_meal")
+	public ModelAndView allMeals( @ModelAttribute("meal") Meal meal) throws IOException {
+		
+		List<Meal> meals = mealService.getAllMeals();
+		System.out.println(meals);
+		
+		return new ModelAndView ("dashboard", "meal", meals);
+		
+
+	}
+	
+	@GetMapping("remove")
+    public String removeMeal(@RequestParam long mid) {
+    	
+    	mealService.removeMeal(mid);
+    	
+    	return "redirect:dashboard";
+    }
+	
+	@PostMapping("update")
+    public String updateMeal(@RequestParam long mid,
+    		@ModelAttribute("meal") Meal m) {
+    	
+    	Optional<Meal> meal_info = mealService.getMealInfo(mid);
+    	System.out.println(meal_info);
+    	
+    	Meal meal = meal_info.get();
+    	
+    	meal.setName(m.getName());
+    	meal.setDescription(m.getDescription());
+    	meal.setPhotos(m.getPhotos());
+    	meal.setAvailability(m.getAvailability());
+
+    	
+    	mealService.update(meal);
+    	System.out.println("Updated Meal Successful");
+    	System.out.println(meal);
+    	
+    	return "redirect:dashboard";
+    }
 }
