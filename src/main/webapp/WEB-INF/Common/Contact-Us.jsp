@@ -36,7 +36,7 @@
 		</div>
 	</div>
 
-	<section class="align-center flex-col form-card">
+<!-- 	<section class="align-center flex-col form-card">
 		<h3 class="form-heading text-align-center">Send us an Email</h3>
 		<form class="align-center flex-col form" method="post">
 
@@ -57,7 +57,7 @@
 
 			<input type="submit" class="submit-btn btnAnimation" value="Submit"></input>
 		</form>
-	</section>
+	</section> -->
 
 </main>
 
