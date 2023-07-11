@@ -119,6 +119,7 @@ function validateEditProfile(event) {
     else if (gender.value === "") {
         gender.style.borderColor = error;
         errorMessage = "Please select a gender";
+        aler("error");
         showErrorPopup();
         gender.focus();
     }
@@ -126,7 +127,6 @@ function validateEditProfile(event) {
     	editProfile.submit();
     	}
     }
-
 
 const selectMeal = document.getElementById("meal");
 const ordForm = document.getElementById("orderForm");

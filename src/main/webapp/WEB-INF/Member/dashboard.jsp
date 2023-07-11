@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="../header.jsp">
 	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
@@ -21,12 +22,14 @@
 
 				<c:if test="${m.availability == 'true'}">
 					<div class="card pFont">
-						<img class="card-image" src="${m.photoImagePath}" alt="${m.photos}" />
+						<img class="card-image" src="${m.photoImagePath}"
+							alt="${m.photos}" />
 						<h4 class="card-heading">M-${m.id}</h4>
 						<h4 class="card-heading">${m.name}</h4>
 						<p class="card-desc">${m.description}</p>
 						<a href="order" class="card-link">Order</a>
 					</div>
+
 				</c:if>
 			</c:forEach>
 		</c:if>

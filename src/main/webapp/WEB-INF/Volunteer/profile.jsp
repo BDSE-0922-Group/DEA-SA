@@ -111,37 +111,6 @@
 	<button id="closeEditProfile" class="material-icons modal-close">close</button>
 	</dialog>
 
-	<div class="align-center flex-col dashboard-panel panel-table">
-		<h3>Order History</h3>
-		<table id="donationTable">
-			<thead class="hFont">
-				<tr>
-					<th>Order No.</th>
-					<th>Date</th>
-					<th>Ordered Meal</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody class="pFont">
-				<c:if test="${not empty orders}">
-					<c:forEach items="${orders}" var="o" varStatus="status">
-
-							<tr>
-								<td>${status.count}</td>
-								<td>${o.date}</td>
-								<td>M-${o.mealId}</td>
-								<td>${o.status}</td>
-							</tr>
-					</c:forEach>
-				</c:if>
-				<c:if test="${empty orders}">
-					<tr>
-						<td colspan="6">No orders have been made yet</td>
-					</tr>
-				</c:if>
-			</tbody>
-		</table>
-	</div>
 </main>
 
 <jsp:include page="../footer.jsp"></jsp:include>
