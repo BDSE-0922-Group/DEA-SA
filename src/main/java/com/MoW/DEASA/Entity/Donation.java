@@ -12,6 +12,15 @@ import javax.persistence.PrePersist;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 public class Donation {
 
@@ -19,15 +28,15 @@ public class Donation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	private String intent;
 
-	private String contact;
+	private String method;
 
 	private String currency;
 
 	private double amount;
-
-	private String accDetails;
+	
+	private String description;
 
 	private Long donId;
 
@@ -45,15 +54,15 @@ public class Donation {
 		super();
 	}
 
-	public Donation(Long id, String name, String contact, String currency, double amount, String accDetails, Long donId,
-			String date) {
+	public Donation(Long id, String intent, String method, String currency, double amount, String description,
+			Long donId, String date) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.contact = contact;
+		this.intent = intent;
+		this.method = method;
 		this.currency = currency;
 		this.amount = amount;
-		this.accDetails = accDetails;
+		this.description = description;
 		this.donId = donId;
 		this.date = date;
 	}
@@ -66,20 +75,20 @@ public class Donation {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getIntent() {
+		return intent;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setIntent(String intent) {
+		this.intent = intent;
 	}
 
-	public String getContact() {
-		return contact;
+	public String getMethod() {
+		return method;
 	}
 
-	public void setContact(String contact) {
-		this.contact = contact;
+	public void setMethod(String method) {
+		this.method = method;
 	}
 
 	public String getCurrency() {
@@ -98,12 +107,12 @@ public class Donation {
 		this.amount = amount;
 	}
 
-	public String getAccDetails() {
-		return accDetails;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setAccDetails(String accDetails) {
-		this.accDetails = accDetails;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Long getDonId() {
@@ -124,8 +133,8 @@ public class Donation {
 
 	@Override
 	public String toString() {
-		return "Donation [id=" + id + ", name=" + name + ", contact=" + contact + ", currency=" + currency + ", amount="
-				+ amount + ", accDetails=" + accDetails + ", donId=" + donId + ", date=" + date + "]";
+		return "Donation [id=" + id + ", intent=" + intent + ", method=" + method + ", currency=" + currency
+				+ ", amount=" + amount + ", description=" + description + ", donId=" + donId + ", date=" + date + "]";
 	}
-
+	
 }

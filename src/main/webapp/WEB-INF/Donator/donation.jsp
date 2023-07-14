@@ -16,8 +16,8 @@
 		<h3 class="form-heading">Donation Form</h3>
 		<sf:form action="add_donation" class="align-center flex-col form" method="post" modelAttribute="donation">
 			<div class="input-group">
-				<sf:input required="true" type="text" name="name" autocomplete="off" path="name"
-					class="input" /> <label class="user-label">Name</label>
+				<sf:input required="true" type="text" name="method" autocomplete="off" path="method"
+					class="input" /> <label class="user-label">Payment Method</label>
 			</div>
 			<div class="flex">
 				<div class="input-group">
@@ -31,18 +31,17 @@
 				</div>
 			</div>
 			<div class="input-group">
-				<sf:input required="true" type="text" name="contact" autocomplete="off" path="contact"
-					class="input" /> <label class="user-label">Contact
-					No.</label>
+				<sf:input required="true" type="text" name="intent" autocomplete="off" value="sale" path="intent"
+					class="input" /> <label class="user-label">Intent</label>
 			</div>
 			<div class="input-group">
-				<sf:input required="true" type="text" name="accDetails" autocomplete="off" path="accDetails"
-					class="input" /> <label class="user-label">Account
-					Details</label>
+				<sf:input required="true" type="text" name="description" autocomplete="off" path="description"
+					class="input" /> <label class="user-label">Payment Description</label>
 			</div>
 
 			<button type="submit" class="submit-btn">Donate</button>
 		</sf:form>
+			<a href="paypal"><button class="submit-btn">Pay with PayPal</button></a>
 	</section>
 
 </main>

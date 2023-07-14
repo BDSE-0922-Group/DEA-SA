@@ -522,6 +522,61 @@ tr .delete {
   width: fit-content;
 }
 
+   /*----------  Member Dashboard  ----------*/
+.mealDisclaimer {
+  background-color: var(--white);
+  border-radius: 20px;
+  color: var(--primary);
+  margin: 2rem 1rem 1rem;
+  padding: 0.25rem 0.5rem;
+}
+.orderLink {
+  background-color: var(--secondary);
+  border-radius: 5px;
+  color: var(--darkBg);
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+}
+
+.card-container {
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-evenly;
+  margin: 2rem 1rem;
+}
+.card {
+  background-color: var(--darkBg);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 300px;
+  gap: 0.5rem;
+}
+.card-image {
+  border-radius: 10px;
+  height: 250px;
+  objet-fit: cover;
+}
+.card-heading {
+  color: var(--white);
+  font-family: var(--hFont);
+}
+.card-desc {
+  color: var(--paragraph);
+  font-family: var(--pFont);
+  word-break: normal;
+}
+.card-link {
+  background-color: var(--secondary);
+  color: var(--darkBg);
+  display: block;
+  margin-top: auto;
+  padding: 0.3rem 0.5rem;
+  text-decoration: none;
+  width: fit-content;
+}
 
 /*----------  Login Success  ----------*/
 .login-popup {

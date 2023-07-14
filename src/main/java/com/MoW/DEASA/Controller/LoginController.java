@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.MoW.DEASA.Entity.Donation;
+import com.MoW.DEASA.Entity.Orders;
 import com.MoW.DEASA.Entity.Role;
 import com.MoW.DEASA.Entity.User;
 import com.MoW.DEASA.Service.DonationService;
 import com.MoW.DEASA.Service.EmailSenderService;
+import com.MoW.DEASA.Service.OrderService;
 import com.MoW.DEASA.Service.UserService;
 
 @Controller
@@ -28,6 +30,9 @@ public class LoginController {
 	
 	@Autowired
 	DonationService dService;
+	
+	@Autowired
+	OrderService orderService;
 	
 	@Autowired
 	EmailSenderService emailSender;
@@ -157,7 +162,7 @@ public class LoginController {
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Member")) {
-    			memberProfile();
+    			memberProfile(model, principal);
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Rider")) {
@@ -184,8 +189,17 @@ public class LoginController {
         System.out.println("View profile as Administrator");
 	}
 	
-	public void memberProfile() {	
-        System.out.println("View profile as Member");
+	public void memberProfile(Model model, Principal principal) {	
+		
+		String username = principal.getName();
+		
+		User user = userService.findLoginUser(username);
+		
+		long uId = user.getId();
+		
+		List<Orders> orders = orderService.getSPecificOrders(uId);
+		
+		model.addAttribute("orders", orders);
 	}
 	
 	public void riderProfile() {	

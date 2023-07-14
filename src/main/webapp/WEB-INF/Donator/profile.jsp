@@ -117,10 +117,11 @@
 			<thead class="hFont">
 				<tr>
 					<th>Donation No.</th>
-					<th>Name</th>
-					<th>Contact No.</th>
+					<th>Payment Method</th>
 					<th>Currency</th>
 					<th>Amount</th>
+					<th>Intent</th>
+					<th>Payment Description</th>
 					<th>Date</th>
 				</tr>
 			</thead>
@@ -129,10 +130,11 @@
 					<c:forEach items="${donation}" var="d" varStatus="status">
 						<tr>
 							<td>${status.count}</td>
-							<td>${d.getName()}</td>
-							<td>${d.getContact()}</td>
+							<td>${d.getMethod()}</td>
 							<td>${d.getCurrency()}</td>
 							<td>${d.getAmount()}</td>
+							<td>${d.getIntent()}</td>
+							<td>${d.getDescription()}</td>
 							<td>${d.getDate()}</td>
 						</tr>
 					</c:forEach>

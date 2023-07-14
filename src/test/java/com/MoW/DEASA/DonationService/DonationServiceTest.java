@@ -31,13 +31,12 @@ public class DonationServiceTest {
 	public void saveDonationData() {
 		Donation donation = new Donation();
 		donation.setId((long)1);
-		donation.setAccDetails("4242424242424242");
+		donation.setIntent("sale");
+		donation.setMethod("paypal");
 		donation.setAmount(100.0);
-		donation.setContact("+639163748574");
 		donation.setCurrency("USD");
 		donation.setDonId((long)2);
 		donation.setDate("Tuesday 04 July 2023");
-		donation.setName("Jonathan Hunter");
 		Mockito.when(donationRepository.save(donation)).thenReturn(donation);
 		String donationResponse = donationService.save(donation);
 		Assert.assertEquals("Donation saved successfully", donationResponse);

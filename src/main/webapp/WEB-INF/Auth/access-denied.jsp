@@ -1,6 +1,8 @@
 <jsp:include page="../header.jsp">
-	<jsp:param value="Access Denied" name="HTMLtitle" />
+	<jsp:param value="Member" name="HTMLtitle" />
 </jsp:include>
+
+<jsp:include page="../headerDivider.jsp"></jsp:include>
 
  <main class="bg1 align-center justify-center">
 
@@ -15,4 +17,4 @@
 
     </main>
 
-<jsp:include page="../footer.jsp"></jsp:include>>
+<jsp:include page="../footer.jsp"></jsp:include>

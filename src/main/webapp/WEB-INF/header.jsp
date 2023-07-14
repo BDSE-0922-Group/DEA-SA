@@ -10,7 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meals on Wheels | <%=request.getParameter("HTMLtitle") != null ? request.getParameter("HTMLtitle") : "MerryMeal"%></title>
 
+<link rel="icon" href="images/Logo.png" type="image/png">
+
 <link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +25,9 @@
 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 <script src="https://cdn.anychart.com/releases/8.0.0/themes/dark_earth.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 </head>
 
 <body>

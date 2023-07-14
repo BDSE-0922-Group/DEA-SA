@@ -2,8 +2,6 @@
 	<jsp:param value="Privacy Policy" name="HTMLtitle" />
 </jsp:include>
 
-<jsp:include page="../headerDivider.jsp"></jsp:include>
-
 <main class="bg1 align-center flex-col">
 
 	<div class="info-container" style="margin-bottom: 5rem;">

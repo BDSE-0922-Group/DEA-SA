@@ -31,20 +31,29 @@
 
 			<ul id="footLinks" class="align-start flex-col list-style-none">
 				<h5 class="footerSubHeader">Company</h5>
-				<li><a href="/About-Us">About Us</a></li>
-				<li><a href="/Contact-Us">Contact Us</a></li>
+				<li><a href="/about-us">About Us</a></li>
+				<li><a href="/contact-us">Contact Us</a></li>
 			</ul>
 
 			<ul id="footLinks" class="align-start flex-col list-style-none">
-				<h5 class="footerSubHeader">Meals</h5>
+				
 				<sec:authorize access="!isAuthenticated()">
+				<h5 class="footerSubHeader">Account</h5>
 					<li><a href="login">Login</a></li>
 					<li><a href="register">Sign Up</a></li>
 				</sec:authorize>
-				<sec:authorize access="isAuthenticated()">
-					<li><a href="Login.html">Order a Meal</a></li>
-					<li><a href="/Registration.html">Order History</a></li>
+				<sec:authorize access="hasRole('Member')">
+				<h5 class="footerSubHeader">Meals</h5>
+					<li><a href="order">Order a Meal</a></li>
+					<li><a href="ongoing-orders">View Pending Orders</a></li>
+					<li><a href="profile">View Order History</a></li>
 				</sec:authorize>
+				<sec:authorize access="hasRole('Donator')">
+				<h5 class="footerSubHeader">Donation</h5>
+					<li><a href="donation">Donate</a></li>
+					<li><a href="profile">View Donation History</a></li>
+				</sec:authorize>
+				
 			</ul>
 		</div>
 
@@ -65,17 +74,14 @@
 
 		<div id="footerBotR" class="align-center">
 			<ul id="botLinks" class="align-center list-style-none">
-				<li><a href="/Privacy-Policy">Privacy Policy</a></li>
-				<li><a href="/Terms-and-Conditions">Terms & Conditions</a></li>
+				<li><a href="/privacy-policy">Privacy Policy</a></li>
+				<li><a href="/terms-and-conditions">Terms & Conditions</a></li>
 			</ul>
 		</div>
 	</div>
 
 </footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/form-validation.js"></script>
 <script type="text/javascript" src="js/nav-menu.js"></script>
 </html>

@@ -9,11 +9,14 @@ const success = "#5cb85c";
 
 // FIELD TAGS
 const regForm = document.getElementById("registration");
+const editProfile = document.getElementById("editProfileForm");
 const fullname = document.getElementById("fullname");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const role = document.getElementById("role");
+const gender = document.getElementById("gender");
+const mobile = document.getElementById("mobile");
 
 // REGEX
 var numberRegex = /\d/;
@@ -94,6 +97,55 @@ function validateRegistration(event) {
     }
 }
 
+//EDIT PROFILE VALIDATION
+function validateEditProfile(event) {
+    // STOP FORM FROM BEING SUBMITTED
+    event.preventDefault();
+
+    // FULLNAME
+    if (fullname.value.length < 3) {
+        fullname.style.borderColor = error;
+        errorMessage = "You name cannot be shorter than 3 characters";
+        showErrorPopup();
+        fullname.focus();
+        return false;
+    } else if (numberRegex.test(fullname.value)) {
+        fullname.style.borderColor = error;
+        errorMessage = "Your name cannot contain a number";
+        showErrorPopup();
+        fullname.focus();
+        return false;
+    } // GENDER SELECTION
+    else if (gender.value === "") {
+        gender.style.borderColor = error;
+        errorMessage = "Please select a gender";
+        aler("error");
+        showErrorPopup();
+        gender.focus();
+    }
+    else {
+    	editProfile.submit();
+    	}
+    }
+
+const selectMeal = document.getElementById("meal");
+const ordForm = document.getElementById("orderForm");
+
+//ORDER VALIDATION
+function validateOrder(event) {
+  // STOP FORM FROM BEING SUBMITTED
+  event.preventDefault();
+
+  // DEFAULT
+  if (selectMeal.value === "") {
+      selectMeal.style.borderColor = error;
+      errorMessage = "Please select a meal to order";
+      showErrorPopup();
+  }
+  else {
+  	ordForm.submit();
+  	}
+  }
 
 /*----------  ON CHANGE VALIDATION  ----------*/
 
@@ -135,3 +187,6 @@ function validatePassword() {
         password.style.borderColor = success
     }
 }
+
+
+

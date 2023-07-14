@@ -2,8 +2,6 @@
 	<jsp:param value="About Us" name="HTMLtitle" />
 </jsp:include>
 
-<jsp:include page="../headerDivider.jsp"></jsp:include>
-
 <main class="bg1 align-center flex-col">
 	<div class="info-container" style="margin-bottom: 5rem;">
 		<h2 class="info-heading">About Us</h2>
@@ -37,6 +35,7 @@
 			other. Indulge in extraordinary flavors, discover new tastes, and
 			savor memorable moments with every bite. We are here to make your
 			dining experience a merry one!
+			</p>
 	</div>
 </main>
 
