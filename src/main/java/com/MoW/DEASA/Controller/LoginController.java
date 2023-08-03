@@ -43,15 +43,15 @@ public class LoginController {
     }
     
     @GetMapping("login_error")
-    public String onLoginError(Model model) {
+    public String onLoginError(RedirectAttributes redir) {
         System.out.println("Incorrect Password or Username");
         String error_msg = "Incorrect credentials";
-        model.addAttribute("error_msg", error_msg);
-        return "Auth/login";
+        redir.addFlashAttribute("error_msg", error_msg);
+        return "redirect:login";
     }
     
     @GetMapping("login_success")
-    public String onLoginSuccess(Model model, Principal principal) {
+    public String onLoginSuccess(RedirectAttributes redir, Principal principal) {
     	
     	String username = principal.getName();
     	
@@ -67,16 +67,16 @@ public class LoginController {
     		if(roleName == userRole) {
     			System.out.println("Logged in successfully as " + userRole);
     			String success_msg = "Logged in successfully. Click here to go to dashboard.";
-    			model.addAttribute("success_msg", success_msg);
-    			return "Auth/login";
+    			redir.addFlashAttribute("success_msg", success_msg);
+    			return "redirect:login";
     		}
     		
     	}
     	
     	System.out.println("Logged in failed");
         String error_msg = "Logged in failed";
-        model.addAttribute("error_msg", error_msg);
-    	return "Auth/login";
+        redir.addFlashAttribute("error_msg", error_msg);
+    	return "redirect:login";
     }
     
     @GetMapping("logout")
