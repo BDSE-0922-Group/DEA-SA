@@ -5,21 +5,6 @@
         navMenu.classList.toggle("opened");
     };
 
-    // FORM ERROR
-    if ($('.error-text').is(':empty')) {
-        // ERROR TEXT HIDDEN BY DEFAULT
-        $(".error-popup").css("visibility", "hidden");
-    } else {
-        $(".error-popup").css("visibility", "visible");
-        $(".error-popup").fadeIn("fast");
-        setTimeout(function () {
-            $(".error-popup").fadeOut("fast");
-        }, 15000);
-    }
-    function closeFormError() {
-        $(".error-popup").fadeOut("fast");
-    }
-    
     // SUCCESS POPUP
     if ($('.success-text').is(':empty')) {
         // ERROR TEXT HIDDEN BY DEFAULT
@@ -56,6 +41,20 @@
         }, 5000);
     }
     
+    // FORM ERROR
+    if ($('.error-text').is(':empty')) {
+    	// ERROR TEXT HIDDEN BY DEFAULT
+    	$('.error-popup').css('visibility', 'hidden');
+    } else {
+    	$('.error-popup').css('visibility', 'visible');
+    	$('.error-popup').fadeIn('fast');
+    	setTimeout(function () {
+    		$('.error-popup').fadeOut('fast');
+    	}, 15000);
+    }
+    function closeFormError() {
+        $(".error-popup").fadeOut("fast");
+    }
 
     // MODAL
     const modal = document.querySelector("#editProfileModal");

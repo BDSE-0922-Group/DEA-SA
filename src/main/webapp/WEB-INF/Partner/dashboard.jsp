@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>  
 <jsp:include page="../header.jsp">
 	<jsp:param value="Dashboard" name="HTMLtitle" />
 </jsp:include>
@@ -35,25 +36,12 @@
 
 				<h3 class="modal-heading">Edit Profile</h3>
 				<sf:form id="editMeal" class="align-center flex-col form"
-					action="update-profile" method="post">
+					action="" method="post">
 
 					<div class="input-group">
-						<sf:input required="true" type="text" name="name"
-							autocomplete="off" path="name" class="input" />
+						<sf:input required="true" type="text" path="name"
+							autocomplete="off" class="input" />
 						<label class="user-label">Meal Name</label>
-					</div>
-					<div class="input-group">
-						<sf:textarea rows="5" required="true" name="description"
-							autocomplete="off" path="description"
-							class="input input-textarea"/>
-						<label class="user-label">Meal Description</label>
-					</div>
-					<div class="input-group">
-						<label class="select-label">Meal Availability</label> <select
-							class="input-select" name="availability">
-							<option value="true" selected>Available</option>
-							<option value="false">Not Available</option>
-						</select>
 					</div>
 
 					<button class="submit-btn btnAnimation"

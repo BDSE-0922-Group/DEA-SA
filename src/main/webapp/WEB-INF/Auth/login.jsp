@@ -7,8 +7,8 @@
 <main class="bg1 align-center justify-center">
 
 	<div class="align-center error-popup">
-		<span class="material-icons">${error_message}</span>
-		<p class="pFont error-text"></p>
+		<span class="material-icons">error</span>
+		<p class="pFont error-text">${error_msg}</p>
 		<button class="btnAnimation icon material-icons"
 			onclick="closeFormError()">close</button>
 	</div>

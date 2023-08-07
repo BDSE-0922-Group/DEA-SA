@@ -15,32 +15,32 @@
 
 	<section class="align-center flex-col form-card">
 		<h3 class="form-heading">Order Meal</h3>
-		<sf:form id="orderForm" class="align-center flex-col form" action="place_order" 
-		onsubmit="validateOrder(event)"
-			method="post" modelAttribute="order" enctype="multipart/form-data">
-			
-			<sf:input required="true" type="hidden" name="status" autocomplete="off"
-					path="status" class="input" value="ongoing"/>
-			
+		<sf:form id="orderForm" class="align-center flex-col form"
+			action="place_order" onsubmit="validateOrder(event)" method="post"
+			modelAttribute="order" enctype="multipart/form-data">
+
+			<sf:input required="true" type="hidden" name="status"
+				autocomplete="off" path="status" class="input" value="ongoing" />
+
 			<div class="input-group flex-col align-center">
-				<label class="select-label">Choose your meal</label> <select id="meal"
-					class="input-select" name="mealId">
-					
+				<label class="select-label">Choose your meal</label> <select
+					id="meal" class="input-select" name="mealId">
+
 					<option value="" selected disabled hidden>Choose here</option>
-					
-					
+
+
 					<c:forEach items="${meals}" var="meals">
 						<c:if test="${meals.availability == 'true'}">
-						<option value="${meals.id}">M-${meals.id}|&nbsp;${meals.name}</option>
+							<option value="${meals.id}">M-${meals.id}|&nbsp;${meals.name}</option>
 						</c:if>
 					</c:forEach>
-					
-					
+
+
 				</select>
 			</div>
 			<div class="input-group">
-				<sf:input required="true" name="address"
-					autocomplete="off" path="address" class="input" value="${userAddress}"/>
+				<sf:input required="true" name="address" autocomplete="off"
+					path="address" class="input" value="${userAddress}" />
 				<label class="user-label">Delivery Address</label>
 			</div>
 			<div class="input-group">
@@ -48,10 +48,10 @@
 					autocomplete="off" path="description" class="input input-textarea" />
 				<label class="user-label">Requests (optional)</label>
 			</div>
-			
+
 			<button type="submit" class="submit-btn">Order</button>
 		</sf:form>
-	
+
 	</section>
 
 </main>
