@@ -65,4 +65,16 @@ public class MealController {
 		return "Partner/dashboard";
 	}
 	
+	@PostMapping("edit_meal")
+	public String editMeal(@RequestParam long id, @ModelAttribute("meal") Meal meal) {
+		
+		Meal currentMeal = mealService.findMealById(id);
+		
+		System.out.println("connected" + id);
+		System.out.println(meal.getAvailability());
+		System.out.println(meal.getName());
+		System.out.println(meal.getDescription());
+		
+		return "redirect:dashboard";
+	}
 }

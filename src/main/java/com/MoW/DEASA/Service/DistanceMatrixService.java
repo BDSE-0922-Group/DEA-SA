@@ -1,24 +1,21 @@
-package com.MoW.DEASA.DistanceMatrixAPI;
+package com.MoW.DEASA.Service;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.boot.jackson.JsonObjectSerializer;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class DistanceMatrixAPI {
-
+public class DistanceMatrixService {
+	
 	private static final String API_KEY = "AIzaSyDwQBEos3sYt-AqeOdQPg07zx7IQnsYrHg";
 	
 	public static float[][] distance;
 	public static float[][] times;
-	
+
 //	DOWNLOAD DATA
 	public static void getData(String source, String destination) throws Exception {
 		var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + source +
@@ -50,10 +47,5 @@ public class DistanceMatrixAPI {
        
        System.out.println(je.toString());
        System.out.println(jf.toString());
-	}
-	
-	public static void main(String[] args) {
-		String source = "Banglore";
-		String destination = "NewDelhi";
 	}
 }

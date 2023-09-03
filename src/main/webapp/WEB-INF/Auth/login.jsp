@@ -2,7 +2,7 @@
 	<jsp:param value="Login" name="HTMLtitle" />
 </jsp:include>
 
-<jsp:include page="../headerDivider.jsp"></jsp:include></div>
+<jsp:include page="../headerDivider.jsp"></jsp:include>
 
 <main class="bg1 align-center justify-center">
 

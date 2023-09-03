@@ -28,4 +28,8 @@ public class MealService {
 	public List<Meal> getMealById(Long id) {
 		return mealRepo.findByid(id);
 	}
+	
+	public Meal findMealById(Long id) {
+		return mealRepo.getById(id);
+	}
 }
