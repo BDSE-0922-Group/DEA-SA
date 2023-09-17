@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.MoW.DEASA.Entity.Orders;
+import com.MoW.DEASA.Entity.User;
 import com.MoW.DEASA.Repo.OrderRepository;
 
 @Service
@@ -24,16 +25,16 @@ public class OrderService {
 		return "Order has been placed";
 	}
 	
-	public Optional<Orders> getOrderById(Long id) {
-		return orderRepo.findById(id);
+	public Orders getOrderById(Long id) {
+		return orderRepo.getById(id);
 	}
 	
 	public List<Orders> getAllOrders() {
 		return orderRepo.findAll();
 	}
 	
-	public List<Orders> getSPecificOrders(Long id) {
-		return orderRepo.findByRecipientId(id);
+	public List<Orders> getUserOrders(User user) {
+		return orderRepo.findByUser(user);
 	}
 	
 }

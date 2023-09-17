@@ -32,4 +32,8 @@ public class MealService {
 	public Meal findMealById(Long id) {
 		return mealRepo.getById(id);
 	}
+
+	public void deleteMeal(long mId) {
+		mealRepo.deleteById(mId);
+	}
 }

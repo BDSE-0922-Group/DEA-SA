@@ -8,11 +8,14 @@
 
 	<h2 class="dashboard-heading hFont text-align-center">Welcome to
 		Meals on Wheels</h2>
-
+	
+	<nav class="align-center justify-start dashboard-nav hFont">
+		<a href="order"><button style="background-color: var(--secondary);">Place an Order</button></a>
+		<a href="ongoing-orders"><button>Ongoing Orders</button></a>
+	</nav>
+	
 	<p class="mealDisclaimer pFont text-align-center">Meals will be
 		served frozen during week-ends or if your location is 10Km+ away</p>
-	<a href="order" class="btnAnimation orderLink text-deco-none pFont">Place
-		an order</a>
 
 	<div class="card-container justify-evenly flex-wrap">
 

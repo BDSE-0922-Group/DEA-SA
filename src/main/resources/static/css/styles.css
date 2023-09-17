@@ -514,7 +514,7 @@ tr .delete {
   color: var(--darkBg);
   display: block;
   margin-top: auto;
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   width: fit-content;
 }

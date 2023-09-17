@@ -9,6 +9,7 @@
 	<h2 class="dashboard-heading hFont">Partner Dashboard</h2>
 	<nav class="align-center justify-start dashboard-nav hFont">
 		<a href="post-meal"><button>Add a Meal</button></a>
+		<a href="orders"><button>Order list</button></a>
 	</nav>
 
 	<div class="card-container justify-evenly flex-wrap">
@@ -22,9 +23,14 @@
 					<h4 class="card-heading">M-${m.id}</h4>
 					<h4 class="card-heading">${m.name}</h4>
 					<p class="card-desc">${m.description}</p>
-					<button id="openEditMeal${status.count}" class="card-link">Order</button>
 
-					<dialog id="editMealM${status.count}" class="modal">
+					<div class="justify-evenly" style="margin-top: auto;">
+						<button id="openEditMeal${status.count}" class="card-link">Edit</button>
+						<button class="card-link" style="background-color: var(--error);"
+							onclick="window.location.href='delete_meal?mId=${m.id}'">Delete</button>
+					</div>
+
+					<dialog id="editMealM${status.count}" class="modal" style="height: fit-content;">
 
 					<h3 class="modal-heading">
 						Edit Meal

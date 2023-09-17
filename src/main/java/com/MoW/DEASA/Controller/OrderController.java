@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.MoW.DEASA.Entity.Meal;
 import com.MoW.DEASA.Entity.Orders;
 import com.MoW.DEASA.Entity.User;
-import com.MoW.DEASA.Repo.MealRepository;
-import com.MoW.DEASA.Repo.OrderRepository;
+import com.MoW.DEASA.Service.MealService;
 import com.MoW.DEASA.Service.OrderService;
 import com.MoW.DEASA.Service.UserService;
 
@@ -29,10 +28,7 @@ public class OrderController {
 	OrderService orderService;
 
 	@Autowired
-	MealRepository mealRepo;
-
-	@Autowired
-	OrderRepository orderRepo;
+	MealService mealService;
 
 	@GetMapping("order")
 	public String orderPage(@ModelAttribute("order") Orders orders, Model model, Principal principal) {
@@ -43,19 +39,22 @@ public class OrderController {
 
 		model.addAttribute("userAddress", user.getAddress());
 
-		List<Meal> meals = mealRepo.findAll();
+		List<Meal> meals = mealService.getAllMeals();
 		model.addAttribute("meals", meals);
 		return "Member/order";
 	}
 
 	@PostMapping("place_order")
-	public String placeOrder(@ModelAttribute("order") Orders orders, Model model, Principal principal) {
+	public String placeOrder(@ModelAttribute("order") Orders orders, @RequestParam("mId") Long mId, 
+			Model model, Principal principal) {
 
 		String username = principal.getName();
 
 		User user = userService.findLoginUser(username);
+		Meal meal = mealService.findMealById(mId);
 
-		orders.setRecipientId(user.getId());
+		orders.setUser(user);
+		orders.setMeal(meal);
 
 		orderService.save(orders);
 		return "redirect:order-confirmation";
@@ -64,14 +63,12 @@ public class OrderController {
 	@PostMapping("order_status")
 	public String updateOrder(@RequestParam Long oid, @ModelAttribute("orders") Orders orders) {
 
-		List<Orders> orderInfo = orderService.getSPecificOrders(oid);
-		Orders orderRecieved = orderInfo.get(0);
+		Orders order = orderService.getOrderById(oid);
 
-		System.out.println(orderRecieved);
 
-		orderRecieved.setStatus("received");
+		order.setStatus("received");
 
-		orderService.save(orderRecieved);
+		orderService.save(order);
 
 		return "redirect:ongoing-orders";
 
@@ -89,11 +86,29 @@ public class OrderController {
 
 		User user = userService.findLoginUser(username);
 
-		Long id = user.getId();
-
-		List<Orders> order = orderRepo.findByRecipientId(id);
+		List<Orders> order = orderService.getUserOrders(user);
 		model.addAttribute("orders", order);
 
 		return "Member/ongoing-orders";
+	}
+	
+	@GetMapping("/orders")
+	public String orderManagement(Model model) {
+		
+		List<Orders> allOrders = orderService.getAllOrders();
+		model.addAttribute("orders", allOrders);
+		
+		return "Partner/orders";
+	}
+	
+	@GetMapping("order_prepared")
+	public String orderStatusPrepared(@RequestParam Long oid) {
+		
+		Orders order = orderService.getOrderById(oid);
+		
+		order.setStatus("prepared");
+		orderService.save(order);
+		
+		return "redirect:/orders";
 	}
 }

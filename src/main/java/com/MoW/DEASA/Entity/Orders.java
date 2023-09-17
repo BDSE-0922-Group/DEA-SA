@@ -5,9 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -19,13 +22,17 @@ public class Orders {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long mealId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "meal_id")
+	private Meal meal;
 
 	private String description;
 
 	private String status;
 
-	private Long recipientId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	private String address;
 
@@ -43,14 +50,14 @@ public class Orders {
 	public Orders() {
 		
 	}
-	public Orders(Long id, Long mealId, String description, String status, Long recipientId, String address,
+	public Orders(Long id, Meal meal, String description, String status, User user, String address,
 			String date) {
 		super();
 		this.id = id;
-		this.mealId = mealId;
+		this.meal = meal;
 		this.description = description;
 		this.status = status;
-		this.recipientId = recipientId;
+		this.user = user;
 		this.address = address;
 		this.date = date;
 	}
@@ -65,12 +72,12 @@ public class Orders {
 		this.id = id;
 	}
 
-	public Long getMealId() {
-		return mealId;
+	public Meal getMeal() {
+		return meal;
 	}
 
-	public void setMealId(Long mealId) {
-		this.mealId = mealId;
+	public void setMeal(Meal meal) {
+		this.meal = meal;
 	}
 
 	public String getDescription() {
@@ -89,12 +96,12 @@ public class Orders {
 		this.status = status;
 	}
 
-	public Long getRecipientId() {
-		return recipientId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setRecipientId(Long recipientId) {
-		this.recipientId = recipientId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getAddress() {
@@ -117,11 +124,7 @@ public class Orders {
 //	TO STRING
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", mealId=" + mealId + ", description=" + description + ", status=" + status
-				+ ", recipientId=" + recipientId + ", address=" + address + ", date=" + date + ", getId()=" + getId()
-				+ ", getMealId()=" + getMealId() + ", getDescription()=" + getDescription() + ", getStatus()="
-				+ getStatus() + ", getRecipientId()=" + getRecipientId() + ", getAddress()=" + getAddress()
-				+ ", getDate()=" + getDate() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "Orders [id=" + id + ", meal=" + meal + ", description=" + description + ", status=" + status + ", user="
+				+ user + ", address=" + address + ", date=" + date + "]";
 	}
 }

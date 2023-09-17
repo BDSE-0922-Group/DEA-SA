@@ -12,7 +12,7 @@
 		<button class="btnAnimation icon material-icons"
 			onclick="closeFormError()">close</button>
 	</div>
-
+	
 	<section class="align-center flex-col form-card">
 		<h3 class="form-heading">Order Meal</h3>
 		<sf:form id="orderForm" class="align-center flex-col form"
@@ -24,7 +24,7 @@
 
 			<div class="input-group flex-col align-center">
 				<label class="select-label">Choose your meal</label> <select
-					id="meal" class="input-select" name="mealId">
+					id="meal" class="input-select" name="mId">
 
 					<option value="" selected disabled hidden>Choose here</option>
 
@@ -44,7 +44,7 @@
 				<label class="user-label">Delivery Address</label>
 			</div>
 			<div class="input-group">
-				<sf:textarea rows="5" required="true" name="description"
+				<sf:textarea rows="5" name="description"
 					autocomplete="off" path="description" class="input input-textarea" />
 				<label class="user-label">Requests (optional)</label>
 			</div>

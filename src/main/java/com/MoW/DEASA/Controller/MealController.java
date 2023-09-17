@@ -62,18 +62,29 @@ public class MealController {
 
 		mealService.save(meal);
 		
-		return "Partner/dashboard";
+		return "redirect:/dashboard";
 	}
 	
 	@PostMapping("edit_meal")
-	public String editMeal(@RequestParam long id, @ModelAttribute("meal") Meal meal) {
+	public String editMeal(@RequestParam long mId, @ModelAttribute("meal") Meal meal) {
 		
-		Meal currentMeal = mealService.findMealById(id);
+		Meal currentMeal = mealService.findMealById(mId);
 		
-		System.out.println("connected" + id);
-		System.out.println(meal.getAvailability());
-		System.out.println(meal.getName());
-		System.out.println(meal.getDescription());
+		currentMeal.setName(meal.getName());
+		currentMeal.setDescription(meal.getDescription());
+		currentMeal.setAvailability(meal.getAvailability());
+		
+		mealService.save(currentMeal);
+	
+		
+		return "redirect:dashboard";
+	}
+	
+	@GetMapping("delete_meal")
+	public String deleteMeal(@RequestParam long mId) {
+		
+		Meal currentMeal = mealService.findMealById(mId);
+		mealService.deleteMeal(mId);
 		
 		return "redirect:dashboard";
 	}

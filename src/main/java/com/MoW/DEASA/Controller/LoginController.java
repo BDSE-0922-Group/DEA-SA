@@ -170,7 +170,7 @@ public class LoginController {
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Partner")) {
-    			partnerProfile();
+    			partnerProfile(model, principal);
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Volunteer")) {
@@ -195,9 +195,7 @@ public class LoginController {
 		
 		User user = userService.findLoginUser(username);
 		
-		long uId = user.getId();
-		
-		List<Orders> orders = orderService.getSPecificOrders(uId);
+		List<Orders> orders = orderService.getUserOrders(user);
 		
 		model.addAttribute("orders", orders);
 	}
@@ -206,7 +204,7 @@ public class LoginController {
         System.out.println("View profile as Caregiver");
 	}
 	
-	public void partnerProfile() {	
+	public void partnerProfile(Model model, Principal principal) {	
         System.out.println("View profile as Partner");
 	}
 	
