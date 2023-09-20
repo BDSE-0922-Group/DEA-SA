@@ -47,7 +47,7 @@ public class DashboardController {
 
 		for (String roleName : roleNames) {
 			if (roleName == userRole && userRole.equalsIgnoreCase("Administrator")) {
-				adminDashboard();
+				adminDashboard(model);
 				return userRole + "/dashboard";
 			}
 			if (roleName == userRole && userRole.equalsIgnoreCase("Member")) {
@@ -74,8 +74,12 @@ public class DashboardController {
 		return "redirect:accessdenied";
 	}
 
-	public void adminDashboard() {
+	public void adminDashboard(Model model) {
 		System.out.println("Logged in as Administrator");
+		
+		List<User> users = userService.showAllUser();
+		model.addAttribute("users", users);
+		
 	}
 
 	public void memberDashboard(Model model) {

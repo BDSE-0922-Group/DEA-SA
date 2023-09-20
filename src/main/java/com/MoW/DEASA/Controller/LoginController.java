@@ -98,7 +98,8 @@ public class LoginController {
     }
 	
     @PostMapping("register_user") 
-    public String registerNewUser(@ModelAttribute("user") User user, @RequestParam String role, Model model) {
+    public String registerNewUser(@ModelAttribute("user") User user, @RequestParam String role, Model model,
+    		RedirectAttributes redir) {
     	
     	
     	if (userService.findUsername(user.getUserName()) == null|| userService.findUsername(user.getUserName()).getUserName() == null ) {
@@ -129,13 +130,15 @@ public class LoginController {
         	
         	emailSender.sendEmail(toEmail, subject, body);
         	
-    		return "Auth/confirmation";	
+        	redir.addFlashAttribute("succes_msg", "Account successfully registered");
+        	
+    		return "redirect:/login";	
     	}
     	
     	System.out.println("Username already exists");
         String error_msg = "Username already exists";
         model.addAttribute("error_msg", error_msg);
-    	return "Auth/registration";	
+    	return "redirect:/register";	
     }
     
     @GetMapping("profile")
@@ -158,7 +161,7 @@ public class LoginController {
     	
 		for (String roleName: roleNames) {
     		if(roleName == userRole && userRole.equalsIgnoreCase("Administrator")) {
-    			adminProfile();
+    			adminProfile(model, principal);
     			return userRole + "/profile";
     		}
     		if(roleName == userRole && userRole.equalsIgnoreCase("Member")) {
@@ -185,8 +188,12 @@ public class LoginController {
     	return "redirect:accessdenied";
 	}
 	
-	public void adminProfile() {	
+	public void adminProfile(Model model, Principal principal) {	
         System.out.println("View profile as Administrator");
+        
+        String username = principal.getName();
+        
+        User user = userService.findLoginUser(username);
 	}
 	
 	public void memberProfile(Model model, Principal principal) {	
