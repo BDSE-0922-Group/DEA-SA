@@ -23,11 +23,19 @@ The project is authored by me, and my team:
 
 
 ## Screenshots
+
 Home
+
 ![Home](https://onedrive.live.com/embed?resid=D84592B03776F086%21116&authkey=%21AMujULr6IiGrPLc&width=480&height=270)
+
 Login
+
 ![Login](https://onedrive.live.com/embed?resid=D84592B03776F086%21160&authkey=%21AJ_OjLWp3lgPEpc&width=642&height=346)
+
 Registration
+
 ![Registration](https://onedrive.live.com/embed?resid=D84592B03776F086%21159&authkey=%21AA8qVwIWpCWM5p4&width=642&height=346)
+
 Dashboard
+
 ![Dashboard](https://onedrive.live.com/embed?resid=D84592B03776F086%21161&authkey=%21AA-h5v-R-lB3n4s&width=642&height=628)
